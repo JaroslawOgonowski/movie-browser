@@ -8,4 +8,8 @@ html {
 *, ::after, ::before {
   box-sizing: inherit;
 };
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
 `
