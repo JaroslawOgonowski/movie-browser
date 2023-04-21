@@ -3,27 +3,27 @@ import { NavLink } from "react-router-dom";
 const activeClassName = "active"
 
 export const StyledHeader = styled.header`
-width: 100%;
-height: 94px;
-display: flex;
-align-items: center;
-justify-content: space-evenly;
-gap: 104px;
-font-family: 'Poppins', sans-serif;
-color: ${({ theme }) => theme.color.mainWhite};
-background-color: ${({ theme }) => theme.color.mainBlack};
+  width: 100%;
+  height: 94px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 104px;
+  font-family: 'Poppins', sans-serif;
+  color: ${({ theme }) => theme.color.mainWhite};
+  background-color: ${({ theme }) => theme.color.mainBlack};
 `;
 
 export const TitleBox = styled.div`
-display: flex;
-gap: 12px;
-align-items: center;
+  display: flex;
+  gap: 12px;
+  align-items: center;
 `;
 
 export const PageTitle = styled.h1`
-margin: 0;
-font-weight: 500;
-font-size: 24px;
+  margin: 0;
+  font-weight: 500;
+  font-size: 24px;
 `;
 
 export const Navigation = styled.nav`
@@ -31,15 +31,15 @@ export const Navigation = styled.nav`
 `;
 
 export const List = styled.ul`
-margin: 0;
-padding: 0;
-list-style: none;
-display: flex;
-gap: 64px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  gap: 64px;
 `;
 
 export const ListItem = styled.li`
-text-decoration: none;
+  text-decoration: none;
 `;
 
 export const StyledNavLink = styled(NavLink).attrs(() => ({
@@ -58,11 +58,37 @@ export const StyledNavLink = styled(NavLink).attrs(() => ({
       };
 `;
 
+export const SearchContainer = styled.div`
+width: 432px;
+  height: 40%;
+  justify-content: flex-end;
+  display: flex;
+`;
+
+export const IconContainer = styled.div`
+border-radius: 45px 0 0 45px;
+padding-left: 10px;
+display: flex;
+align-items: center;
+justify-content: center;
+background-color: ${({ theme }) => theme.color.mainWhite};
+`;
+
 export const Search = styled.input`
-padding-left: 24px;
-display: block;
-border: none;
-width: 30%;
-height: 40%;
-border-radius: 45px;
+width: 100%;
+  padding-left: 12px;
+  display: block;
+  border: none;
+  border-radius: 0 45px 45px 0;
+  :focus {
+    outline: none;
+}
+  ::placeholder{
+    color:  ${({ theme }) => theme.color.darkerGray};
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;    
+  };
 `;
