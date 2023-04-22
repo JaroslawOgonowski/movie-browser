@@ -1,36 +1,49 @@
 import { Route, Navigate, Routes, HashRouter } from "react-router-dom";
 import { MoviesPage } from "../../features/moviesPage";
 import { ActorsPage } from "../../features/actorsPage";
-import { IconContainer, List, ListItem, Navigation, PageTitle, Search, SearchContainer, StyledHeader, StyledNavLink, TitleBox } from "./styled";
-import { ReactComponent as Icon } from "./Video.svg";
 import { ReactComponent as SearchIcon } from "./Search.svg";
 import NoResultPage from "../NoResultPage";
 import ErrorPage from "../ErrorPage";
+import {
+  Container,
+  IconContainer,
+  List, ListItem,
+  PageTitle,
+  Search,
+  SearchContainer,
+  StyledHeader,
+  StyledIcon,
+  StyledNavLink,
+  TitleBox
+} from "./styled";
+
 export const Header = () => {
-
   return (
-
-    <HashRouter><Navigation>
-      <StyledHeader>
-        <TitleBox>
-          <Icon /><PageTitle>Movies Browser</PageTitle>
-        </TitleBox>
-        <List>
-          <ListItem>
-            <StyledNavLink to="/movies">Movies</StyledNavLink>
-          </ListItem>
-          <ListItem>
-            <StyledNavLink to="/actors">Actors</StyledNavLink>
-          </ListItem>
-        </List>
-        <SearchContainer>
-          <IconContainer>
-            <SearchIcon />
-          </IconContainer>
-          <Search placeholder="Search for movies..." />
-        </SearchContainer>
-      </StyledHeader>
-    </Navigation>
+    <HashRouter>
+      <nav>
+        <StyledHeader>
+          <Container>
+            <TitleBox>
+              <StyledIcon />
+              <PageTitle>Movies Browser</PageTitle>
+            </TitleBox>
+            <List>
+              <ListItem>
+                <StyledNavLink to="/movies">Movies</StyledNavLink>
+              </ListItem>
+              <ListItem>
+                <StyledNavLink to="/actors">Actors</StyledNavLink>
+              </ListItem>
+            </List>
+          </Container>
+          <SearchContainer>
+            <IconContainer>
+              <SearchIcon />
+            </IconContainer>
+            <Search placeholder="Search for movies..." />
+          </SearchContainer>
+        </StyledHeader>
+      </nav>
 
       <Routes>
         <Route path="/movies" element={<NoResultPage />} />
