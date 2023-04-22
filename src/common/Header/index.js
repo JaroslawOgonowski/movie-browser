@@ -4,6 +4,8 @@ import { ActorsPage } from "../../features/actorsPage";
 import { IconContainer, List, ListItem, Navigation, PageTitle, Search, SearchContainer, StyledHeader, StyledNavLink, TitleBox } from "./styled";
 import { ReactComponent as Icon } from "./Video.svg";
 import { ReactComponent as SearchIcon } from "./Search.svg";
+import NoResultPage from "../NoResultPage";
+import ErrorPage from "../ErrorPage";
 export const Header = () => {
 
   return (
@@ -21,7 +23,6 @@ export const Header = () => {
             <StyledNavLink to="/actors">Actors</StyledNavLink>
           </ListItem>
         </List>
-
         <SearchContainer>
           <IconContainer>
             <SearchIcon />
@@ -30,10 +31,10 @@ export const Header = () => {
         </SearchContainer>
       </StyledHeader>
     </Navigation>
-    
+
       <Routes>
-        <Route path="/movies" element={<MoviesPage />} />
-        <Route path="/actors" element={<ActorsPage />} />
+        <Route path="/movies" element={<NoResultPage />} />
+        <Route path="/actors" element={<ErrorPage />} />
         <Route path="/" element={<Navigate to="/movies" />} />
       </Routes>
 
