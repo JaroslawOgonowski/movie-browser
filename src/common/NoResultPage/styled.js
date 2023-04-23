@@ -8,7 +8,11 @@ export const Wrapper = styled.div`
 `;
 
 export const NoResultIcon = styled(NoResult)`
-    @media (max-width: 767px) {
+    @media (max-width: ${({theme}) => theme.breakPoints.notebook}px) {
+        height: 320px;
+    }
+
+    @media (max-width: ${({theme}) => theme.breakPoints.mobileMax}px) {
         height: 200px;
     }
 `;
