@@ -5,12 +5,16 @@ export const Title = styled.h1`
     font-weight: 600;
     line-height: 1.2;
     color: #18181B;
-    margin: 56px 0 0;
+    margin: 56px 0 26px;
 
-    @media (max-width: 767px) {
+    @media (max-width: ${({theme}) => theme.breakPoints.notebook}px) {
+        font-size: 30px;
+        margin: 40px 0 18px;
+    }
+
+    @media (max-width: ${({theme}) => theme.breakPoints.mobileMax}px) {
         font-size: 14px;
-        font-weight: 500;
-        line-height: 1.3;
-        margin: 24px 0 0;
+        margin: 24px 0 12px;
+        text-align: center;
     }
 `;
