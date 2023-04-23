@@ -1,12 +1,10 @@
 import { Route, Navigate, Routes, HashRouter } from "react-router-dom";
 import { MoviesPage } from "../../features/moviesPage";
 import { ActorsPage } from "../../features/actorsPage";
-import { ReactComponent as SearchIcon } from "./Search.svg";
 import NoResultPage from "../NoResultPage";
 import ErrorPage from "../ErrorPage";
 import {
   Container,
-  IconContainer,
   List, ListItem,
   PageTitle,
   Search,
@@ -37,9 +35,6 @@ export const Header = () => {
             </List>
           </Container>
           <SearchContainer>
-            <IconContainer>
-              <SearchIcon />
-            </IconContainer>
             <Search placeholder="Search for movies..." />
           </SearchContainer>
         </StyledHeader>

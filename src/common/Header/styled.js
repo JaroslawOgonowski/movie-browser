@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { ReactComponent as Icon } from "./Video.svg";
+import background from "./Search.svg"
 import { NavLink } from "react-router-dom";
-const activeClassName = "active"
 
 export const StyledIcon = styled(Icon)`
   @media(max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
@@ -81,25 +81,23 @@ export const ListItem = styled.li`
   text-decoration: none;
 `;
 
-export const StyledNavLink = styled(NavLink).attrs(() => ({
-  activeClassName,
-}))`
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 14px;
-      text-transform: uppercase;
-      padding: 13.5px 24px;
-
-      &.${activeClassName} {     
-        border: 1px solid;
-        border-radius: 45px;
-      };
-
-      @media(max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
-        font-size: 12px;
-        line-height: 18px;
-        padding: 8px 12px;
+export const StyledNavLink = styled(NavLink)`
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  padding: 13.5px 24px;
+  
+  &.active {     
+    border: 1px solid;
+    border-radius: 45px;
+  };
+  
+  @media(max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
+    font-size: 12px;
+    line-height: 18px;
+    padding: 8px 12px;
   };
 `;
 
@@ -116,23 +114,16 @@ export const SearchContainer = styled.div`
   };
 `;
 
-export const IconContainer = styled.div`
-  width: 32px;
-  border-radius: 45px 0 0 45px;
-  padding-left: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: ${({ theme }) => theme.color.mainWhite};
-`;
-
 export const Search = styled.input`
   width: 100%;
-  padding-left: 12px;
+  padding-left: 45px;
   display: block;
   border: none;
-  border-radius: 0 45px 45px 0;
+  border-radius: 33px;
   margin-right: 16px;
+  background-image: url("${background}");
+  background-repeat: no-repeat;
+  background-position: top 50% left 5% ;
   :focus {
     outline: none;
   };
