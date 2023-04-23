@@ -8,6 +8,11 @@ export const Input = styled.input`
   border: none;
   border-radius: 33px;
   margin-right: 16px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
   background-image: url("${background}");
   background-repeat: no-repeat;
   background-position: top 50% left 5% ;
