@@ -5,6 +5,7 @@ import NoResultPage from "../NoResultPage";
 import ErrorPage from "../ErrorPage";
 import {
   Container,
+  HeaderBox,
   List, ListItem,
   PageTitle,
   Search,
@@ -20,23 +21,25 @@ export const Header = () => {
     <HashRouter>
       <nav>
         <StyledHeader>
-          <Container>
-            <TitleBox>
-              <StyledIcon />
-              <PageTitle>Movies Browser</PageTitle>
-            </TitleBox>
-            <List>
-              <ListItem>
-                <StyledNavLink to="/movies">Movies</StyledNavLink>
-              </ListItem>
-              <ListItem>
-                <StyledNavLink to="/actors">Actors</StyledNavLink>
-              </ListItem>
-            </List>
-          </Container>
-          <SearchContainer>
-            <Search placeholder="Search for movies..." />
-          </SearchContainer>
+          <HeaderBox>
+            <Container>
+              <TitleBox>
+                <StyledIcon />
+                <PageTitle>Movies Browser</PageTitle>
+              </TitleBox>
+              <List>
+                <ListItem>
+                  <StyledNavLink to="/movies">Movies</StyledNavLink>
+                </ListItem>
+                <ListItem>
+                  <StyledNavLink to="/actors">Actors</StyledNavLink>
+                </ListItem>
+              </List>
+            </Container>
+            <SearchContainer>
+              <Search placeholder="Search for movies..." />
+            </SearchContainer>
+          </HeaderBox>
         </StyledHeader>
       </nav>
 

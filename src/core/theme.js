@@ -1,7 +1,8 @@
 export const theme = {
   breakPoints: {
-    fullPage: 1368,
+    fullPage: 1392,
     notebook: 1150,
+    tablet: 950,
     mobileMax: 767,
 
   },
