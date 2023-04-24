@@ -1,12 +1,14 @@
 import styled from "styled-components";
 import background from "./Search.svg"
+import {DebounceInput} from 'react-debounce-input';
 
-export const Input = styled.input`
+export const Input = styled(DebounceInput)`
   width: 100%;
   padding-left: 45px;
   display: block;
   border: none;
   border-radius: 33px;
+  margin-left: 16px;
   margin-right: 16px;
   font-family: 'Poppins';
   font-style: normal;
@@ -29,7 +31,14 @@ export const Input = styled.input`
   };
 
   @media(max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
-    max-width: 288px;
-    margin-right: 0;
+    width:90%;
+    margin-right: 32px;
+    padding-left: 8vw;
+    background-position: top 50% left 3% ;
+  };
+
+  @media(max-width: ${({ theme }) => theme.breakPoints.mobileMin}px) {
+    padding-left: 10vw;
+    background-position: top 50% left 3% ;
   };
 `;

@@ -15,6 +15,10 @@ export const StyledHeader = styled.header`
   background-color: ${({ theme }) => theme.color.mainBlack};
   display: flex;
   justify-content: center;
+  
+  @media(max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
+    justify-content: space-evenly;
+  };
 `;
 
 export const HeaderBox = styled.div`
@@ -45,6 +49,11 @@ export const Container = styled.div`
   @media(max-width: ${({ theme }) => theme.breakPoints.notebook}px) {
     gap: 40px;
   };
+
+  @media(max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
+    width: 100%;
+    justify-content:space-between;
+  };
 `;
 
 export const TitleBox = styled.div`
@@ -55,6 +64,7 @@ export const TitleBox = styled.div`
  
   @media(max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
     gap: 8px;
+    margin-left:32px;
   };
 `;
 
@@ -82,6 +92,11 @@ export const List = styled.ul`
   list-style: none;
   display: flex;
   gap: 16px;
+
+   
+  @media(max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
+    margin-right:32px;
+  };
 `;
 
 export const ListItem = styled.li`
@@ -121,6 +136,6 @@ export const SearchContainer = styled.div`
   @media(max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
     justify-content: center;
     height: 44px;
-    width: 90%;
+    width: 100%;
   };
 `;
