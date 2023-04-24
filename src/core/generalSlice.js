@@ -7,6 +7,7 @@ const generalSlice = createSlice({
     getStateFromLocalStorage() ||
     {
       navigationSelected: "movies",
+      query: null
     },
 
   reducers: {
@@ -15,16 +16,20 @@ const generalSlice = createSlice({
     },
     selectingNavigationActors: (state) => {
       state.navigationSelected = "actors";
+    },
+    changeQuery: (state, {payload:query}) => {
+     state.query = query; 
     }
   },
 });
 
 export const {
   selectingNavigationMovies,
-  selectingNavigationActors
+  selectingNavigationActors,
+  changeQuery
 } = generalSlice.actions;
 
 export const selectState = state => state.general;
 export const selectNavigationSelected = state => state.general.navigationSelected;
-
+export const selectQuery = state => state.general.query;
 export default generalSlice.reducer;

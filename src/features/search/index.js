@@ -1,0 +1,36 @@
+import { changeQuery, selectNavigationSelected } from "../../core/generalSlice";
+import { Input } from "./styled";
+import { useQueryParameters, useReplaceQueryParameters } from "./queryParameters";
+import searchParamQueryName from "./searchParamQueryName";
+import { useDispatch, useSelector } from "react-redux";
+import { getMovie, getPeople } from "./getSearch";
+
+export const Search = () => {
+  const navigationSelector = useSelector(selectNavigationSelected);
+  const dispatch = useDispatch();
+  const query = useQueryParameters(searchParamQueryName);
+  const replaceQueryParameters = useReplaceQueryParameters();
+
+  const onInputChange = ({ target }) => {
+    dispatch(changeQuery(target.value));
+
+    if (navigationSelector === "movies") { getMovie(target.value.trim()) }
+    else getPeople(target.value.trim());
+
+    replaceQueryParameters({
+      key: searchParamQueryName,
+      value: target.value.trim() !== "" ? target.value : undefined,
+    });
+  };
+
+  return (
+    <Input
+      value={query || ""}
+      onChange={onInputChange}
+      placeholder={
+        navigationSelector === "movies" ?
+          "Search for movies..." :
+          "Search for people..."
+      } />
+  );
+};

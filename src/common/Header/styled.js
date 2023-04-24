@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { ReactComponent as Icon } from "./Video.svg";
-import background from "./Search.svg"
 import { NavLink } from "react-router-dom";
 
 export const StyledIcon = styled(Icon)`
@@ -123,33 +122,5 @@ export const SearchContainer = styled.div`
     justify-content: center;
     height: 44px;
     width: 90%;
-  };
-`;
-
-export const Search = styled.input`
-  width: 100%;
-  padding-left: 45px;
-  display: block;
-  border: none;
-  border-radius: 33px;
-  margin-right: 16px;
-  background-image: url("${background}");
-  background-repeat: no-repeat;
-  background-position: top 50% left 5% ;
-  :focus {
-    outline: none;
-  };
-  ::placeholder{
-    color:  ${({ theme }) => theme.color.darkerGray};
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 150%;    
-  };
-
-  @media(max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
-    max-width: 288px;
-    margin-right: 0;
   };
 `;

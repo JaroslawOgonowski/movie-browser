@@ -1,4 +1,4 @@
-import { Route, Navigate, Routes, HashRouter } from "react-router-dom";
+import { Route, HashRouter, Redirect, Switch } from "react-router-dom";
 import { MoviesPage } from "../../features/moviesPage";
 import { ActorsPage } from "../../features/actorsPage";
 import NoResultPage from "../NoResultPage";
@@ -8,19 +8,18 @@ import {
   HeaderBox,
   List, ListItem,
   PageTitle,
-  Search,
   SearchContainer,
   StyledHeader,
   StyledIcon,
   StyledNavLink,
   TitleBox
 } from "./styled";
-import { useDispatch, useSelector } from "react-redux";
-import { selectNavigationSelected, selectingNavigationActors, selectingNavigationMovies } from "../../core/generalSlice";
+import { useDispatch } from "react-redux";
+import { selectingNavigationActors, selectingNavigationMovies } from "../../core/generalSlice";
+import { Search } from "../../features/search";
 
 export const Header = () => {
   const dispatch = useDispatch();
-  const navigationSelector = useSelector(selectNavigationSelected);
 
   return (
     <HashRouter>
@@ -48,23 +47,18 @@ export const Header = () => {
               </List>
             </Container>
             <SearchContainer>
-              <Search
-                placeholder={
-                  navigationSelector === "movies" ?
-                    "Search for movies..." :
-                    "Search for people..."
-                } />
+              <Search />
             </SearchContainer>
           </HeaderBox>
         </StyledHeader>
       </nav>
 
-      <Routes>
-        <Route path="/movies" element={<NoResultPage />} />
-        <Route path="/actors" element={<ErrorPage />} />
-        <Route path="/" element={<Navigate to="/movies" />} />
-      </Routes>
-
+      <Switch>
+        <Route path="/movies"><NoResultPage /></Route>
+        <Route path="/actors"><ErrorPage /></Route>
+        <Route path="/">
+          <Redirect to="/movies" /></Route>
+      </Switch>
     </HashRouter >
   );
 };
