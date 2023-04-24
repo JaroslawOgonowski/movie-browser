@@ -4,6 +4,7 @@ import {DebounceInput} from 'react-debounce-input';
 
 export const Input = styled(DebounceInput)`
   width: 100%;
+  height: 48px;
   padding-left: 45px;
   display: block;
   border: none;
@@ -32,6 +33,7 @@ export const Input = styled(DebounceInput)`
 
   @media(max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
     width:90%;
+    height:44px;
     margin-right: 32px;
     padding-left: 8vw;
     background-position: top 50% left 3% ;
