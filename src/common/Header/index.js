@@ -15,8 +15,13 @@ import {
   StyledNavLink,
   TitleBox
 } from "./styled";
+import { useDispatch, useSelector } from "react-redux";
+import { selectNavigationSelected, selectingNavigationActors, selectingNavigationMovies } from "../../core/generalSlice";
 
 export const Header = () => {
+  const dispatch = useDispatch();
+  const navigationSelector = useSelector(selectNavigationSelected);
+
   return (
     <HashRouter>
       <nav>
@@ -29,15 +34,26 @@ export const Header = () => {
               </TitleBox>
               <List>
                 <ListItem>
-                  <StyledNavLink to="/movies">Movies</StyledNavLink>
+                  <StyledNavLink to="/movies"
+                    onClick={() => dispatch(selectingNavigationMovies())}>
+                    Movies
+                  </StyledNavLink>
                 </ListItem>
                 <ListItem>
-                  <StyledNavLink to="/actors">Actors</StyledNavLink>
+                  <StyledNavLink to="/actors"
+                    onClick={() => dispatch(selectingNavigationActors())}>
+                    Actors
+                  </StyledNavLink>
                 </ListItem>
               </List>
             </Container>
             <SearchContainer>
-              <Search placeholder="Search for movies..." />
+              <Search
+                placeholder={
+                  navigationSelector === "movies" ?
+                    "Search for movies..." :
+                    "Search for people..."
+                } />
             </SearchContainer>
           </HeaderBox>
         </StyledHeader>
@@ -49,6 +65,6 @@ export const Header = () => {
         <Route path="/" element={<Navigate to="/movies" />} />
       </Routes>
 
-    </HashRouter>
+    </HashRouter >
   );
 };
