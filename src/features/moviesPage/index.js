@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { fetchPopularMovies, selectPopularMoviesList, selectPopularMoviesStatus } from "./popularMoviesSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { imagesAPI600x900 } from "../../core/API";
+import Pagination from "../../common/Pagination";
 
 export const MoviesPage = () => {
   const dispatch = useDispatch();
@@ -20,7 +21,9 @@ export const MoviesPage = () => {
             </li>
           ))}</ul>
         </div>
-      </>
+          <Pagination></Pagination>
+      </>      
     );
+
   }
 };
