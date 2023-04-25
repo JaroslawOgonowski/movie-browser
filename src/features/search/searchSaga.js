@@ -1,6 +1,6 @@
 import { call, put, takeLatest } from "redux-saga/effects"
-import { getSearchMoviesList } from "./getSearch";
-import { fetchSearchMoviesList, fetchSearchMoviesListError, fetchSearchMoviesListSuccess } from "./searchSlice";
+import { getSearchMoviesList, getSearchPeopleList } from "./getSearch";
+import { fetchSearchMoviesList, fetchSearchMoviesListError, fetchSearchMoviesListSuccess, fetchSearchPeopleList, fetchSearchPeopleListError, fetchSearchPeopleListSuccess } from "./searchSlice";
 
 function* fetchSearchMoviesListHandler({payload}) {
   try {
@@ -10,10 +10,22 @@ function* fetchSearchMoviesListHandler({payload}) {
   }
   catch (error) {
     yield put(fetchSearchMoviesListError());
-    yield call(alert, "Błąd pobierania, spróbuj ponownie lub sprawdź połączenie z internetem")
+    yield call(alert, "Download failed, please try again or check your internet connection")
+  }
+};
+
+function* fetchSearchPeopleListHandler({payload}) {
+  try {
+    const searchPeopleList = yield call(getSearchPeopleList, payload)
+    yield put(fetchSearchPeopleListSuccess(searchPeopleList));
+  }  
+  catch (error) {
+    yield put(fetchSearchPeopleListError());
+    yield call(alert, "Download failed, please try again or check your internet connection")
   }
 };
 
 export function* searchSaga() {
+  yield takeLatest(fetchSearchPeopleList, fetchSearchPeopleListHandler);
   yield takeLatest(fetchSearchMoviesList, fetchSearchMoviesListHandler);
 }
