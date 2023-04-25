@@ -13,8 +13,8 @@ export const Search = () => {
 
   const onInputChange = ({ target }) => {
     dispatch(changeQuery(target.value));
-
-    if (navigationSelector === "movies") { getMovie(target.value.trim()) }
+    if (target.value == "") return;
+    else if (navigationSelector === "movies") { getMovie(target.value.trim()) }
     else getPeople(target.value.trim());
 
     replaceQueryParameters({
@@ -27,6 +27,7 @@ export const Search = () => {
     <Input
       value={query || ""}
       onChange={onInputChange}
+      debounceTimeout={500}
       placeholder={
         navigationSelector === "movies" ?
           "Search for movies..." :
