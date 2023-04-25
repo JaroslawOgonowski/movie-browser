@@ -4,7 +4,7 @@ import { useQueryParameters, useReplaceQueryParameters } from "./queryParameters
 import searchParamQueryName from "./searchParamQueryName";
 import { useDispatch, useSelector } from "react-redux";
 import { getPeople } from "./getSearch";
-import { fetchMoviesList } from "./searchSlice";
+import { fetchSearchMoviesList } from "./searchSlice";
 
 export const Search = () => {
   const navigationSelector = useSelector(selectNavigationSelected);
@@ -15,7 +15,7 @@ export const Search = () => {
   const onInputChange = ({ target }) => {
     dispatch(changeQuery(target.value));
     if (target.value === "") return;
-    else if (navigationSelector === "movies") { dispatch(fetchMoviesList(target.value.trim())) }
+    else if (navigationSelector === "movies") { dispatch(fetchSearchMoviesList(target.value.trim())) }
     else getPeople(target.value.trim());
 
     replaceQueryParameters({

@@ -9,16 +9,16 @@ const searchSlice = createSlice({
   },
 
   reducers: {
-    fetchMoviesList: (_, {payload: query}) => ({
+    fetchSearchMoviesList: (_, {payload: query}) => ({
       status: "loading",
       moviesList: null,
       query
     }),
-    fetchMoviesListSuccess: (_, { payload: moviesList }) => ({
+    fetchSearchMoviesListSuccess: (_, { payload: moviesList }) => ({
       status: "success",
       moviesList,
     }),
-    fetchMoviesListError: () => ({
+    fetchSearchMoviesListError: () => ({
       status: "error",
       moviesList: null,
     }),
@@ -26,9 +26,9 @@ const searchSlice = createSlice({
 });
 
 export const {
-  fetchMoviesList,
-  fetchMoviesListSuccess,
-  fetchMoviesListError,
+  fetchSearchMoviesList,
+  fetchSearchMoviesListSuccess,
+  fetchSearchMoviesListError,
 } = searchSlice.actions;
 
 export const selectState = state => state.search;
