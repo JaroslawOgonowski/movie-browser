@@ -3,7 +3,6 @@ import { Input } from "./styled";
 import { useQueryParameters, useReplaceQueryParameters } from "./queryParameters";
 import searchParamQueryName from "./searchParamQueryName";
 import { useDispatch, useSelector } from "react-redux";
-import { getPeople } from "./getSearch";
 import { fetchSearchMoviesList, fetchSearchPeopleList } from "./searchSlice";
 
 export const Search = () => {

@@ -1,6 +1,9 @@
+import { key, searchAPI } from "../../core/API";
+
+    
     export const getSearchMoviesList = async (query) => {
       try {
-        const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=b2d37cc721e707dfb0e0916acc249569&language=en-US&query="+${query}+"&page=1&include_adult=false`);
+        const response = await fetch(`${searchAPI}/movie?api_key=${key}&language=en-US&query="+${query}+"&page=1&include_adult=false`);
         if (!response.ok) {
           throw new Error("An error occurred while searching movies.");
         }
@@ -11,10 +14,9 @@
       }
     };
 
-
     export const getSearchPeopleList = async (query) => {
       try {
-        const response = await fetch(`https://api.themoviedb.org/3/search/person?api_key=b2d37cc721e707dfb0e0916acc249569&language=en-US&query="+${query}+"&page=1&include_adult=false`);
+        const response = await fetch(`${searchAPI}/person?api_key=${key}&language=en-US&query="+${query}+"&page=1&include_adult=false`);
         if (!response.ok) {
           throw new Error("An error occurred while searching people.");
         }

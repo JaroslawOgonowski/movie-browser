@@ -11,7 +11,7 @@ const searchSlice = createSlice({
   },
 
   reducers: {
-    fetchSearchMoviesList: (_, {payload: query}) => ({
+    fetchSearchMoviesList: (_, { payload: query }) => ({
       statusMovie: "loading",
       statusPople: null,
       peopleList: null,
@@ -26,7 +26,7 @@ const searchSlice = createSlice({
       statusMovie: "error",
       moviesList: null,
     }),
-    fetchSearchPeopleList: (_, {payload: query}) => ({
+    fetchSearchPeopleList: (_, { payload: query }) => ({
       statusPople: "loading",
       statusMovie: null,
       peopleList: null,
@@ -40,7 +40,7 @@ const searchSlice = createSlice({
     fetchSearchPeopleListError: () => ({
       statusPople: "error",
       peopleList: null,
-    }),    
+    }),
   },
 });
 
