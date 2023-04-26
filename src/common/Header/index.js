@@ -54,8 +54,8 @@ export const Header = () => {
       </nav>
 
       <Switch>
-        <Route path="/movies"><NoResultPage /></Route>
-        <Route path="/actors"><ErrorPage /></Route>
+        <Route path="/movies"><MoviesPage /></Route>
+        <Route path="/actors"><ActorsPage /></Route>
         <Route path="/">
           <Redirect to="/movies" /></Route>
       </Switch>
