@@ -2,7 +2,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchPopularPeople, selectPopularPeopleList, selectPopularPeopleStatus } from "./popularPeopleSlice";
 import { useEffect } from "react";
 import Pagination from "../../common/Pagination";
-import { imagesAPI600x900 } from "../../core/API";
+import { PersonTile } from "../../common/PersonTile";
+import { Box, List, ListBox, ListItem, PopularPeoplePage, Title } from "./styled";
 
 export const PeoplePage = () => {
   const dispatch = useDispatch();
@@ -16,14 +17,24 @@ export const PeoplePage = () => {
     console.log(fetchResult.results)
     return (
       <>
-        <div><ul>
-          {fetchResult.results.map(person => (
-            <li key={person.id}>{person.name}<img src={`${imagesAPI600x900}${person.profile_path}`}alt=""/>
-            </li>
-          ))}</ul>
-        </div>
-          <Pagination></Pagination>
-      </>      
+        <Box>
+          <PopularPeoplePage>
+            <Title>Popular people</Title>
+            <ListBox>
+            <List>
+              {fetchResult.results.map(person => (
+                <ListItem key={person.id}>
+                  <PersonTile
+                    name={person.name}
+                    profile_path={person.profile_path}
+                  />
+                </ListItem>
+              ))}</List>
+              </ListBox>
+          </PopularPeoplePage>
+        </Box>
+        <Pagination></Pagination>
+      </>
     );
 
   }
