@@ -4,6 +4,7 @@ import rootSaga from "./rootSaga";
 import generalReducer from "./generalSlice";
 import searchReducer from "../features/search/searchSlice";
 import popularMoviesReducer from "../features/moviesPage/popularMoviesSlice";
+import genresReducer from "../features/genresSlice";
 
 const sagaMiddleware = createSagaMiddleware();
 const store = configureStore({
@@ -11,6 +12,7 @@ const store = configureStore({
         general: generalReducer,
         search: searchReducer,
         popularMovies: popularMoviesReducer,
+        genres: genresReducer,
     },
     middleware: [sagaMiddleware],
 });

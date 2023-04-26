@@ -3,6 +3,9 @@ import { fetchPopularMovies, selectPopularMoviesList, selectPopularMoviesStatus 
 import { useDispatch, useSelector } from "react-redux";
 import { imagesAPI600x900 } from "../../core/API";
 import Pagination from "../../common/Pagination";
+import PopularMovieTile from "../../common/PopularMovieTile";
+import { Container } from "../../common/Container";
+import { Layout } from "./styled";
 
 export const MoviesPage = () => {
   const dispatch = useDispatch();
@@ -15,13 +18,21 @@ export const MoviesPage = () => {
     console.log(a.results)
     return (
       <>
-        <div><ul>
+        <Container>
+          <Layout>
           {a.results.map(movie => (
-            <li key={movie.id}>{movie.title}<img src={`${imagesAPI600x900}${movie.poster_path}`} alt=""></img>
-            </li>
-          ))}</ul>
-        </div>
+            <PopularMovieTile
+            poster={`${imagesAPI600x900}${movie.poster_path}`}
+            title={movie.title}
+            date={movie.release_date}
+            rate={movie.vote_average}
+            voteCount={movie.vote_count} 
+            genres={movie.genre_ids}
+            />
+          ))}
+          </Layout>       
           <Pagination></Pagination>
+          </Container>
       </>      
     );
 

@@ -1,34 +1,37 @@
 import { ButtonTag, Description, InfoWrapper, MovieTitle, Poster, Rate, Rating, Release, Star, Tag, Tags, TileWrapper, Votes } from "./styled";
-import image from "../images/poster.png";
 import star from "../images/star.svg";
+import { useSelector } from "react-redux";
+import { selectGenres } from "../../features/genresSlice";
 
-const PopularMovieTile = () => (
-    <TileWrapper>
-        <Poster src={image}>
-        </Poster>
-        <InfoWrapper>
-            <Description>
-                <MovieTitle>Mulan</MovieTitle>
-                <Release>2020</Release>
-                <Tags>
-                    <ButtonTag>
-                        <Tag>Action</Tag>
-                    </ButtonTag>
-                    <ButtonTag>
-                        <Tag>Action</Tag>
-                    </ButtonTag>
-                    <ButtonTag>
-                        <Tag>Action</Tag>
-                    </ButtonTag>
-                </Tags>
-            </Description>
-            <Rating>
-                <Star src={star} />
-                <Rate>7,8</Rate>
-                <Votes>35 votes</Votes>
-            </Rating>
-        </InfoWrapper>
-    </TileWrapper>
-);
+const PopularMovieTile = ({ poster, title, date, rate, voteCount, genres }) => {
+    const genresArray = useSelector(selectGenres);
+    const movieGenres = genresArray.filter((genre) => genres.includes(genre.id));
+
+    return (
+        <TileWrapper>
+            <Poster src={poster}>
+            </Poster>
+            <InfoWrapper>
+                <Description>
+                    <MovieTitle>{title}</MovieTitle>
+                    <Release>{date.slice(0, 4)}</Release>
+                    <Tags>
+                        {movieGenres.map((genre) => (
+                            <ButtonTag key={genre.id}>
+                                <Tag>{genre.name}</Tag>
+                            </ButtonTag>
+                        ))}
+                    </Tags>
+                </Description>
+                <Rating>
+                    <Star src={star} />
+                    <Rate>{rate}</Rate>
+                    <Votes>{voteCount} votes</Votes>
+                </Rating>
+            </InfoWrapper>
+        </TileWrapper>
+    
+    );
+}
 
 export default PopularMovieTile;

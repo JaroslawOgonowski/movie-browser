@@ -4,8 +4,6 @@ export const TileWrapper = styled.div`
     background-color: ${({theme}) => theme.color.white};
     border-radius: 5px;
     box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
-    height: 100%;
-    width: 100%;
     padding: 16px 16px 0;
     display: grid;
     grid-template-rows: auto 1fr;
