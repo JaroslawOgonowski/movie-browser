@@ -15,6 +15,7 @@ export const theme = {
     woodsmoke: "#18181B",
     pattensBlue: "#D6E4FF",
     waterloo: "#7E839A",
+    white: "#FFFFFF",
   }
 
 }
