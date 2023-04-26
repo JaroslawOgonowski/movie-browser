@@ -1,8 +1,6 @@
 import { Route, HashRouter, Redirect, Switch } from "react-router-dom";
 import { MoviesPage } from "../../features/moviesPage";
-import { ActorsPage } from "../../features/actorsPage";
-import NoResultPage from "../NoResultPage";
-import ErrorPage from "../ErrorPage";
+import { PeoplePage } from "../../features/peoplePage";
 import {
   Container,
   HeaderBox,
@@ -15,7 +13,7 @@ import {
   TitleBox
 } from "./styled";
 import { useDispatch } from "react-redux";
-import { selectingNavigationActors, selectingNavigationMovies } from "../../core/generalSlice";
+import { selectingNavigationMovies, selectingNavigationPeople } from "../../core/generalSlice";
 import { Search } from "../../features/search";
 
 export const Header = () => {
@@ -39,9 +37,9 @@ export const Header = () => {
                   </StyledNavLink>
                 </ListItem>
                 <ListItem>
-                  <StyledNavLink to="/actors"
-                    onClick={() => dispatch(selectingNavigationActors())}>
-                    Actors
+                  <StyledNavLink to="/people"
+                    onClick={() => dispatch(selectingNavigationPeople())}>
+                    People
                   </StyledNavLink>
                 </ListItem>
               </List>
@@ -55,7 +53,7 @@ export const Header = () => {
 
       <Switch>
         <Route path="/movies"><MoviesPage /></Route>
-        <Route path="/actors"><ActorsPage /></Route>
+        <Route path="/people"><PeoplePage /></Route>
         <Route path="/">
           <Redirect to="/movies" /></Route>
       </Switch>

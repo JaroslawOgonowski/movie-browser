@@ -14,8 +14,8 @@ const generalSlice = createSlice({
     selectingNavigationMovies: (state) => {
       state.navigationSelected = "movies";
     },
-    selectingNavigationActors: (state) => {
-      state.navigationSelected = "actors";
+    selectingNavigationPeople: (state) => {
+      state.navigationSelected = "people";
     },
     changeQuery: (state, {payload:query}) => {
      state.query = query; 
@@ -25,7 +25,7 @@ const generalSlice = createSlice({
 
 export const {
   selectingNavigationMovies,
-  selectingNavigationActors,
+  selectingNavigationPeople,
   changeQuery
 } = generalSlice.actions;
 
