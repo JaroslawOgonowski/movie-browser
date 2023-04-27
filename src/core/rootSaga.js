@@ -2,7 +2,7 @@ import { all } from "redux-saga/effects";
 import { localStorageSaga } from "./localStorageSaga";
 import { searchSaga } from "../features/search/searchSaga";
 import { popularMoviesSaga } from "../features/moviesPage/popularMoviesSaga";
-import { getGenresSaga } from "../features/genresSaga";
+import { GenresSaga } from "../features/moviesPage/Genres/genresSaga";
 
 
 export default function* rootSaga() {
@@ -10,6 +10,6 @@ export default function* rootSaga() {
     localStorageSaga(),
     searchSaga(),
     popularMoviesSaga(),
-    getGenresSaga(),
+    GenresSaga(),
   ]);
 };

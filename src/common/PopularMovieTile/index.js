@@ -1,7 +1,7 @@
 import { ButtonTag, Description, InfoWrapper, MovieTitle, Poster, Rate, Rating, Release, Star, Tag, Tags, TileWrapper, Votes } from "./styled";
 import star from "../images/star.svg";
 import { useSelector } from "react-redux";
-import { selectGenres } from "../../features/genresSlice";
+import { selectGenres } from "../../features/moviesPage/Genres/genresSlice";
 
 const PopularMovieTile = ({ poster, title, date, rate, voteCount, genres }) => {
     const genresArray = useSelector(selectGenres);
