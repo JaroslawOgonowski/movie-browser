@@ -15,13 +15,13 @@ export const MoviesPage = () => {
   const status = useSelector(selectPopularMoviesStatus);
   const fetchResult = useSelector(selectPopularMoviesList);
   if (status === "success") {
-    console.log(fetchResult.results)
     return (
       <>
         <Container>
           <Layout>
-          {a.results.map(movie => (
+          {fetchResult.results.map(movie => (
             <PopularMovieTile
+            key={movie.id}
             poster={`${imagesAPI600x900}${movie.poster_path}`}
             title={movie.title}
             date={movie.release_date}

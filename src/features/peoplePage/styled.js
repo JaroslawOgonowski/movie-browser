@@ -41,10 +41,10 @@ export const List = styled.ul`
   @media (max-width: 1390px){
     width: calc(208px*5 + 4*24px);
   };
-  @media (max-width: 1136px){
+  @media (max-width: 1167px){
     width: calc(208px*4 + 3*24px);
   };
-  @media (max-width: 903px){
+  @media (max-width: 936px){
     width: calc(208px*3 + 2*24px);
   };
   @media(max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
