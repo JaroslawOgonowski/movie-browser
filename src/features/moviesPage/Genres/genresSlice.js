@@ -10,6 +10,7 @@ const genresSlice = createSlice({
     reducers: {
         fetchGenres: () => ({
             status: "loading",
+            generes:null,
         }),
 
         fetchGenresSuccess: (_, { payload: genres }) => ({
@@ -19,6 +20,7 @@ const genresSlice = createSlice({
 
         fetchGenresError: () => ({
             status: "error",
+            generes:null,
         }),
     },
 });

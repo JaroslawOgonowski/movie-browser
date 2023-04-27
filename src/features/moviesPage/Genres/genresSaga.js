@@ -13,7 +13,7 @@ function* fetchGenresHandler() {
   }
 };
 
-export function* getGenresSaga() {
-  yield takeLatest(fetchGenres.type, fetchGenresHandler);
+export function* GenresSaga() {
+  yield takeLatest(fetchGenres, fetchGenresHandler);
 
 }
