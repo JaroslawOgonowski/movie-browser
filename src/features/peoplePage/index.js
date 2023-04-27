@@ -3,7 +3,7 @@ import { fetchPopularPeople, selectPopularPeopleList, selectPopularPeopleStatus 
 import { useEffect } from "react";
 import Pagination from "../../common/Pagination";
 import { PersonTile } from "../../common/PersonTile";
-import { Box, List, ListBox, ListItem, PopularPeoplePage, Title } from "./styled";
+import { Box, List, ListItem, PopularPeoplePage, Title } from "./styled";
 
 export const PeoplePage = () => {
   const dispatch = useDispatch();
@@ -14,13 +14,11 @@ export const PeoplePage = () => {
   const status = useSelector(selectPopularPeopleStatus);
   const fetchResult = useSelector(selectPopularPeopleList);
   if (status === "success") {
-    console.log(fetchResult.results)
     return (
       <>
-        <Box>
-          <PopularPeoplePage>
-            <Title>Popular people</Title>
-            <ListBox>
+        <PopularPeoplePage>
+          <Title>Popular people</Title>
+          <Box>
             <List>
               {fetchResult.results.map(person => (
                 <ListItem key={person.id}>
@@ -29,13 +27,12 @@ export const PeoplePage = () => {
                     profile_path={person.profile_path}
                   />
                 </ListItem>
-              ))}</List>
-              </ListBox>
-          </PopularPeoplePage>
-        </Box>
+              ))}
+            </List>
+          </Box>
+        </PopularPeoplePage>
         <Pagination></Pagination>
       </>
     );
-
   }
 };
