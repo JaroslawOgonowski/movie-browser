@@ -1,10 +1,10 @@
 import { call, put, takeLatest } from "redux-saga/effects"
 import { getPopularPeople } from "./getPopularPeople";
-import { fetchPopularPeople, fetchPopularPeopleError, fetchPopularPeopleSuccess } from "./popularPeopleSlice";
+import { fetchPopularPeople, fetchPopularPeopleError, fetchPopularPeoplePageModifer, fetchPopularPeopleSuccess } from "./popularPeopleSlice";
 
-function* fetchPopularPeopleHandler() {
+function* fetchPopularPeopleHandler({ payload }) {
   try {
-    const popularPeopleList = yield call(getPopularPeople)
+    const popularPeopleList = yield call(getPopularPeople, payload)
     yield put(fetchPopularPeopleSuccess(popularPeopleList));
   }
   catch (error) {
