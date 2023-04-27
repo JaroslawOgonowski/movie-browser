@@ -126,15 +126,16 @@ export const StyledNavLink = styled(NavLink)`
 export const SearchContainer = styled.div`
   width: 400px;
   height: 40%;
-  justify-content: flex-end;
+  justify-content: flex-end; 
+  align-items: center;
   display: flex;
 
   @media(max-width: ${({ theme }) => theme.breakPoints.tablet}px) {
-    width: 260px;
+    width: 100%;
   };
   
   @media(max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
-    justify-content: center;
+    justify-content: center;   
     height: 44px;
     width: 100%;
   };
