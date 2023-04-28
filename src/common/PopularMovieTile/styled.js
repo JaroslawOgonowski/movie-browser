@@ -1,12 +1,17 @@
 import styled from "styled-components";
 
 export const TileWrapper = styled.div`
-    background-color: ${({theme}) => theme.color.white};
+    background-color: ${({ theme }) => theme.color.white};
     border-radius: 5px;
     box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
     padding: 16px 16px 0;
     display: grid;
     grid-template-rows: auto 1fr;
+
+    @media (max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
+        grid-template-columns: auto 1fr;
+        
+    }
 `;
 
 export const Poster = styled.img`
@@ -14,36 +19,72 @@ export const Poster = styled.img`
     width: 292px;
     border-radius: 5px;
     margin-bottom: 16px;
+
+    @media (max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        margin-right: 16px;
+        height: auto;
+        width: 210px;
+    }
+
+    @media (max-width: ${({ theme }) => theme.breakPoints.mobileMin}px) {
+        height: 169px;
+        width: 114px;
+        margin-bottom: 0;
+    }
 `;
 
 export const InfoWrapper = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    @media (max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
+    display: block;
+    }
+    
 `;
 
 export const Description = styled.div`
     display: grid;
     grid-template-columns: 1fr;
-    gap: 8px;
+    grid-gap: 8px;
     padding: 0;
+
+    @media (max-width: ${({ theme }) => theme.breakPoints.mobileMin}px) {
+    grid-gap: 4px;
+    margin-right: 16px;
+  }
 `;
 
 export const MovieTitle = styled.h2`
     font-size: 22px;
     font-weight: 500;
     line-height: 1.3;
-    color: ${({theme}) => theme.color.woodsmoke};
+    color: ${({ theme }) => theme.color.woodsmoke};
     margin: 0;
 
+    @media (max-width: ${({ theme }) => theme.breakPoints.mobileMin}px) {
+    font-size: 16px;
+    line-height: 1.3;
+    margin: 0;
+  }
 `;
 
 export const Release = styled.p`
     font-size: 16px;
     font-weight: 400;
     line-height: 1.5;
-    color: ${({theme}) => theme.color.waterloo};
+    color: ${({ theme }) => theme.color.waterloo};
     margin: 0;
+
+    @media (max-width: ${({ theme }) => theme.breakPoints.mobileMin}px) {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 1.3;
+    margin: 0;
+  }
 `;
 
 export const Tags = styled.div`
@@ -53,46 +94,86 @@ export const Tags = styled.div`
     margin: 0;
     align-items: center;
     gap: 8px;
+
+    @media (max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0 16px 0 0;
+  }
 `;
 
 export const ButtonTag = styled.button`
     padding: 8px 16px;
     border-radius: 5px;
-    background-color: ${({theme}) => theme.color.mystic};
+    background-color: ${({ theme }) => theme.color.mystic};
     height: 20px;
     border: none;
     display: flex;
     align-items: center;
+
+    @media (max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
+        padding: 8px 12px;
+        height: 8px;
+    }
+
+    @media (max-width: ${({ theme }) => theme.breakPoints.mobileMin}px) {
+        padding: 4px 8px;
+        height: 5px;
+    }
 `;
 
 export const Tag = styled.p`
     font-size: 14px;
     font-weight: 400;
     line-height: 1.4;
-    color: ${({theme}) => theme.color.woodsmoke};
+    color: ${({ theme }) => theme.color.woodsmoke};
+
+    @media (max-width: ${({ theme }) => theme.breakPoints.mobileMin}px) {
+        font-size: 10px;
+        line-height: 1.1;
+    }
 `;
 
 export const Rating = styled.div`
     display: flex;
     align-items: center;
     gap: 12px;
-    margin-top: 23px;
+    margin: 0;
+
+    @media (max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
+        margin: 0;
+    }
 `;
 
 export const Star = styled.img`
     width: 24px;
+
+    @media (max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
+        width: 16px;
+    }
 `;
 
 export const Rate = styled.p`
     font-size: 16px;
     font-weight: 600;
-    color: ${({theme}) => theme.color.woodsmoke};
+    color: ${({ theme }) => theme.color.woodsmoke};
     line-height: 1.5;
+
+    @media (max-width: ${({ theme }) => theme.breakPoints.mobileMin}px) {
+        font-size: 13px;
+        line-height: 1.3;
+    }
 `;
 
 export const Votes = styled.p`
     font-size: 16px;
     font-weight: 400;
-    color: ${({theme}) => theme.color.waterloo};
+    color: ${({ theme }) => theme.color.waterloo};
     line-height: 1.5;
+
+    @media (max-width: ${({ theme }) => theme.breakPoints.mobileMin}px) {
+        font-size: 13px;
+        line-height: 1.3;
+    }
 `;
