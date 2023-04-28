@@ -5,7 +5,7 @@ import { imagesAPI600x900 } from "../../core/API";
 import Pagination from "../../common/Pagination";
 import PopularMovieTile from "../../common/PopularMovieTile";
 import { Container } from "../../common/Container";
-import { Layout } from "./styled";
+import { Layout, Title } from "./styled";
 
 export const MoviesPage = () => {
   const dispatch = useDispatch();
@@ -17,7 +17,9 @@ export const MoviesPage = () => {
   if (status === "success") {
     return (
       <>
+      
         <Container>
+          <Title>Popular movies</Title>
           <Layout>
             {fetchResult.results.map(movie => (
               <PopularMovieTile
