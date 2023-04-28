@@ -19,21 +19,24 @@ export const MoviesPage = () => {
       <>
         <Container>
           <Layout>
-          {fetchResult.results.map(movie => (
-            <PopularMovieTile
-            key={movie.id}
-            poster={`${imagesAPI600x900}${movie.poster_path}`}
-            title={movie.title}
-            date={movie.release_date}
-            rate={movie.vote_average}
-            voteCount={movie.vote_count} 
-            genres={movie.genre_ids}
-            />
-          ))}
-          </Layout>       
-          <Pagination></Pagination>
-          </Container>
-      </>      
+            {fetchResult.results.map(movie => (
+              <PopularMovieTile
+                key={movie.id}
+                poster={`${imagesAPI600x900}${movie.poster_path}`}
+                title={movie.title}
+                date={movie.release_date}
+                rate={movie.vote_average}
+                voteCount={movie.vote_count}
+                genres={movie.genre_ids}
+              />
+            ))}
+          </Layout>
+          <Pagination
+            currentPage={fetchResult.page}
+            totalPages={fetchResult.total_pages}
+          />
+        </Container>
+      </>
     );
 
   }

@@ -2,6 +2,7 @@ import { ButtonTag, Description, InfoWrapper, MovieTitle, Poster, Rate, Rating, 
 import star from "../images/star.svg";
 import { useSelector } from "react-redux";
 import { selectGenres } from "../../features/moviesPage/Genres/genresSlice";
+import placeholder from "./Poster.jpg"
 
 const PopularMovieTile = ({ poster, title, date, rate, voteCount, genres }) => {
     const genresArray = useSelector(selectGenres);
@@ -9,28 +10,28 @@ const PopularMovieTile = ({ poster, title, date, rate, voteCount, genres }) => {
 
     return (
         <TileWrapper>
-            <Poster src={poster}>
+            <Poster src={poster === "https://image.tmdb.org/t/p/w600_and_h900_bestv2/null" ? placeholder : poster}>
             </Poster>
             <InfoWrapper>
                 <Description>
                     <MovieTitle>{title}</MovieTitle>
-                    <Release>{date.slice(0, 4)}</Release>
+                    <Release>{date ? date.slice(0, 4) : null}</Release>
                     <Tags>
-                        {movieGenres.map((genre) => (
+                        {genres ? movieGenres.map((genre) => (
                             <ButtonTag key={genre.id}>
                                 <Tag>{genre.name}</Tag>
                             </ButtonTag>
-                        ))}
+                        )) : null}
                     </Tags>
                 </Description>
                 <Rating>
                     <Star src={star} />
-                    <Rate>{rate}</Rate>
-                    <Votes>{voteCount} votes</Votes>
+                    <Rate>{rate? rate : null}</Rate>
+                    <Votes>{voteCount? voteCount : null} votes</Votes>
                 </Rating>
             </InfoWrapper>
         </TileWrapper>
-    
+
     );
 }
 

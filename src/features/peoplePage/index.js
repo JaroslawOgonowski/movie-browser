@@ -6,9 +6,10 @@ import { PersonTile } from "../../common/PersonTile";
 import { Box, List, ListItem, PopularPeoplePage, Title } from "./styled";
 
 export const PeoplePage = () => {
+  
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchPopularPeople())
+  dispatch(fetchPopularPeople())
   }, [])
 
   const status = useSelector(selectPopularPeopleStatus);
@@ -31,7 +32,10 @@ export const PeoplePage = () => {
             </List>
           </Box>
         </PopularPeoplePage>
-        <Pagination></Pagination>
+        <Pagination
+        currentPage={fetchResult.page}
+        totalPages={fetchResult.total_pages}
+        />
       </>
     );
   }
