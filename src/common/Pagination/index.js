@@ -31,15 +31,15 @@ const Pagination = ({ currentPage, totalPages }) => {
                         disabled={currentPage === 1 ? true : false}
                         onClick={() => pageSwitch(firstPage)}
                     >
-                        <BackwardArrow />
-                        <BackwardArrow />
+                        <BackwardArrow disabled={currentPage === 1 ? true : false}/>
+                        <BackwardArrow disabled={currentPage === 1 ? true : false}/>
                         <ButtonText>First</ButtonText>
                     </Button>
                     <Button
                         disabled={currentPage === 1 ? true : false}
                         onClick={() => pageSwitch(previousPage)}
                     >
-                        <BackwardArrow />
+                        <BackwardArrow disabled={currentPage === 1 ? true : false}/>
                         <ButtonText>Previous</ButtonText>
                     </Button>
                 </StyledButtons>
@@ -55,15 +55,15 @@ const Pagination = ({ currentPage, totalPages }) => {
                         onClick={() => pageSwitch(nextPage)}
                     >
                         <ButtonText>Next</ButtonText>
-                        <ForwardArrow />
+                        <ForwardArrow disabled={currentPage === totalPages ? true : false || currentPage === 500 ? true : false}/>
                     </Button>
                     <Button
                         disabled={currentPage === totalPages ? true : false || currentPage === 500 ? true : false}
                         onClick={() => pageSwitch(lastPage)}
                     >
                         <ButtonText>Last</ButtonText>
-                        <ForwardArrow />
-                        <ForwardArrow />
+                        <ForwardArrow disabled={currentPage === totalPages ? true : false || currentPage === 500 ? true : false}/>
+                        <ForwardArrow disabled={currentPage === totalPages ? true : false || currentPage === 500 ? true : false}/>
                     </Button>
                 </StyledButtons>
             </StyledPagination >
