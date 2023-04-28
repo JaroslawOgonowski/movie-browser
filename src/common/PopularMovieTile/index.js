@@ -1,12 +1,10 @@
 import { ButtonTag, Description, InfoWrapper, MovieTitle, Poster, Rate, Rating, Release, Star, Tag, Tags, TileWrapper, Votes } from "./styled";
 import star from "../images/star.svg";
-import { useSelector } from "react-redux";
-import { selectGenres } from "../../features/moviesPage/Genres/genresSlice";
 import placeholder from "./Poster.jpg"
+import { Genres } from "../../features/moviesPage/Genres/genres";
 
 const PopularMovieTile = ({ poster, title, date, rate, voteCount, genres }) => {
-    const genresArray = useSelector(selectGenres);
-    const movieGenres = genresArray.filter((genre) => genres.includes(genre.id));
+    const movieGenres = Genres.filter((genre) => genres.includes(genre.id));
 
     return (
         <TileWrapper>
