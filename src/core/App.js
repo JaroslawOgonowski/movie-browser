@@ -7,8 +7,8 @@ export default () => {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <Header />
+        <GlobalStyle />        
+        <Header />      
       </ThemeProvider>
     </>
   );
