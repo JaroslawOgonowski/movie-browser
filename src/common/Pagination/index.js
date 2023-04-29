@@ -15,7 +15,7 @@ const Pagination = ({ page, totalPages }) => {
             key: "page",
             value: page,
         });
-    }, [replaceQueryParameters, page]);
+    }, []);
 
     const dispatch = useDispatch();
     const nextPage = page + 1
