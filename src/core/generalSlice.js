@@ -17,8 +17,8 @@ const generalSlice = createSlice({
     selectingNavigationPeople: (state) => {
       state.navigationSelected = "people";
     },
-    changeQuery: (state, {payload:query}) => {
-     state.query = query; 
+    changeQuery: (state, { payload: query }) => {
+      state.query = query;
     }
   },
 });

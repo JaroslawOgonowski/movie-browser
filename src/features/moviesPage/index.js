@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { fetchPopularMovies, getMoviesByPage, selectMoviesPage, selectPopularMoviesList, selectPopularMoviesStatus } from "./popularMoviesSlice";
+import { fetchPopularMovies, selectPopularMoviesList, selectPopularMoviesStatus } from "./popularMoviesSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { imagesAPI600x900 } from "../../core/API";
 import Pagination from "../../common/Pagination";
@@ -16,7 +16,7 @@ export const MoviesPage = () => {
 
   useEffect(() => {
     dispatch(fetchPopularMovies(page))
-  }, []);
+  }, [dispatch, page]);
 
   if (status === "success") {
 
@@ -38,6 +38,7 @@ export const MoviesPage = () => {
             ))}
           </Layout>
           <Pagination
+            page={fetchResult.page}
             totalPages={fetchResult.total_pages}
           />
         </Container>

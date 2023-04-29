@@ -4,16 +4,18 @@ import { useEffect } from "react";
 import Pagination from "../../common/Pagination";
 import { PersonTile } from "../../common/PersonTile";
 import { Box, List, ListItem, PopularPeoplePage, Title } from "./styled";
+import { useQueryParameters } from "../search/queryParameters";
 
 export const PeoplePage = () => {
-  
   const dispatch = useDispatch();
-  useEffect(() => {
-  dispatch(fetchPopularPeople())
-  }, [])
-
   const status = useSelector(selectPopularPeopleStatus);
   const fetchResult = useSelector(selectPopularPeopleList);
+  const page = useQueryParameters("page");
+
+  useEffect(() => {
+  dispatch(fetchPopularPeople(page))
+  }, [dispatch, page])
+
   if (status === "success") {
     return (
       <>
@@ -33,7 +35,7 @@ export const PeoplePage = () => {
           </Box>
         </PopularPeoplePage>
         <Pagination
-        currentPage={fetchResult.page}
+        page={fetchResult.page}
         totalPages={fetchResult.total_pages}
         />
       </>

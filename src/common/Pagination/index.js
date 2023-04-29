@@ -2,15 +2,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { BackwardArrow, ForwardArrow } from "./buttonArrows";
 import { Button, ButtonText, PageNumber, StyledButtons, StyledPages, StyledPagination } from "./styled";
 import { fetchPopularPeople } from "../../features/peoplePage/popularPeopleSlice";
-import { fetchPopularMovies, selectMoviesPage } from "../../features/moviesPage/popularMoviesSlice";
+import { fetchPopularMovies } from "../../features/moviesPage/popularMoviesSlice";
 import { selectNavigationSelected } from "../../core/generalSlice";
 import { useEffect } from "react";
 import { useReplaceQueryParameters } from "../../features/search/queryParameters";
 
-const Pagination = ({ totalPages }) => {
+const Pagination = ({ page, totalPages }) => {
     const replaceQueryParameters = useReplaceQueryParameters();
-    const page = useSelector(selectMoviesPage)
-
+    
     useEffect(() => {
         replaceQueryParameters({
             key: "page",
