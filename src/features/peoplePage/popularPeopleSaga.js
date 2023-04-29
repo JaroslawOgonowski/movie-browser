@@ -1,6 +1,6 @@
 import { call, put, takeLatest } from "redux-saga/effects"
 import { getPopularPeople } from "./getPopularPeople";
-import { fetchPopularPeople, fetchPopularPeopleError, fetchPopularPeoplePageModifer, fetchPopularPeopleSuccess } from "./popularPeopleSlice";
+import { fetchPopularPeople, fetchPopularPeopleError, fetchPopularPeopleSuccess } from "./popularPeopleSlice";
 
 function* fetchPopularPeopleHandler({ payload }) {
   try {
