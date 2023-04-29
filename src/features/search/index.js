@@ -19,7 +19,7 @@ export const Search = () => {
 
     replaceQueryParameters({
       key: searchParamQueryName,
-      value: target.value.trim() !== "" ? target.value : undefined,
+      value: target.value.trim() !== "" ? target.value : null,
     });
   };
 

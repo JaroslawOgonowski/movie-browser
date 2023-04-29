@@ -7,15 +7,17 @@ const generalSlice = createSlice({
     getStateFromLocalStorage() ||
     {
       navigationSelected: "movies",
-      query: null
+      query: ""
     },
 
   reducers: {
     selectingNavigationMovies: (state) => {
       state.navigationSelected = "movies";
+      state.query = ""
     },
     selectingNavigationPeople: (state) => {
       state.navigationSelected = "people";
+      state.query = ""
     },
     changeQuery: (state, { payload: query }) => {
       state.query = query;
