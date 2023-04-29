@@ -31,6 +31,11 @@ export const HeaderBox = styled.div`
   @media(max-width: ${({ theme }) => theme.breakPoints.fullPage}px) {
     margin-left: 16px;
   };
+
+  @media(max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
+    margin-left: 0;
+  };
+
   
 @media(max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
     height: 142px;
@@ -51,7 +56,6 @@ export const Container = styled.div`
   };
 
   @media(max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
-    width: 100%;
     justify-content:space-between;
   };
 `;
@@ -64,7 +68,7 @@ export const TitleBox = styled.div`
  
   @media(max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
     gap: 8px;
-    margin-left:32px;
+    margin-left:16px;
   };
 `;
 
@@ -82,7 +86,6 @@ export const PageTitle = styled.h1`
 
   @media(max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
   font-size: 13px;
-  line-height: 130%;
   };
 `;
 
@@ -137,6 +140,6 @@ export const SearchContainer = styled.div`
   @media(max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
     justify-content: center;   
     height: 44px;
-    width: 100%;
+    width: 90%;
   };
 `;
