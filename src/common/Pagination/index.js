@@ -2,15 +2,26 @@ import { useDispatch, useSelector } from "react-redux";
 import { BackwardArrow, ForwardArrow } from "./buttonArrows";
 import { Button, ButtonText, PageNumber, StyledButtons, StyledPages, StyledPagination } from "./styled";
 import { fetchPopularPeople } from "../../features/peoplePage/popularPeopleSlice";
-import { fetchPopularMovies } from "../../features/moviesPage/popularMoviesSlice";
+import { fetchPopularMovies, selectMoviesPage } from "../../features/moviesPage/popularMoviesSlice";
 import { selectNavigationSelected } from "../../core/generalSlice";
-import { fetchSearchMoviesList, fetchSearchPeopleList } from "../../features/search/searchSlice";
+import { useEffect } from "react";
+import { useReplaceQueryParameters } from "../../features/search/queryParameters";
 
-const Pagination = ({ currentPage, totalPages }) => {
+const Pagination = ({ totalPages }) => {
+    const replaceQueryParameters = useReplaceQueryParameters();
+    const page = useSelector(selectMoviesPage)
+
+    useEffect(() => {
+        replaceQueryParameters({
+            key: "page",
+            value: page,
+        });
+    }, []);
+
     const dispatch = useDispatch();
-    const nextPage = currentPage + 1
+    const nextPage = page + 1
     const lastPage = totalPages > 500 ? 500 : totalPages
-    const previousPage = currentPage - 1
+    const previousPage = page - 1
     const firstPage = 1
     const section = useSelector(selectNavigationSelected)
 
@@ -28,42 +39,42 @@ const Pagination = ({ currentPage, totalPages }) => {
             <StyledPagination>
                 <StyledButtons>
                     <Button
-                        disabled={currentPage === 1 ? true : false}
+                        disabled={page === 1 ? true : false}
                         onClick={() => pageSwitch(firstPage)}
                     >
-                        <BackwardArrow disabled={currentPage === 1 ? true : false}/>
-                        <BackwardArrow disabled={currentPage === 1 ? true : false}/>
+                        <BackwardArrow disabled={page === 1 ? true : false} />
+                        <BackwardArrow disabled={page === 1 ? true : false} />
                         <ButtonText>First</ButtonText>
                     </Button>
                     <Button
-                        disabled={currentPage === 1 ? true : false}
+                        disabled={page === 1 ? true : false}
                         onClick={() => pageSwitch(previousPage)}
                     >
-                        <BackwardArrow disabled={currentPage === 1 ? true : false}/>
+                        <BackwardArrow disabled={page === 1 ? true : false} />
                         <ButtonText>Previous</ButtonText>
                     </Button>
                 </StyledButtons>
                 <StyledPages>
                     Page
-                    <PageNumber>{currentPage}</PageNumber>
+                    <PageNumber>{page}</PageNumber>
                     of
-                    <PageNumber>{totalPages > 500 ? 500 : totalPages }</PageNumber>
+                    <PageNumber>{totalPages > 500 ? 500 : totalPages}</PageNumber>
                 </StyledPages>
                 <StyledButtons>
                     <Button
-                        disabled={currentPage === totalPages ? true : false || currentPage === 500 ? true : false}
+                        disabled={page === totalPages ? true : false || page === 500 ? true : false}
                         onClick={() => pageSwitch(nextPage)}
                     >
                         <ButtonText>Next</ButtonText>
-                        <ForwardArrow disabled={currentPage === totalPages ? true : false || currentPage === 500 ? true : false}/>
+                        <ForwardArrow disabled={page === totalPages ? true : false || page === 500 ? true : false} />
                     </Button>
                     <Button
-                        disabled={currentPage === totalPages ? true : false || currentPage === 500 ? true : false}
+                        disabled={page === totalPages ? true : false || page === 500 ? true : false}
                         onClick={() => pageSwitch(lastPage)}
                     >
                         <ButtonText>Last</ButtonText>
-                        <ForwardArrow disabled={currentPage === totalPages ? true : false || currentPage === 500 ? true : false}/>
-                        <ForwardArrow disabled={currentPage === totalPages ? true : false || currentPage === 500 ? true : false}/>
+                        <ForwardArrow disabled={page === totalPages ? true : false || page === 500 ? true : false} />
+                        <ForwardArrow disabled={page === totalPages ? true : false || page === 500 ? true : false} />
                     </Button>
                 </StyledButtons>
             </StyledPagination >

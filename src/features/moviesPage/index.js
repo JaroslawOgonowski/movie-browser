@@ -1,25 +1,29 @@
 import { useEffect } from "react";
-import { fetchPopularMovies, selectPopularMoviesList, selectPopularMoviesStatus } from "./popularMoviesSlice";
+import { fetchPopularMovies, getMoviesByPage, selectMoviesPage, selectPopularMoviesList, selectPopularMoviesStatus } from "./popularMoviesSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { imagesAPI600x900 } from "../../core/API";
 import Pagination from "../../common/Pagination";
 import PopularMovieTile from "../../common/PopularMovieTile";
 import { Container } from "../../common/Container";
 import { Layout, Title } from "./styled";
+import { useQueryParameters } from "../search/queryParameters";
 
 export const MoviesPage = () => {
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchPopularMovies())
-  }, [])
   const status = useSelector(selectPopularMoviesStatus);
   const fetchResult = useSelector(selectPopularMoviesList);
+  const page = useQueryParameters("page");
+
+  useEffect(() => {
+    dispatch(fetchPopularMovies(page))
+  }, []);
+
   if (status === "success") {
+
     return (
       <>
-      
         <Container>
-          <Title>Popular movies</Title>
+          <Title>Popular movies </Title>
           <Layout>
             {fetchResult.results.map(movie => (
               <PopularMovieTile
@@ -34,12 +38,10 @@ export const MoviesPage = () => {
             ))}
           </Layout>
           <Pagination
-            currentPage={fetchResult.page}
             totalPages={fetchResult.total_pages}
           />
         </Container>
       </>
     );
-
   }
 };
