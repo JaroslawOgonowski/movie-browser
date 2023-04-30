@@ -34,7 +34,6 @@ export const Input = styled(DebounceInput)`
   @media(max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
     width:90%;
     height:44px;
-    margin-right: 32px;
     padding-left: 8vw;
     background-position: top 50% left 3% ;
   };

@@ -4,13 +4,12 @@ export const TileWrapper = styled.div`
     background-color: ${({ theme }) => theme.color.white};
     border-radius: 5px;
     box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
-    padding: 16px 16px 0;
+    padding: 16px 16px;
     display: grid;
     grid-template-rows: auto 1fr;
 
     @media (max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
-        grid-template-columns: auto 1fr;
-        
+        grid-template-columns: auto 1fr;        
     }
 `;
 

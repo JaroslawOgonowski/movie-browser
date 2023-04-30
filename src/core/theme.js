@@ -4,7 +4,7 @@ export const theme = {
     notebook: 1150,
     tablet: 950,
     mobileMax: 767,
-    mobileMin: 400,
+    mobileMin: 450,
   },
   color: {
     pageBackground: "#F5F5FA",
