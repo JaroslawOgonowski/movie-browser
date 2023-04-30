@@ -7,19 +7,27 @@ import PopularMovieTile from "../../common/PopularMovieTile";
 import { Container } from "../../common/Container";
 import { Layout, Title } from "./styled";
 import { useQueryParameters } from "../search/queryParameters";
+import { selectQuery } from "../../core/generalSlice";
+import ErrorPage from "../../common/ErrorPage";
+import Loader from "../../common/Loader";
+import { selectSearchMoviesStatus } from "../search/searchSlice";
+import { SearchMoviePage } from "../search/searchMoviePage";
 
 export const MoviesPage = () => {
   const dispatch = useDispatch();
   const status = useSelector(selectPopularMoviesStatus);
   const fetchResult = useSelector(selectPopularMoviesList);
   const page = useQueryParameters("page");
-
+  const query = useSelector(selectQuery);
+  const statusSearchMovie = useSelector(selectSearchMoviesStatus)
   useEffect(() => {
     dispatch(fetchPopularMovies(page))
   }, [dispatch, page]);
 
-  if (status === "success") {
-
+  if (status === "error") return <ErrorPage/>
+  if (status === "loading" && query === "") return <Loader searchFor={"popular movies"}/>
+  if (status === "success" && query === "") {
+    
     return (
       <>
         <Container>
@@ -45,4 +53,7 @@ export const MoviesPage = () => {
       </>
     );
   }
-};
+  if (statusSearchMovie === "error") return <ErrorPage/>
+  if (query !== "" && statusSearchMovie ==="loading") return <Loader searchFor={query}/> 
+  if (query !=="" && statusSearchMovie === "success") return <SearchMoviePage query={query}/>
+  };
