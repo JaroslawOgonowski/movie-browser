@@ -3,13 +3,14 @@ import { BackwardArrow, ForwardArrow } from "./buttonArrows";
 import { Button, ButtonText, PageNumber, StyledButtons, StyledPages, StyledPagination } from "./styled";
 import { fetchPopularPeople } from "../../features/peoplePage/popularPeopleSlice";
 import { fetchPopularMovies } from "../../features/moviesPage/popularMoviesSlice";
-import { selectNavigationSelected } from "../../core/generalSlice";
+import { selectNavigationSelected, selectQuery } from "../../core/generalSlice";
 import { useEffect } from "react";
 import { useReplaceQueryParameters } from "../../features/search/queryParameters";
+import { fetchSearchMoviesList, fetchSearchPeopleList } from "../../features/search/searchSlice";
 
 const Pagination = ({ page, totalPages }) => {
     const replaceQueryParameters = useReplaceQueryParameters();
-    
+    const query = useSelector(selectQuery)
     useEffect(() => {
         replaceQueryParameters({
             key: "page",
@@ -24,13 +25,11 @@ const Pagination = ({ page, totalPages }) => {
     const firstPage = 1
     const section = useSelector(selectNavigationSelected)
 
-    const pageSwitch = (page) => {
-        switch (section) {
-            case "people":
-                dispatch(fetchPopularPeople(page))
-                break
-            default: dispatch(fetchPopularMovies(page))
-        };
+    const pageSwitch = (currentPage) => {
+        if (section === "people" && query === "") dispatch(fetchPopularPeople(currentPage));
+        if (section === "people" && query != "") dispatch(fetchSearchPeopleList({ query: query, page: currentPage }));
+        if (section === "movies" && query === "") dispatch(fetchPopularMovies(currentPage));
+        if (section === "movies" && query != "") dispatch(fetchSearchMoviesList({ query: query, page: currentPage }));
     };
 
     return (
