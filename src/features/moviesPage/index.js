@@ -43,7 +43,7 @@ export const MoviesPage = () => {
           <Title>Popular movies </Title>
           <Layout>
             {fetchResult.results.map(movie => (
-              <Link key={movie.id} onClick={() => handleMovieClick(movie.id)} to={`/movie/id=${movie.id}`}>
+              <Link key={movie.id} onClick={() => handleMovieClick(movie.id)} to={`/movie/?id=${movie.id}`}>
                 <PopularMovieTile
                   key={movie.id}
                   poster={`${imagesAPI600x900}${movie.poster_path}`}

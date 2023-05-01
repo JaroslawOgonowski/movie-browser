@@ -6,16 +6,17 @@ import ErrorPage from "../../../common/ErrorPage";
 import Loader from "../../../common/Loader";
 import { imagesAPI600x900 } from "../../../core/API";
 
-
 export const MoviePage = () => {
   const id = useQueryParameters("id")
+  const movieInfo = useSelector(selectMovieInfo)
   const dispatch = useDispatch()
+
   useEffect(() => {
     if (id) {
       dispatch(fetchMovieById(id))
     }
   }, []);
-  const movieInfo = useSelector(selectMovieInfo)
+  
   console.log(movieInfo)
   const status = useSelector(selectMovieStatus)
   if (status === "error") return <ErrorPage />
