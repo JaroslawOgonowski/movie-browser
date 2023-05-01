@@ -25,11 +25,11 @@ const Pagination = ({ page, totalPages }) => {
     const firstPage = 1
     const section = useSelector(selectNavigationSelected)
 
-    const pageSwitch = (currentPage) => {
-        if (section === "people" && query === "") dispatch(fetchPopularPeople(currentPage));
-        if (section === "people" && query != "") dispatch(fetchSearchPeopleList({ query: query, page: currentPage }));
-        if (section === "movies" && query === "") dispatch(fetchPopularMovies(currentPage));
-        if (section === "movies" && query != "") dispatch(fetchSearchMoviesList({ query: query, page: currentPage }));
+    const pageSwitch = (targetPage) => {
+        if (section === "people" && query === "") dispatch(fetchPopularPeople(targetPage));
+        if (section === "people" && query != "") dispatch(fetchSearchPeopleList({ query: query, page: targetPage }));
+        if (section === "movies" && query === "") dispatch(fetchPopularMovies(targetPage));
+        if (section === "movies" && query != "") dispatch(fetchSearchMoviesList({ query: query, page: targetPage }));
     };
 
     return (
