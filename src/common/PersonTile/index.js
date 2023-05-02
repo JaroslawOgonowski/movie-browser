@@ -6,7 +6,7 @@ export const PersonTile = ({ name, profile_path, role }) => {
   return (
     <StyledContainer>
       <Photo src={profile_path ? `${imagesAPI600x900}${profile_path}` : photoPlaceholder} alt={name} />
-      <Name>{name}</Name>
+      <Name>{name ? name : null}</Name>
       <Role>{role ? role : null}</Role>
     </StyledContainer>
   )

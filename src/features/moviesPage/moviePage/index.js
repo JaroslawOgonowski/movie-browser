@@ -5,6 +5,8 @@ import { useEffect } from "react";
 import ErrorPage from "../../../common/ErrorPage";
 import Loader from "../../../common/Loader";
 import { imagesAPI600x900 } from "../../../core/API";
+import { PersonTile } from "../../../common/PersonTile";
+import { List } from "../../peoplePage/styled";
 
 export const MoviePage = () => {
   const id = useQueryParameters("id")
@@ -24,8 +26,29 @@ export const MoviePage = () => {
   if (status === "success")
     return (
       <>
-        <div>{movieInfo.original_title}</div>
-        <img src={`${imagesAPI600x900}${movieInfo.poster_path}`} alt={`${movieInfo.original_title}"orginal poster"`} />
+        <div>{movieInfo.movieDescription.original_title}</div>
+        <img src={`${imagesAPI600x900}${movieInfo.movieDescription.poster_path}`} alt={`${movieInfo.original_title}"orginal poster"`} />
+
+        <h2>Cast</h2>
+        <List>
+        {movieInfo.movieCrew.cast.map(actor=>
+         <PersonTile 
+         key={actor.id} 
+         name={actor.name}
+         profile_path={actor.profile_path}
+         role={actor.character}
+         />
+        )}</List>
+        <h2>Crew</h2>
+        <List>
+        {movieInfo.movieCrew.crew.map(person=>
+         <PersonTile 
+         key={person.id} 
+         name={person.name}
+         profile_path={person.profile_path}
+         role={person.job}
+         />
+        )}</List>
       </>
     );
 };
