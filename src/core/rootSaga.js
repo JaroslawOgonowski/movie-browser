@@ -3,6 +3,7 @@ import { localStorageSaga } from "./localStorageSaga";
 import { searchSaga } from "../features/search/searchSaga";
 import { popularMoviesSaga } from "../features/moviesPage/popularMoviesSaga";
 import { popularPeopleSaga } from "../features/peoplePage/popularPeopleSaga";
+import { movieSaga } from "../features/moviesPage/moviePage/movieSaga";
 
 export default function* rootSaga() {
   yield all([
@@ -10,5 +11,6 @@ export default function* rootSaga() {
     searchSaga(),
     popularMoviesSaga(),
     popularPeopleSaga(),
+    movieSaga(),
   ]);
 };
