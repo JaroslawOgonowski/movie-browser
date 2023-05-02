@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Title = styled.h2`
   margin-top: 56px;
@@ -36,4 +37,8 @@ export const Layout = styled.div`
         grid-template-columns: 1fr;
         margin: 12px auto 0;
     }
+`;
+
+export const TileLink = styled(Link)`
+      text-decoration: none;
 `;

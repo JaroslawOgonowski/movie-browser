@@ -5,14 +5,13 @@ import { imagesAPI600x900 } from "../../core/API";
 import Pagination from "../../common/Pagination";
 import PopularMovieTile from "../../common/PopularMovieTile";
 import { Container } from "../../common/Container";
-import { Layout, Title } from "./styled";
+import { Layout, TileLink, Title } from "./styled";
 import { useQueryParameters } from "../search/queryParameters";
 import { selectQuery } from "../../core/generalSlice";
 import ErrorPage from "../../common/ErrorPage";
 import Loader from "../../common/Loader";
 import { selectSearchMoviesStatus } from "../search/searchSlice";
 import { SearchMoviePage } from "../search/searchMoviePage";
-import { Link } from "react-router-dom";
 import { fetchMovieById } from "./moviePage/movieSlice";
 
 export const MoviesPage = () => {
@@ -43,7 +42,7 @@ export const MoviesPage = () => {
           <Title>Popular movies </Title>
           <Layout>
             {fetchResult.results.map(movie => (
-              <Link key={movie.id} onClick={() => handleMovieClick(movie.id)} to={`/movie/?id=${movie.id}`}>
+              <TileLink key={movie.id} onClick={() => handleMovieClick(movie.id)} to={`/movie/?id=${movie.id}`}>
                 <PopularMovieTile
                   key={movie.id}
                   poster={`${imagesAPI600x900}${movie.poster_path}`}
@@ -53,7 +52,7 @@ export const MoviesPage = () => {
                   voteCount={movie.vote_count}
                   genres={movie.genre_ids}
                 />
-              </Link>
+              </TileLink>
             ))}
           </Layout>
           <Pagination
