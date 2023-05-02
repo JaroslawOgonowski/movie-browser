@@ -1,9 +1,9 @@
 import { key, searchAPI } from "../../core/API";
 
     
-    export const getSearchMoviesList = async (query) => {
+    export const getSearchMoviesList = async (query, page) => {
       try {
-        const response = await fetch(`${searchAPI}/movie?api_key=${key}&language=en-US&query="+${query}+"&page=1&include_adult=false`);
+        const response = await fetch(`${searchAPI}/movie?api_key=${key}&language=en-US&query="+${query}+"&page=${page}&include_adult=false`);
         if (!response.ok) {
           throw new Error("An error occurred while searching movies.");
         }
@@ -14,9 +14,9 @@ import { key, searchAPI } from "../../core/API";
       }
     };
 
-    export const getSearchPeopleList = async (query) => {
+    export const getSearchPeopleList = async (query, page) => {
       try {
-        const response = await fetch(`${searchAPI}/person?api_key=${key}&language=en-US&query="+${query}+"&page=1&include_adult=false`);
+        const response = await fetch(`${searchAPI}/person?api_key=${key}&language=en-US&query="+${query}+"&page=${page}&include_adult=false`);
         if (!response.ok) {
           throw new Error("An error occurred while searching people.");
         }
