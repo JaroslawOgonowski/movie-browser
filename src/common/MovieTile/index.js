@@ -3,6 +3,7 @@ import star from "../images/star.svg";
 import placeholder from "./Poster.jpg"
 import { Genres } from "../../features/moviesPage/Genres/genres";
 import { Link } from "react-router-dom";
+import { imagesAPI600x900 } from "../../core/API";
 
 const MovieTile = ({ poster, title, date, rate, voteCount, genres, id }) => {
     const movieGenres = Genres.filter((genre) => genres.includes(genre.id));
@@ -10,7 +11,7 @@ const MovieTile = ({ poster, title, date, rate, voteCount, genres, id }) => {
     return (
         <Link to={`/movie/?id=${id}`} key={id}>
             <TileWrapper>
-                <Poster src={poster === "https://image.tmdb.org/t/p/w600_and_h900_bestv2/null" ? placeholder : poster}>
+                <Poster src={poster ? `${imagesAPI600x900}${poster}` : placeholder} alt={title}>
                 </Poster>
                 <InfoWrapper>
                     <Description>
@@ -25,9 +26,15 @@ const MovieTile = ({ poster, title, date, rate, voteCount, genres, id }) => {
                         </Tags>
                     </Description>
                     <Rating>
-                        <Star src={star} />
-                        <Rate>{rate ? rate : null}</Rate>
-                        <Votes>{voteCount ? voteCount : null} votes</Votes>
+                        {rate !== 0 && voteCount !== 0 ?
+                            <>
+                                <Star src={star} />
+                                <Rate>{rate ? rate : null}</Rate>
+                                <Votes>{voteCount ? `${voteCount} votes` : null} </Votes>
+                            </>
+                            :
+                            <Votes>No votes yet</Votes>
+                        }
                     </Rating>
                 </InfoWrapper>
             </TileWrapper>
