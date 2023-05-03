@@ -17,9 +17,8 @@ export const MoviePage = () => {
     if (id) {
       dispatch(fetchMovieById(id))
     }
-  }, []);
+  }, [dispatch, id]);
   
-  console.log(movieInfo)
   const status = useSelector(selectMovieStatus)
   if (status === "error") return <ErrorPage />
   if (status === "loading") return <Loader searchFor={"movie"} />
@@ -31,7 +30,7 @@ export const MoviePage = () => {
 
         <h2>Cast</h2>
         <List>
-        {movieInfo.movieCrew.cast.map(actor=>
+        {movieInfo.movieCrew.cast.slice(0,20).map(actor=>
          <PersonTile 
          key={actor.id} 
          name={actor.name}
@@ -41,7 +40,7 @@ export const MoviePage = () => {
         )}</List>
         <h2>Crew</h2>
         <List>
-        {movieInfo.movieCrew.crew.map(person=>
+        {movieInfo.movieCrew.crew.slice(0,10).map(person=>
          <PersonTile 
          key={person.id} 
          name={person.name}
