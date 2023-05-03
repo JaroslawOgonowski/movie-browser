@@ -12,20 +12,29 @@ import { selectSearchPeopleStatus } from "../search/searchSlice";
 import { SearchPeoplePage } from "../search/searchPeoplePage";
 
 
+
 export const PeoplePage = () => {
   const dispatch = useDispatch();
   const status = useSelector(selectPopularPeopleStatus);
   const fetchResult = useSelector(selectPopularPeopleList);
   const page = useQueryParameters("page");
-  const query = useSelector(selectQuery)
-  const statusSearchPeople = useSelector(selectSearchPeopleStatus)
+  const query = useSelector(selectQuery);
+  const statusSearchPeople = useSelector(selectSearchPeopleStatus);
+
+
   useEffect(() => {
     dispatch(fetchPopularPeople(page))
   }, [dispatch, page])
 
+
+
   if (status === "error") { return <ErrorPage /> }
   if (status === "loading" && query === "") { return <Loader searchFor={"popular people"} /> }
+  if (statusSearchPeople === "error") return <ErrorPage />
+  if (statusSearchPeople === "loading") return <Loader searchFor={query} />
+  if (statusSearchPeople === "success") return <SearchPeoplePage query={query} />
   if (status === "success" && query === "") {
+    
     return (
       <>
         <PopularPeoplePage>
@@ -37,6 +46,7 @@ export const PeoplePage = () => {
                   <PersonTile
                     name={person.name}
                     profile_path={person.profile_path}
+                    id={person.id}
                   />
                 </ListItem>
               ))}
@@ -50,7 +60,5 @@ export const PeoplePage = () => {
       </>
     );
   }
-  if (statusSearchPeople === "error") return <ErrorPage />
-  if ( statusSearchPeople === "loading") return <Loader searchFor={query} />
-  if ( statusSearchPeople === "success") return <SearchPeoplePage query={query} />
+
 };

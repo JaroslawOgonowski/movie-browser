@@ -16,6 +16,7 @@ import { useDispatch } from "react-redux";
 import { selectingNavigationMovies, selectingNavigationPeople } from "../../core/generalSlice";
 import { Search } from "../../features/search";
 import { MoviePage } from "../../features/moviesPage/moviePage";
+import { PersonPage } from "../../features/peoplePage/personPage";
 
 export const Header = () => {
   const dispatch = useDispatch();
@@ -56,6 +57,7 @@ export const Header = () => {
         <Route path="/movies"><MoviesPage /></Route>
         <Route path="/people"><PeoplePage /></Route>
         <Route path="/movie"><MoviePage /></Route>
+        <Route path="/person"><PersonPage/></Route>
         <Route path="/">
           <Redirect to="/movies" /></Route>
       </Switch>

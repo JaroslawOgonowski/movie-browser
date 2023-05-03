@@ -20,6 +20,7 @@ export const Photo = styled.img`
   width: 176px;
   height: 231px;
   margin: 16px 16px 12px 16px;
+  border-radius: 5px;
 
   @media(max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
     width: 120px;

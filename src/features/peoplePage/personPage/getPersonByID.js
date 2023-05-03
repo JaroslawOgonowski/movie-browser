@@ -1,9 +1,8 @@
-import { key, movieByIDAPI } from "../../../core/API";
+import { key, personAPI } from "../../../core/API";
 
-
-export const getMovieByID = async (id) => {
+export const getPersonByID = async (id) => {
   try {
-    const response = await fetch(`${movieByIDAPI}${id}?api_key=${key}&language=en-US`);
+    const response = await fetch(`${personAPI}${id}?api_key=${key}&language=en-US`);
     if (!response.ok) {
       throw new Error("An error occurred while searching movies.");
     }
@@ -14,9 +13,11 @@ export const getMovieByID = async (id) => {
   }
 };
 
-export const getCrewByID = async (id) => {
+
+export const getPersonInMoviesByID = async (id) => {
   try {
-    const response = await fetch(`${movieByIDAPI}${id}/credits?api_key=${key}&language=en-US`);
+    const response = await fetch(`${personAPI}${id}/movie_credits?api_key=${key}&language=en-US`);
+
     if (!response.ok) {
       throw new Error("An error occurred while searching movies.");
     }
@@ -26,3 +27,6 @@ export const getCrewByID = async (id) => {
     console.error(error);
   }
 };
+
+
+
