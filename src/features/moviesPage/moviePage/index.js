@@ -32,6 +32,7 @@ export const MoviePage = () => {
         <List>
         {movieInfo.movieCrew.cast.slice(0,20).map(actor=>
          <PersonTile 
+         id={actor.id}
          key={actor.id} 
          name={actor.name}
          profile_path={actor.profile_path}
@@ -46,6 +47,7 @@ export const MoviePage = () => {
          name={person.name}
          profile_path={person.profile_path}
          role={person.job}
+         id={person.id}
          />
         )}</List>
       </>
