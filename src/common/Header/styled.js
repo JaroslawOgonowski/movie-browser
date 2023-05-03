@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ReactComponent as Icon } from "./Video.svg";
+import { ReactComponent as Icon } from "../images/Video.svg"
 import { NavLink } from "react-router-dom";
 
 export const StyledIcon = styled(Icon)`
@@ -59,6 +59,11 @@ export const Container = styled.div`
     justify-content:space-between;
   };
 `;
+
+export const HomePageLink = styled(NavLink)`
+  text-decoration: none;
+  color: white;
+`;  
 
 export const TitleBox = styled.div`
   display: grid;
