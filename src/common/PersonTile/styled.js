@@ -1,4 +1,9 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+
+export const StyledLink = styled(Link)`
+    text-decoration: none;
+`;  
 
 export const StyledContainer = styled.div`
   width: 208px;

@@ -1,16 +1,17 @@
 import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 import { fetchPersonById, selectPersonInfo, selectPersontatus } from "./personSlice";
 import ErrorPage from "../../../common/ErrorPage";
 import Loader from "../../../common/Loader";
-import { useEffect } from "react";
-import { useQueryParameters } from "../../search/queryParameters";
 import MovieTile from "../../../common/MovieTile";
+import { useQueryParameters } from "../../search/queryParameters";
 
 export const PersonPage = () => {
   const id = useQueryParameters("id")
   const personInfo = useSelector(selectPersonInfo)
   const dispatch = useDispatch()
   const status = useSelector(selectPersontatus)
+  
   useEffect(() => {
     if (id) {
       dispatch(fetchPersonById(id))
