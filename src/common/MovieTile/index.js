@@ -1,15 +1,29 @@
-import { ButtonTag, Description, InfoWrapper, MovieTitle, Poster, Rate, Rating, Release, Star, Tag, Tags, TileWrapper, Votes } from "./styled";
 import star from "../images/star.svg";
-import placeholder from "./Poster.jpg"
+import placeholder from "../images/Poster.jpg"
 import { Genres } from "../../features/moviesPage/Genres/genres";
-import { Link } from "react-router-dom";
 import { imagesAPI600x900 } from "../../core/API";
+import {
+    ButtonTag,
+    Description,
+    InfoWrapper,
+    MovieTitle,
+    Poster,
+    Rate,
+    Rating,
+    Release,
+    Star,
+    StyledLink,
+    Tag,
+    Tags,
+    TileWrapper,
+    Votes
+} from "./styled";
 
 const MovieTile = ({ poster, title, date, rate, voteCount, genres, id }) => {
     const movieGenres = Genres.filter((genre) => genres.includes(genre.id));
 
     return (
-        <Link to={`/movie/?id=${id}`} key={id}>
+        <StyledLink to={`/movie/?id=${id}`} key={id}>
             <TileWrapper>
                 <Poster src={poster ? `${imagesAPI600x900}${poster}` : placeholder} alt={title}>
                 </Poster>
@@ -18,7 +32,7 @@ const MovieTile = ({ poster, title, date, rate, voteCount, genres, id }) => {
                         <MovieTitle>{title}</MovieTitle>
                         <Release>{date ? date.slice(0, 4) : null}</Release>
                         <Tags>
-                            {genres ? movieGenres.map((genre) => (
+                            {genres ? movieGenres.slice(0,3).map((genre) => (
                                 <ButtonTag key={genre.id}>
                                     <Tag>{genre.name}</Tag>
                                 </ButtonTag>
@@ -38,7 +52,7 @@ const MovieTile = ({ poster, title, date, rate, voteCount, genres, id }) => {
                     </Rating>
                 </InfoWrapper>
             </TileWrapper>
-        </Link>
+        </StyledLink>
     );
 }
 

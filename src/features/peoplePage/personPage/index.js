@@ -1,16 +1,18 @@
 import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 import { fetchPersonById, selectPersonInfo, selectPersontatus } from "./personSlice";
 import ErrorPage from "../../../common/ErrorPage";
 import Loader from "../../../common/Loader";
-import { useEffect } from "react";
-import { useQueryParameters } from "../../search/queryParameters";
 import MovieTile from "../../../common/MovieTile";
+import { useQueryParameters } from "../../search/queryParameters";
+import { Layout } from "../../moviesPage/styled";
 
 export const PersonPage = () => {
   const id = useQueryParameters("id")
   const personInfo = useSelector(selectPersonInfo)
   const dispatch = useDispatch()
   const status = useSelector(selectPersontatus)
+  
   useEffect(() => {
     if (id) {
       dispatch(fetchPersonById(id))
@@ -28,7 +30,7 @@ export const PersonPage = () => {
           null :
           <>
             <h2>Movies- cast ({personInfo.personMovies.cast.length})</h2>
-            <div>{personInfo.personMovies.cast.map(movie =>
+            <Layout>{personInfo.personMovies.cast.map(movie =>
               <MovieTile
                 key={movie.id}
                 id={movie.id}
@@ -40,13 +42,13 @@ export const PersonPage = () => {
                 genres={movie.genre_ids}
 
               />
-            )}</div></>
+            )}</Layout></>
         }
         {personInfo.personMovies.crew.length === 0 ?
           null :
           <>
             <h2>Movies- crew ({personInfo.personMovies.crew.length})</h2>
-            <div>{personInfo.personMovies.crew.map(movie =>
+            <Layout>{personInfo.personMovies.crew.map(movie =>
               <MovieTile
                 key={movie.id}
                 id={movie.id}
@@ -58,7 +60,7 @@ export const PersonPage = () => {
                 genres={movie.genre_ids}
 
               />
-            )}</div></>
+            )}</Layout></>
         }
       </>
     )

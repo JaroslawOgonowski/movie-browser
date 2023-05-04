@@ -6,14 +6,13 @@ const popularMoviesSlice = createSlice({
   {
     popularMoviesList: null,
     status: null,
-    page: 1,
   },
 
   reducers: {
-    fetchPopularMovies: (pageQuery) => ({
+    fetchPopularMovies: (page) => ({
       status: "loading",
       popularMoviesList: null,
-      pageQuery
+      page
     }),
     fetchPopularMoviesSuccess: (_, { payload: popularMoviesList }) => ({
       status: "success",

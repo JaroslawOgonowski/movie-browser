@@ -9,7 +9,7 @@ export const StyledPagination = styled.div`
     @media (max-width: ${({theme}) => theme.breakPoints.mobileMax}px) {
         gap: 8px;
         margin: 32px 0 31px;
-    }
+    };
 `;
 
 export const StyledButtons = styled.div`
@@ -18,7 +18,7 @@ export const StyledButtons = styled.div`
 
     @media (max-width: ${({theme}) => theme.breakPoints.mobileMax}px) {
         gap: 8px;
-    }
+    };
 `;
 
 export const Button = styled.button`
@@ -33,15 +33,20 @@ export const Button = styled.button`
     background: ${({theme}) => theme.color.pattensBlue};
     cursor: pointer;
     border: none;
+    transition: 0.5s;
+
+    &:hover{
+    filter: brightness(0.8);
+    };
 
     &:disabled {
         background: ${({theme}) => theme.color.mystic};
         cursor: not-allowed;
-    }
+    };
     
     @media (max-width: ${({theme}) => theme.breakPoints.mobileMax}px) {
         gap: 4px;
-    }
+    };
 `;
 
 export const StyledPages = styled.div`
@@ -54,7 +59,7 @@ export const StyledPages = styled.div`
 
     @media (max-width: ${({theme}) => theme.breakPoints.mobileMax}px) {
         font-size: 10px;
-    }
+    };
 `;
 
 export const PageNumber = styled.span`
@@ -65,7 +70,7 @@ export const PageNumber = styled.span`
 export const ButtonText = styled.div`
     @media (max-width: ${({theme}) => theme.breakPoints.notebook}px) {
         display: none;
-    } 
+    }; 
 `;
 
 export const Wrapper = styled.div`
@@ -73,5 +78,5 @@ export const Wrapper = styled.div`
 
     @media (max-width: ${({theme}) => theme.breakPoints.notebook}px) {
         display: flex;
-    } 
+    }; 
 `;

@@ -10,20 +10,20 @@ import { fetchSearchMoviesList, fetchSearchPeopleList } from "../../features/sea
 
 const Pagination = ({ page, totalPages }) => {
     const replaceQueryParameters = useReplaceQueryParameters();
-    const query = useSelector(selectQuery)
+    const dispatch = useDispatch();
+    const query = useSelector(selectQuery);
+    const section = useSelector(selectNavigationSelected);
+    const nextPage = page + 1;
+    const lastPage = totalPages > 500 ? 500 : totalPages;
+    const previousPage = page - 1;
+    const firstPage = 1;
+    
     useEffect(() => {
         replaceQueryParameters({
             key: "page",
             value: page,
         });
     }, []);
-
-    const dispatch = useDispatch();
-    const nextPage = page + 1
-    const lastPage = totalPages > 500 ? 500 : totalPages
-    const previousPage = page - 1
-    const firstPage = 1
-    const section = useSelector(selectNavigationSelected)
 
     const pageSwitch = (targetPage) => {
         if (section === "people" && query === "") dispatch(fetchPopularPeople(targetPage));

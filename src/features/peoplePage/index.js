@@ -1,17 +1,15 @@
 import { useDispatch, useSelector } from "react-redux";
-import { fetchPopularPeople, selectPopularPeopleList, selectPopularPeopleStatus } from "./popularPeopleSlice";
 import { useEffect } from "react";
-import Pagination from "../../common/Pagination";
-import { PersonTile } from "../../common/PersonTile";
-import { Box, List, ListItem, PopularPeoplePage, Title } from "./styled";
 import { useQueryParameters } from "../search/queryParameters";
 import { selectQuery } from "../../core/generalSlice";
+import { selectSearchPeopleStatus } from "../search/searchSlice";
+import { fetchPopularPeople, selectPopularPeopleList, selectPopularPeopleStatus } from "./popularPeopleSlice";
 import Loader from "../../common/Loader";
 import ErrorPage from "../../common/ErrorPage";
-import { selectSearchPeopleStatus } from "../search/searchSlice";
+import Pagination from "../../common/Pagination";
+import { PersonTile } from "../../common/PersonTile";
 import { SearchPeoplePage } from "../search/searchPeoplePage";
-
-
+import { Box, List, ListItem, PopularPeoplePage, Title } from "./styled";
 
 export const PeoplePage = () => {
   const dispatch = useDispatch();
@@ -21,12 +19,9 @@ export const PeoplePage = () => {
   const query = useSelector(selectQuery);
   const statusSearchPeople = useSelector(selectSearchPeopleStatus);
 
-
   useEffect(() => {
     dispatch(fetchPopularPeople(page))
-  }, [dispatch, page])
-
-
+  }, [dispatch, page]);
 
   if (status === "error") { return <ErrorPage /> }
   if (status === "loading" && query === "") { return <Loader searchFor={"popular people"} /> }
@@ -34,7 +29,7 @@ export const PeoplePage = () => {
   if (statusSearchPeople === "loading") return <Loader searchFor={query} />
   if (statusSearchPeople === "success") return <SearchPeoplePage query={query} />
   if (status === "success" && query === "") {
-    
+
     return (
       <>
         <PopularPeoplePage>

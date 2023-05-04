@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ReactComponent as Icon } from "./Video.svg";
+import { ReactComponent as Icon } from "../images/Video.svg"
 import { NavLink } from "react-router-dom";
 
 export const StyledIcon = styled(Icon)`
@@ -60,11 +60,22 @@ export const Container = styled.div`
   };
 `;
 
+export const HomePageLink = styled(NavLink)`
+  text-decoration: none;
+  color: white;
+`;
+
 export const TitleBox = styled.div`
   display: grid;
   grid-template-columns: auto 1fr;
   align-items: center;
   gap: 12px;
+  &:hover{
+    transition: 2s;
+    background-image: linear-gradient(45deg,   violet, red, orange, yellow, green, blue, indigo);
+    -webkit-background-clip: text;
+    color: transparent;
+  };
  
   @media(max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
     gap: 8px;
@@ -113,13 +124,22 @@ export const StyledNavLink = styled(NavLink)`
   font-size: 14px;
   text-transform: uppercase;
   padding: 13.5px 24px;
-  
+  margin-right: 2px;
+
+  &:hover{
+    transition: color 1s;
+    background-image: linear-gradient(45deg, violet, red, orange, yellow, green, blue, indigo);
+    -webkit-background-clip: text;
+    color: transparent;
+  };
+ 
+
   &.active {     
-    border: 1px solid;
+    border: 1px solid white;
     border-radius: 45px;
   };
-  
-  @media(max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
+
+ @media(max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
     font-size: 12px;
     line-height: 18px;
     padding: 8px 12px;
