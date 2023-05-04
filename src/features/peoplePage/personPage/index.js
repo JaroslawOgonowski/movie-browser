@@ -5,6 +5,7 @@ import ErrorPage from "../../../common/ErrorPage";
 import Loader from "../../../common/Loader";
 import MovieTile from "../../../common/MovieTile";
 import { useQueryParameters } from "../../search/queryParameters";
+import { Layout } from "../../moviesPage/styled";
 
 export const PersonPage = () => {
   const id = useQueryParameters("id")
@@ -29,7 +30,7 @@ export const PersonPage = () => {
           null :
           <>
             <h2>Movies- cast ({personInfo.personMovies.cast.length})</h2>
-            <div>{personInfo.personMovies.cast.map(movie =>
+            <Layout>{personInfo.personMovies.cast.map(movie =>
               <MovieTile
                 key={movie.id}
                 id={movie.id}
@@ -41,13 +42,13 @@ export const PersonPage = () => {
                 genres={movie.genre_ids}
 
               />
-            )}</div></>
+            )}</Layout></>
         }
         {personInfo.personMovies.crew.length === 0 ?
           null :
           <>
             <h2>Movies- crew ({personInfo.personMovies.crew.length})</h2>
-            <div>{personInfo.personMovies.crew.map(movie =>
+            <Layout>{personInfo.personMovies.crew.map(movie =>
               <MovieTile
                 key={movie.id}
                 id={movie.id}
@@ -59,7 +60,7 @@ export const PersonPage = () => {
                 genres={movie.genre_ids}
 
               />
-            )}</div></>
+            )}</Layout></>
         }
       </>
     )

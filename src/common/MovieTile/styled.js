@@ -3,9 +3,15 @@ import { Link } from "react-router-dom";
 
 export const StyledLink = styled(Link)`
     text-decoration: none;
+    transition: 0.5s;
+    
+    &:hover{
+        transform: scale(1.07);
+    };
 `;  
 
 export const TileWrapper = styled.div`
+    height: 650px;
     background-color: ${({ theme }) => theme.color.white};
     border-radius: 5px;
     box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
@@ -93,7 +99,7 @@ export const Release = styled.p`
 
 export const Tags = styled.div`
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     padding: 0;
     margin: 0;
     align-items: center;

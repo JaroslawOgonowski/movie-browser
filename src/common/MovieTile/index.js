@@ -32,7 +32,7 @@ const MovieTile = ({ poster, title, date, rate, voteCount, genres, id }) => {
                         <MovieTitle>{title}</MovieTitle>
                         <Release>{date ? date.slice(0, 4) : null}</Release>
                         <Tags>
-                            {genres ? movieGenres.map((genre) => (
+                            {genres ? movieGenres.slice(0,3).map((genre) => (
                                 <ButtonTag key={genre.id}>
                                     <Tag>{genre.name}</Tag>
                                 </ButtonTag>

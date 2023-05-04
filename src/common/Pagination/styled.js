@@ -33,6 +33,11 @@ export const Button = styled.button`
     background: ${({theme}) => theme.color.pattensBlue};
     cursor: pointer;
     border: none;
+    transition: 0.5s;
+
+    &:hover{
+    filter: brightness(0.8);
+    };
 
     &:disabled {
         background: ${({theme}) => theme.color.mystic};
