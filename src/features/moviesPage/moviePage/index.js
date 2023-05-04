@@ -7,6 +7,8 @@ import Loader from "../../../common/Loader";
 import { imagesAPI600x900 } from "../../../core/API";
 import { PersonTile } from "../../../common/PersonTile";
 import { List } from "../../peoplePage/styled";
+import BigMovieTile from "./BigMovieTile";
+import { Container } from "../../../common/Container";
 
 export const MoviePage = () => {
   const id = useQueryParameters("id")
@@ -25,9 +27,13 @@ export const MoviePage = () => {
   if (status === "success")
     return (
       <>
-        <div>{movieInfo.movieDescription.original_title}</div>
-        <img src={`${imagesAPI600x900}${movieInfo.movieDescription.poster_path}`} alt={`${movieInfo.original_title}"orginal poster"`} />
-
+        <BigMovieTile 
+          poster={movieInfo.movieDescription.backdrop_path}
+          rate={movieInfo.movieDescription.vote_average}
+          title={movieInfo.movieDescription.title}
+          voteCount={movieInfo.movieDescription.vote_count}
+        />
+        <Container>
         <h2>Cast</h2>
         <List>
         {movieInfo.movieCrew.cast.slice(0,20).map(actor=>
@@ -50,6 +56,7 @@ export const MoviePage = () => {
          id={person.id}
          />
         )}</List>
+        </Container>
       </>
     );
 };
