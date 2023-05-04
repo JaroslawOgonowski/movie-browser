@@ -11,7 +11,7 @@ export const useReplaceQueryParameters = () => {
     const history = useHistory();
     const replaceQueryParameters = ({ key, value }) => {
         const searchParams = new URLSearchParams(location.search);
-        if (value === undefined) {
+        if (value === "") {
             searchParams.delete(key);
         } else {
             searchParams.set(key, value);

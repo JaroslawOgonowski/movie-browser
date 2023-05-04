@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useQueryParameters } from "../search/queryParameters";
-import { imagesAPI600x900 } from "../../core/API";
 import { selectQuery } from "../../core/generalSlice";
 import { fetchPopularMovies, selectPopularMoviesList, selectPopularMoviesStatus } from "./popularMoviesSlice";
 import { selectSearchMoviesStatus } from "../search/searchSlice";
@@ -42,7 +41,7 @@ export const MoviesPage = () => {
               <MovieTile
                 id={movie.id}
                 key={movie.id}
-                poster={`${imagesAPI600x900}${movie.poster_path}`}
+                poster={movie.poster_path}
                 title={movie.title}
                 date={movie.release_date}
                 rate={movie.vote_average}

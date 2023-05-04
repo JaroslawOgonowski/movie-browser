@@ -5,7 +5,6 @@ import NoResultPage from "../../../common/NoResultPage"
 import { Container } from "../../../common/Container"
 import PageHeader from "../../../common/PageHeader"
 import MovieTile from "../../../common/MovieTile"
-import { imagesAPI600x900 } from "../../../core/API"
 import { Layout } from "../../moviesPage/styled"
 
 export const SearchMoviePage = ({ query }) => {
@@ -20,7 +19,7 @@ export const SearchMoviePage = ({ query }) => {
             <MovieTile
               id={movie.id}
               key={movie.id}
-              poster={`${imagesAPI600x900}${movie.poster_path}`}
+              poster={movie.poster_path}
               title={movie.title}
               date={movie.release_date}
               rate={movie.vote_average}
