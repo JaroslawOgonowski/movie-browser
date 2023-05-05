@@ -1,16 +1,17 @@
-import { changeQuery, selectNavigationSelected } from "../../core/generalSlice";
+import { changeQuery } from "../../core/generalSlice";
 import { Input } from "./styled";
 import { useQueryParameters, useReplaceQueryParameters } from "./queryParameters";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { fetchSearchMoviesList, fetchSearchPeopleList } from "./searchSlice";
 import { useEffect } from "react";
+import { useLocation } from 'react-router-dom';
 
 export const Search = () => {
-  const navigationSelector = useSelector(selectNavigationSelected);
   const dispatch = useDispatch();
   const replaceQueryParameters = useReplaceQueryParameters();
-  const page = useQueryParameters("page")
+  const page = useQueryParameters("page");
   const query = useQueryParameters("search");
+  const { pathname } = useLocation();
 
   const onInputChange = ({ target }) => {
     dispatch(changeQuery(target.value));
@@ -25,15 +26,15 @@ export const Search = () => {
         value: "",
       });
     }
-    else if (navigationSelector === "movies") {
-      dispatch(fetchSearchMoviesList({ query: target.value.trim(), page: 1 }))
+    else if (pathname.includes("/movie")){
+      dispatch(fetchSearchMoviesList({ query: target.value.trim(), page: 1 }));
     }
     else dispatch(fetchSearchPeopleList({ query: target.value.trim(), page: 1 }));
   }
 
   useEffect(() => {
-    if (navigationSelector === "movies") {
-      dispatch(fetchSearchMoviesList({ query: query, page: page }))
+    if (pathname.includes("/movie") ) {
+      dispatch(fetchSearchMoviesList({ query: query, page: page }));
     }
     else dispatch(fetchSearchPeopleList({ query: query, page: page }));
   }, []);
@@ -46,7 +47,7 @@ export const Search = () => {
       debounceTimeout={500}
       minLength={2}
       placeholder={
-        navigationSelector === "movies" ?
+        pathname.includes("/movie") ?
           "Search for movies..." :
           "Search for people..."
       } />
