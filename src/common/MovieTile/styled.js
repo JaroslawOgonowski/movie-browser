@@ -6,7 +6,7 @@ export const StyledLink = styled(Link)`
     transition: 0.5s;
     
     &:hover{
-        transform: scale(1.07);
+        transform: scale(1.05);
     };
 `;  
 

@@ -37,7 +37,7 @@ export const PeoplePage = () => {
           <Box>
             <List>
               {peopleList.results.map(person => (
-                <ListItem key={person.id}>
+                <ListItem key={`${person.id}`}>
                   <PersonTile
                     name={person.name}
                     profile_path={person.profile_path}
@@ -54,6 +54,5 @@ export const PeoplePage = () => {
         />
       </>
     );
-  }
-
+  };
 };
