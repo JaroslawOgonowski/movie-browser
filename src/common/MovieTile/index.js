@@ -25,7 +25,7 @@ const MovieTile = ({ poster, title, date, rate, voteCount, genres, id }) => {
     const movieGenres = Genres.filter((genre) => genres.includes(genre.id));
     const dispatch = useDispatch();
     return (
-        <StyledLink to={`/movie/?id=${id}`} key={`${id}${poster}`} onClick={() => dispatch(selectingNavigationMovies())}>
+        <StyledLink to={`/movie/?id=${id}`} key={id} onClick={() => dispatch(selectingNavigationMovies())}>
             <TileWrapper>
                 <Poster src={poster == null ? placeholder : `${imagesAPI600x900}${poster}`} alt={title}>
                 </Poster>

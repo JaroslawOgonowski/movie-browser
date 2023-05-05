@@ -16,7 +16,7 @@ export const Search = () => {
     dispatch(changeQuery(target.value));
     replaceQueryParameters({
       key: "search",
-      value: query !== "" ? target.value : null,
+      value: query !== null ? target.value : null,
     });
 
     if (target.value === "") {

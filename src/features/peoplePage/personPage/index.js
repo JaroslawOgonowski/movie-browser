@@ -37,7 +37,7 @@ export const PersonPage = () => {
             <h2>Movies- cast ({personInfo.personMovies.cast.length})</h2>
             <Layout>{personInfo.personMovies.cast.map(movie =>
               <MovieTile
-                key={movie.id}
+                key={`${movie.id}${movie.character}`}
                 id={movie.id}
                 poster={movie.poster_path}
                 title={movie.original_title}
@@ -55,7 +55,7 @@ export const PersonPage = () => {
             <h2>Movies- crew ({personInfo.personMovies.crew.length})</h2>
             <Layout>{personInfo.personMovies.crew.map(movie =>
               <MovieTile
-                key={movie.id}
+                key={`${movie.id}${movie.job}`}
                 id={movie.id}
                 poster={movie.poster_path}
                 title={movie.original_title}

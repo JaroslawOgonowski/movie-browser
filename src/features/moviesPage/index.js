@@ -40,7 +40,7 @@ export const MoviesPage = () => {
             {movieList.results.map(movie => (
               <MovieTile
                 id={movie.id}
-                key={movie.id}
+                key={`${movie.id}${movie.index}`}
                 poster={movie.poster_path}
                 title={movie.title}
                 date={movie.release_date}
