@@ -10,11 +10,10 @@ export const Title = styled.h1`
     @media (max-width: ${({theme}) => theme.breakPoints.notebook}px) {
         font-size: 30px;
         margin: 40px 0 18px;
-    }
+    };
 
     @media (max-width: ${({theme}) => theme.breakPoints.mobileMax}px) {
         font-size: 14px;
         margin: 24px 0 12px;
-        text-align: center;
-    }
+    };
 `;

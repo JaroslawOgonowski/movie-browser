@@ -15,7 +15,7 @@ export const StyledHeader = styled.header`
   background-color: ${({ theme }) => theme.color.mainBlack};
   display: flex;
   justify-content: center;
-  
+   
   @media(max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
     justify-content: space-evenly;
   };

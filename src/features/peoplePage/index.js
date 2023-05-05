@@ -9,7 +9,8 @@ import ErrorPage from "../../common/ErrorPage";
 import Pagination from "../../common/Pagination";
 import { PersonTile } from "../../common/PersonTile";
 import { SearchPeoplePage } from "../search/searchPeoplePage";
-import { Box, List, ListItem, PopularPeoplePage, Title } from "./styled";
+import { Box, List, ListItem, PopularPeoplePage } from "./styled";
+import PageHeader from "../../common/PageHeader";
 
 export const PeoplePage = () => {
   const dispatch = useDispatch();
@@ -24,16 +25,16 @@ export const PeoplePage = () => {
   }, [dispatch, page]);
 
   if (status === "error") { return <ErrorPage /> }
-  if (status === "loading" && query === "") { return <Loader searchFor={"popular people"} /> }
   if (statusSearchPeople === "error") return <ErrorPage />
-  if (statusSearchPeople === "loading") return <Loader searchFor={query} />
-  if (statusSearchPeople === "success") return <SearchPeoplePage query={query} />
+  if (status === "loading" && query === "") { return <Loader searchFor={"popular people"} /> }
+  if (query !== "" && statusSearchPeople === "loading") return <Loader searchFor={query} />
+  if (query !== "" && statusSearchPeople === "success") return <SearchPeoplePage query={query} />
   if (status === "success" && query === "") {
 
     return (
       <>
         <PopularPeoplePage>
-          <Title>Popular people</Title>
+          <PageHeader title={"Popular people"} />
           <Box>
             <List>
               {fetchResult.results.map(person => (
