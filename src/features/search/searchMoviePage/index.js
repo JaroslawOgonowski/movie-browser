@@ -6,14 +6,16 @@ import { Container } from "../../../common/Container"
 import PageHeader from "../../../common/PageHeader"
 import MovieTile from "../../../common/MovieTile"
 import { Layout } from "../../moviesPage/styled"
+import { useQueryParameters } from "../queryParameters"
 
-export const SearchMoviePage = ({ query }) => {
-  const { page, results, total_pages, total_results } = useSelector(selectMovies)
-  if (total_results === 0) return <NoResultPage query={query} />
+export const SearchMoviePage = () => {
+  const { page, results, total_pages, total_results } = useSelector(selectMovies);
+  const searchParams = useQueryParameters("search");
+  if (total_results === 0) return <NoResultPage query={searchParams} />
   else
     return (
       <Container>
-        <PageHeader title={`Search results for "${query}" (${total_results})`} />
+        <PageHeader title={`Search results for "${searchParams}" (${total_results})`} />
         <Layout>
           {results.map(movie => (
             <MovieTile
