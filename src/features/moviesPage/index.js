@@ -30,7 +30,7 @@ export const MoviesPage = () => {
   if (statusSearchMovie === "error") return <ErrorPage />
   if (status === "loading" && query === "") return <Loader searchFor={"popular movies"} />
   if (query !== "" && statusSearchMovie === "loading") return <Loader searchFor={query} />
-  if (query !== "" && statusSearchMovie === "success") return <SearchMoviePage query={query} />
+  if (query !== "" && statusSearchMovie === "success") return <SearchMoviePage />
   if (status === "success" && query === "")
     return (
       <>

@@ -6,14 +6,16 @@ import PageHeader from "../../../common/PageHeader"
 import { Container } from "../../../common/Container"
 import { List, ListItem } from "../../peoplePage/styled"
 import { PersonTile } from "../../../common/PersonTile"
+import { useQueryParameters } from "../queryParameters"
 
-export const SearchPeoplePage = ({ query }) => {
-  const { page, results, total_pages, total_results } = useSelector(selectSearchPeople)
-  if (total_results === 0) return <NoResultPage query={query} />
+export const SearchPeoplePage = () => {
+  const { page, results, total_pages, total_results } = useSelector(selectSearchPeople);
+  const searchParams = useQueryParameters("search");
+  if (total_results === 0) return <NoResultPage query={searchParams} />
   else
     return (
       <Container>
-        <PageHeader title={`Search results for "${query}" (${total_results})`} />
+        <PageHeader title={`Search results for "${searchParams}" (${total_results})`} />
         <List>
           {results.map(object => (
             <ListItem key={object.id}>

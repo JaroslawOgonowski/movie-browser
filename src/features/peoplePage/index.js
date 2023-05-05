@@ -28,7 +28,7 @@ export const PeoplePage = () => {
   if (statusSearchPeople === "error") return <ErrorPage />
   if (status === "loading" && query === "") { return <Loader searchFor={"popular people"} /> }
   if (query !== "" && statusSearchPeople === "loading") return <Loader searchFor={query} />
-  if (query !== "" && statusSearchPeople === "success") return <SearchPeoplePage query={query} />
+  if (query !== "" && statusSearchPeople === "success") return <SearchPeoplePage />
   if (status === "success" && query === "") {
     return (
       <>
