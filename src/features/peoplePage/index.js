@@ -15,7 +15,7 @@ import PageHeader from "../../common/PageHeader";
 export const PeoplePage = () => {
   const dispatch = useDispatch();
   const status = useSelector(selectPopularPeopleStatus);
-  const fetchResult = useSelector(selectPopularPeopleList);
+  const peopleList = useSelector(selectPopularPeopleList);
   const page = useQueryParameters("page");
   const query = useSelector(selectQuery);
   const statusSearchPeople = useSelector(selectSearchPeopleStatus);
@@ -30,14 +30,13 @@ export const PeoplePage = () => {
   if (query !== "" && statusSearchPeople === "loading") return <Loader searchFor={query} />
   if (query !== "" && statusSearchPeople === "success") return <SearchPeoplePage query={query} />
   if (status === "success" && query === "") {
-
     return (
       <>
         <PopularPeoplePage>
           <PageHeader title={"Popular people"} />
           <Box>
             <List>
-              {fetchResult.results.map(person => (
+              {peopleList.results.map(person => (
                 <ListItem key={person.id}>
                   <PersonTile
                     name={person.name}
@@ -50,8 +49,8 @@ export const PeoplePage = () => {
           </Box>
         </PopularPeoplePage>
         <Pagination
-          page={fetchResult.page}
-          totalPages={fetchResult.total_pages}
+          page={peopleList.page}
+          totalPages={peopleList.total_pages}
         />
       </>
     );

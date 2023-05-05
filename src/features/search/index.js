@@ -1,16 +1,16 @@
 import { changeQuery, selectNavigationSelected } from "../../core/generalSlice";
 import { Input } from "./styled";
 import { useQueryParameters, useReplaceQueryParameters } from "./queryParameters";
-
 import { useDispatch, useSelector } from "react-redux";
 import { fetchSearchMoviesList, fetchSearchPeopleList } from "./searchSlice";
-import { SearchMoviePage } from "./searchMoviePage";
+import { useEffect } from "react";
 
 export const Search = () => {
   const navigationSelector = useSelector(selectNavigationSelected);
   const dispatch = useDispatch();
-  const query = useQueryParameters("search");
   const replaceQueryParameters = useReplaceQueryParameters();
+  const page = useQueryParameters("page")
+  const query = useQueryParameters("search");
 
   const onInputChange = ({ target }) => {
     dispatch(changeQuery(target.value));
@@ -27,10 +27,16 @@ export const Search = () => {
     }
     else if (navigationSelector === "movies") {
       dispatch(fetchSearchMoviesList({ query: target.value.trim(), page: 1 }))
-      return (<SearchMoviePage />)
     }
     else dispatch(fetchSearchPeopleList({ query: target.value.trim(), page: 1 }));
   }
+
+  useEffect(() => {
+    if (navigationSelector === "movies") {
+      dispatch(fetchSearchMoviesList({ query: query, page: page }))
+    }
+    else dispatch(fetchSearchPeopleList({ query: query, page: page }));
+  }, []);
 
   return (
 
