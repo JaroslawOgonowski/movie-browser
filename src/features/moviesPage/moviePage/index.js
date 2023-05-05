@@ -8,11 +8,16 @@ import { PersonTile } from "../../../common/PersonTile";
 import { List } from "../../peoplePage/styled";
 import MoviePageHeader from "./moviePageHeader";
 import { Container } from "../../../common/Container";
+import { selectSearchMoviesStatus } from "../../search/searchSlice";
+import { SearchMoviePage } from "../../search/searchMoviePage";
 
 export const MoviePage = () => {
-  const id = useQueryParameters("id")
-  const movieInfo = useSelector(selectMovieInfo)
-  const dispatch = useDispatch()
+  const id = useQueryParameters("id");
+  const query = useQueryParameters("search");
+  const movieInfo = useSelector(selectMovieInfo);
+  const dispatch = useDispatch();
+  const searchStatus = useSelector(selectSearchMoviesStatus);
+  const status = useSelector(selectMovieStatus);
 
   useEffect(() => {
     if (id) {
@@ -20,10 +25,10 @@ export const MoviePage = () => {
     }
   }, [dispatch, id]);
 
-  const status = useSelector(selectMovieStatus)
-  if (status === "error") return <ErrorPage />
-  if (status === "loading") return <Loader searchFor={"movie"} />
-  if (status === "success")
+  if (status === "error" && query === null) return <ErrorPage />
+  if (status === "loading" && query === null) return <Loader searchFor={"movie"} />
+  if (searchStatus === "success" && query !== null) return <SearchMoviePage />
+  if (status === "success" && query === null)
     return (
       <>
         <MoviePageHeader

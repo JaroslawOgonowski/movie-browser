@@ -6,22 +6,27 @@ import Loader from "../../../common/Loader";
 import MovieTile from "../../../common/MovieTile";
 import { useQueryParameters } from "../../search/queryParameters";
 import { Layout } from "../../moviesPage/styled";
+import { selectSearchPeopleStatus } from "../../search/searchSlice";
+import { SearchPeoplePage } from "../../search/searchPeoplePage";
 
 export const PersonPage = () => {
-  const id = useQueryParameters("id")
-  const personInfo = useSelector(selectPersonInfo)
-  const dispatch = useDispatch()
-  const status = useSelector(selectPersontatus)
-  
+  const id = useQueryParameters("id");
+  const query = useQueryParameters("search");
+  const personInfo = useSelector(selectPersonInfo);
+  const dispatch = useDispatch();
+  const status = useSelector(selectPersontatus);
+  const searchStatus = useSelector(selectSearchPeopleStatus);
+
   useEffect(() => {
     if (id) {
       dispatch(fetchPersonById(id))
     }
   }, [dispatch, id]);
 
-  if (status === "error") return <ErrorPage />
-  if (status === "loading") return <Loader searchFor={"person"} />
-  if (status === "success")
+  if (status === "error" && query === null) return <ErrorPage />
+  if (status === "loading" && query === null) return <Loader searchFor={"person"} />
+  if (searchStatus === "success" && query !== null) return <SearchPeoplePage />
+  if (status === "success" && query === null)
     return (
       <>
         <div>{personInfo.personDescription.name}</div>
