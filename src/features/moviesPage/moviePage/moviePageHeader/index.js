@@ -2,7 +2,7 @@ import { imagesApi } from "../../../../core/API";
 import { BackDropWrapper, BackGround, Backdrop, Information, Rate, Rating, Star, Title, Votes } from "./styled";
 import star from "../../../../common/images/star.svg"
 
-const BigMovieTile = ({ poster, title, rate, voteCount }) => (
+const MoviePageHeader = ({ poster, title, rate, voteCount }) => (
     <BackGround>
         <BackDropWrapper>
             <Information>
@@ -20,4 +20,4 @@ const BigMovieTile = ({ poster, title, rate, voteCount }) => (
     </BackGround>
 );
 
-export default BigMovieTile;
+export default MoviePageHeader;

@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const BackGround = styled.div`
-    background-color: ${({theme}) => theme.color.black};
-    color: ${({theme}) => theme.color.white};
+    background-color: ${({ theme }) => theme.color.black};
+    color: ${({ theme }) => theme.color.white};
 `;
 
 export const Backdrop = styled.img`
@@ -17,7 +17,7 @@ export const BackDropWrapper = styled.div`
 `;
 
 export const Information = styled.div`
-    background: ${({theme}) => theme.color.lineargradient};
+    background: ${({ theme }) => theme.color.lineargradient};
     background-position: center;
     background-size: 140%;
     width: 100%;
@@ -29,13 +29,13 @@ export const Information = styled.div`
     align-items: bottom;
 `;
 
-export const Title = styled.h1`
+export const Title = styled.h2`
   font-weight: 600;
   font-size: 64px;
   line-height: 1.2;
   margin-bottom: 24px;
   color: inherit;
-
+  
 `;
 
 export const Rating = styled.div`
