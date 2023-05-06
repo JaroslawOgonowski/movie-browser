@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import Pagination from "../../../common/Pagination"
 import { selectSearchPeople } from "../searchSlice"
 import NoResultPage from "../../../common/NoResultPage"
@@ -7,10 +7,35 @@ import { Container } from "../../../common/Container"
 import { List, ListItem } from "../../peoplePage/styled"
 import { PersonTile } from "../../../common/PersonTile"
 import { useQueryParameters } from "../queryParameters"
+import { useHistory } from "react-router-dom"
+import { useEffect } from "react"
+import { fetchPersonById } from "../../peoplePage/personPage/personSlice"
 
 export const SearchPeoplePage = () => {
   const { page, results, total_pages, total_results } = useSelector(selectSearchPeople);
   const searchParams = useQueryParameters("search");
+  const history = useHistory();
+  const id = useQueryParameters("id");
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (id) {
+      dispatch(fetchPersonById(id))
+    }
+  }, [dispatch, id]);
+
+  useEffect(() => {
+    const reload = () => {
+      window.location.reload();
+    };
+
+    const unlisten = history.listen(() => {
+      reload();
+    });
+    return () => {
+      unlisten();
+    };
+  }, []);
+
   if (total_results === 0) return <NoResultPage query={searchParams} />
   else
     return (

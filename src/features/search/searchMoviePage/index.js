@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import Pagination from "../../../common/Pagination"
 import { selectMovies } from "../searchSlice"
 import NoResultPage from "../../../common/NoResultPage"
@@ -7,10 +7,35 @@ import PageHeader from "../../../common/PageHeader"
 import MovieTile from "../../../common/MovieTile"
 import { Layout } from "../../moviesPage/styled"
 import { useQueryParameters } from "../queryParameters"
+import { useEffect } from "react"
+import { useHistory } from "react-router-dom"
+import { fetchMovieById } from "../../moviesPage/moviePage/movieSlice"
 
 export const SearchMoviePage = () => {
   const { page, results, total_pages, total_results } = useSelector(selectMovies);
   const searchParams = useQueryParameters("search");
+  const history = useHistory();
+  const id = useQueryParameters("id");
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (id) {
+      dispatch(fetchMovieById(id))
+    }
+  }, [dispatch, id]);
+
+  useEffect(() => {
+    const reload = () => { 
+      window.location.reload();
+    };
+
+    const unlisten = history.listen(() => {
+      reload();
+    });
+    return () => {
+      unlisten();
+    };
+  }, []);
+
   if (total_results === 0) return <NoResultPage query={searchParams} />
   else
     return (
@@ -35,5 +60,5 @@ export const SearchMoviePage = () => {
           totalPages={total_pages}
         />
       </Container>
-    )
-}
+    );
+};

@@ -33,7 +33,7 @@ export const {
 } = personSlice.actions;
 
 export const selectPerson = (state) => state.person;
-export const selectPersontatus = (state) => selectPerson(state).status
+export const selectPersonStatus = (state) => selectPerson(state).status
 export const selectPersonInfo = (state) => selectPerson(state).personInfo;
 
 export default personSlice.reducer;

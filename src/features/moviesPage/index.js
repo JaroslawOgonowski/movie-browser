@@ -1,9 +1,8 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useQueryParameters } from "../search/queryParameters";
-import { selectQuery } from "../../core/generalSlice";
 import { fetchPopularMovies, selectPopularMoviesList, selectPopularMoviesStatus } from "./popularMoviesSlice";
-import { selectSearchMoviesStatus } from "../search/searchSlice";
+import { fetchSearchMoviesList, selectSearchMoviesStatus } from "../search/searchSlice";
 import PageHeader from "../../common/PageHeader";
 import Pagination from "../../common/Pagination";
 import MovieTile from "../../common/MovieTile";
@@ -12,26 +11,30 @@ import ErrorPage from "../../common/ErrorPage";
 import Loader from "../../common/Loader";
 import { SearchMoviePage } from "../search/searchMoviePage";
 import { Layout } from "./styled";
+import { useLocation } from "react-router-dom";
 
 export const MoviesPage = () => {
+  
   const dispatch = useDispatch();
   const status = useSelector(selectPopularMoviesStatus);
   const movieList = useSelector(selectPopularMoviesList);
-  const page = useQueryParameters("page");
-  const query = useSelector(selectQuery);
   const statusSearchMovie = useSelector(selectSearchMoviesStatus);
-
+  const location = useLocation().pathname
+  const searchQuery = useQueryParameters("search")
+  const page = useQueryParameters("page");
+  
   useEffect(() => {
-    dispatch(fetchPopularMovies(page))
-  }, [dispatch, page]);
-
+    if (location.includes("movie") && location.includes("search"))
+      dispatch(fetchSearchMoviesList({query: searchQuery, page: page}));
+    else dispatch(fetchPopularMovies(page));
+  }, []);
 
   if (status === "error") return <ErrorPage />
   if (statusSearchMovie === "error") return <ErrorPage />
-  if (status === "loading" && query === "") return <Loader searchFor={"popular movies"} />
-  if (query !== "" && statusSearchMovie === "loading") return <Loader searchFor={query} />
-  if (query !== "" && statusSearchMovie === "success") return <SearchMoviePage />
-  if (status === "success" && query === "")
+  if (status === "loading" && searchQuery === null) return <Loader searchFor={"popular movies"} />
+  if (searchQuery !== null && statusSearchMovie === "loading") return <Loader searchFor={searchQuery} />
+  if (searchQuery !== null && statusSearchMovie === "success") return <SearchMoviePage />
+  if (status === "success" && searchQuery === null)
     return (
       <>
         <Container>
