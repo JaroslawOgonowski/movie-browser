@@ -8,6 +8,8 @@ import { useQueryParameters } from "../../search/queryParameters";
 import { Layout } from "../../moviesPage/styled";
 import { selectSearchPeopleStatus } from "../../search/searchSlice";
 import { SearchPeoplePage } from "../../search/searchPeoplePage";
+import { Container } from "../../../common/Container";
+import ProfilePage from "./ProfilePage";
 
 export const PersonPage = () => {
   const id = useQueryParameters("id");
@@ -29,8 +31,14 @@ export const PersonPage = () => {
   if (status === "success" && query === null)
     return (
       <>
-        <div>{personInfo.personDescription.name}</div>
-        <div>{personInfo.personDescription.biography}</div>
+        <Container>
+          <ProfilePage
+            poster={personInfo.personDescription.profile_path}
+            name={personInfo.personDescription.name}
+            birthday={personInfo.personDescription.birthday}
+            birthplace={personInfo.personDescription.place_of_birth}
+            biography={personInfo.personDescription.biography}
+          />
         {personInfo.personMovies.cast.length === 0 ?
           null :
           <>
@@ -67,6 +75,7 @@ export const PersonPage = () => {
               />
             )}</Layout></>
         }
+        </Container>
       </>
     )
 }
