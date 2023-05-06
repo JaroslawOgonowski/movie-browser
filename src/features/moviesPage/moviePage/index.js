@@ -8,8 +8,10 @@ import { PersonTile } from "../../../common/PersonTile";
 import { List } from "../../peoplePage/styled";
 import MoviePageHeader from "./moviePageHeader";
 import { Container } from "../../../common/Container";
+import MainMovieTile from "./mainMovieTile";
 import { selectSearchMoviesStatus } from "../../search/searchSlice";
 import { SearchMoviePage } from "../../search/searchMoviePage";
+
 
 export const MoviePage = () => {
   const id = useQueryParameters("id");
@@ -38,6 +40,17 @@ export const MoviePage = () => {
           voteCount={movieInfo.movieDescription.vote_count}
         />
         <Container>
+          <MainMovieTile 
+            poster={movieInfo.movieDescription.poster_path}
+            title={movieInfo.movieDescription.title}
+            productionCountry={movieInfo.movieDescription.production_countries}
+            date={movieInfo.movieDescription.release_date}
+            release={movieInfo.movieDescription.release_date}
+            genres={movieInfo.movieDescription.genres}
+            voteCount={movieInfo.movieDescription.vote_count}
+            rate={movieInfo.movieDescription.vote_average}
+            overview={movieInfo.movieDescription.overview}
+          />
           <h2>Cast</h2>
           <List>
             {movieInfo.movieCrew.cast.slice(0, 20).map(actor =>
