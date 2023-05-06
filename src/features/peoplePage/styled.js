@@ -11,21 +11,6 @@ export const PopularPeoplePage = styled.div`
   };
 `;
 
-export const Title = styled.h2`
-  margin-top: 56px;
-  margin-bottom: 24px;
-  align-self: flex-start;
-  font-weight: 600;
-  font-size: 36px;
-  line-height: 120%;
-
-  @media(max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
-    margin-top: 24px;
-    margin-bottom: 12px;
-    font-size: 20px;
-  };
-`;
-
 export const Box = styled.div`
 display: flex;
 `;

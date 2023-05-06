@@ -6,7 +6,7 @@ export const StyledLink = styled(Link)`
     transition: 0.5s;
     
     &:hover{
-        transform: scale(1.07);
+        transform: scale(1.05);
     };
 `;  
 
@@ -20,7 +20,8 @@ export const TileWrapper = styled.div`
     grid-template-rows: auto 1fr;
 
     @media (max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
-        grid-template-columns: auto 1fr;        
+        grid-template-columns: auto 1fr;
+        height: fit-content;
     }
 `;
 

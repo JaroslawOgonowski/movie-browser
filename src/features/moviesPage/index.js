@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useQueryParameters } from "../search/queryParameters";
-import { imagesAPI600x900 } from "../../core/API";
 import { selectQuery } from "../../core/generalSlice";
 import { fetchPopularMovies, selectPopularMoviesList, selectPopularMoviesStatus } from "./popularMoviesSlice";
 import { selectSearchMoviesStatus } from "../search/searchSlice";
@@ -31,7 +30,7 @@ export const MoviesPage = () => {
   if (statusSearchMovie === "error") return <ErrorPage />
   if (status === "loading" && query === "") return <Loader searchFor={"popular movies"} />
   if (query !== "" && statusSearchMovie === "loading") return <Loader searchFor={query} />
-  if (query !== "" && statusSearchMovie === "success") return <SearchMoviePage query={query} />
+  if (query !== "" && statusSearchMovie === "success") return <SearchMoviePage />
   if (status === "success" && query === "")
     return (
       <>
@@ -41,11 +40,11 @@ export const MoviesPage = () => {
             {movieList.results.map(movie => (
               <MovieTile
                 id={movie.id}
-                key={movie.id}
-                poster={`${imagesAPI600x900}${movie.poster_path}`}
+                key={`${movie.id}${movie.index}`}
+                poster={movie.poster_path}
                 title={movie.title}
                 date={movie.release_date}
-                rate={movie.vote_average}
+                rate={movie.vote_average.toFixed(1)}
                 voteCount={movie.vote_count}
                 genres={movie.genre_ids}
               />

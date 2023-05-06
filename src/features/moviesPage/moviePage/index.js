@@ -9,11 +9,17 @@ import { List } from "../../peoplePage/styled";
 import MoviePageHeader from "./moviePageHeader";
 import { Container } from "../../../common/Container";
 import MainMovieTile from "./mainMovieTile";
+import { selectSearchMoviesStatus } from "../../search/searchSlice";
+import { SearchMoviePage } from "../../search/searchMoviePage";
+
 
 export const MoviePage = () => {
-  const id = useQueryParameters("id")
-  const movieInfo = useSelector(selectMovieInfo)
-  const dispatch = useDispatch()
+  const id = useQueryParameters("id");
+  const query = useQueryParameters("search");
+  const movieInfo = useSelector(selectMovieInfo);
+  const dispatch = useDispatch();
+  const searchStatus = useSelector(selectSearchMoviesStatus);
+  const status = useSelector(selectMovieStatus);
 
   useEffect(() => {
     if (id) {
@@ -21,10 +27,10 @@ export const MoviePage = () => {
     }
   }, [dispatch, id]);
 
-  const status = useSelector(selectMovieStatus)
-  if (status === "error") return <ErrorPage />
-  if (status === "loading") return <Loader searchFor={"movie"} />
-  if (status === "success")
+  if (status === "error" && query === null) return <ErrorPage />
+  if (status === "loading" && query === null) return <Loader searchFor={"movie"} />
+  if (searchStatus === "success" && query !== null) return <SearchMoviePage />
+  if (status === "success" && query === null)
     return (
       <>
         <MoviePageHeader
@@ -50,7 +56,7 @@ export const MoviePage = () => {
             {movieInfo.movieCrew.cast.slice(0, 20).map(actor =>
               <PersonTile
                 id={actor.id}
-                key={actor.id}
+                key={`${actor.id}${actor.character}`}
                 name={actor.name}
                 profile_path={actor.profile_path}
                 role={actor.character}
@@ -60,7 +66,7 @@ export const MoviePage = () => {
           <List>
             {movieInfo.movieCrew.crew.slice(0, 10).map(person =>
               <PersonTile
-                key={person.id}
+                key={`${person.id}${person.job}`}
                 name={person.name}
                 profile_path={person.profile_path}
                 role={person.job}
