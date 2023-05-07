@@ -15,7 +15,8 @@ import {
 
 export const Header = () => {
   const location = useLocation().pathname
-
+  const activator = "true";
+  
   return (
     <>
       <StyledHeader>
@@ -29,12 +30,12 @@ export const Header = () => {
             </HomePageLink>
             <List>
               <ListItem>
-                <StyledNavLink to="/movies" active={location.includes("/movie")? true : false}>
+                <StyledNavLink to="/movies" activator={location.includes("/movie")? activator : null}>
                   Movies
                 </StyledNavLink>
               </ListItem>
               <ListItem>
-                <StyledNavLink to="/people" active={location.includes("/person")? true : false}>
+                <StyledNavLink to="/people" activator={location.includes("/person")? activator : null}>
                   People
                 </StyledNavLink>
               </ListItem>

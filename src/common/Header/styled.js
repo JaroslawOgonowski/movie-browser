@@ -143,7 +143,7 @@ export const StyledNavLink = styled(NavLink)`
     border-radius: 45px;
   };
   
-  ${({ active }) => active && css`{
+  ${({ activator }) => activator && css`{
     border: 1px solid white;
     border-radius: 45px;
     }`
