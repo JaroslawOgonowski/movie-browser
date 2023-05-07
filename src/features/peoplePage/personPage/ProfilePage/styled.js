@@ -9,6 +9,19 @@ export const Wrapper = styled.div`
     background: ${({ theme }) => theme.color.white};
     box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
     grid-template-columns: minmax(auto, 312px) 1fr;
+
+    @media(max-width: ${({ theme }) => theme.breakPoints.notebook}px) {
+        grid-template-columns: minmax(auto, 210px) 1fr;
+        gap: 0 28px;
+        padding: 30px;
+        margin: 16px 0;
+    };
+
+    @media (max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
+        grid-template-columns: minmax(auto, 105px) 1fr;
+        gap: 0 16px;
+        padding: 16px;
+    };
 `;
 
 export const Poster = styled.img`
@@ -16,6 +29,16 @@ export const Poster = styled.img`
     height: 564px;
     border-radius: 5px;
     grid-row: span 2;
+
+    @media(max-width: ${({ theme }) => theme.breakPoints.notebook}px) {
+        width: 212px;
+        height: 325px;
+    };
+
+    @media (max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
+        width: 114px;
+        height: 169px;
+    };
 `;
 
 export const PersonName = styled.h2`
@@ -23,6 +46,15 @@ export const PersonName = styled.h2`
     font-size: 36px;
     line-height: 1.2;
     margin-top: 8px;
+
+    @media(max-width: ${({ theme }) => theme.breakPoints.notebook}px) {
+        font-size: 24px;
+        margin-bottom: 16px;
+    };
+
+    @media (max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
+        font-size: 16px;
+    };
 `;
 
 export const PersonDetails = styled.div`
@@ -34,6 +66,10 @@ export const PrimaryInfo = styled.div`
     margin: 0px 0px 8px 0px;
     gap: 10px;
     align-items: center;
+
+    @media (max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
+        gap: 4px;
+    };
 `;
 
 export const Birth = styled.p`
@@ -42,6 +78,14 @@ export const Birth = styled.p`
     line-height: 1.2;
     color: ${({ theme }) => theme.color.stormGray};
     margin: 0px;
+
+    @media(max-width: ${({ theme }) => theme.breakPoints.notebook}px) {
+        font-size: 14px;
+    };
+
+    @media (max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
+        font-size: 12px;
+    };
 `;
 
 export const BirthDetails = styled.p`
@@ -49,6 +93,15 @@ export const BirthDetails = styled.p`
     font-size: 22px;
     line-height: 1.2;
     margin: 0px;
+    color: ${({theme}) => theme.color.black};
+
+    @media(max-width: ${({ theme }) => theme.breakPoints.notebook}px) {
+        font-size: 18px;
+    };
+
+    @media (max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
+        font-size: 12px;
+    };
 `;
 
 export const Biography = styled.p`
@@ -56,4 +109,16 @@ export const Biography = styled.p`
     font-size: 20px;
     line-height: 1.6;
     margin-top: 24px;
+
+    @media (max-width: ${({ theme }) => theme.breakPoints.notebook}px) {
+        font-size: 16px;
+        margin-top: 18px;
+        grid-row: 3;
+        grid-column: span 2;
+    }
+
+    @media (max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
+        font-size: 14px;
+        margin-top: 16px;
+    }
 `;
