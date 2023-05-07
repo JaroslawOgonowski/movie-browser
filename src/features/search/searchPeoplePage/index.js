@@ -35,7 +35,7 @@ export const SearchPeoplePage = () => {
     if (id && searchParams === null) {
       dispatch(fetchPersonById(id))
     }
-  }, [dispatch, id]); 
+  }, [searchParams, id]); 
 
   if (total_results === 0) return <NoResultPage query={searchParams} />
   else
