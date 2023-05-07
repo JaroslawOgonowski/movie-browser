@@ -29,8 +29,8 @@ export const TileWrapper = styled.div`
 `;
 
 export const Poster = styled.img`
-    height: 434px;
     width: 292px;
+    height: 434px;    
     border-radius: 5px;
     margin-top: 16px;
     margin-bottom: 16px;

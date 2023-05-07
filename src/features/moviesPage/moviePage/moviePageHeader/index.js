@@ -1,4 +1,4 @@
-import { imagesApi } from "../../../../core/API";
+import { imagesFullApi } from "../../../../core/API";
 import { BackDropWrapper, BackGround, Backdrop, Information, Rate, Rating, Star, Title, Votes } from "./styled";
 import star from "../../../../common/images/star.svg"
 
@@ -15,7 +15,7 @@ const MoviePageHeader = ({ poster, title, rate, voteCount }) => (
                     <Votes>{voteCount} votes</Votes>
                 </Rating>
             </Information>
-            <Backdrop src={`${imagesApi}/original${poster}`}></Backdrop>
+            <Backdrop src={`${imagesFullApi}/original${poster}`}></Backdrop>
         </BackDropWrapper>
     </BackGround>
 );

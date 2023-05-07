@@ -1,4 +1,4 @@
-import { imagesAPI600x900 } from "../../../../core/API";
+import { imagesAPI600x900, imagesAPIw400 } from "../../../../core/API";
 import { ButtonTag, MovieDetails, MovieTitle, Overview, Poster, PrimaryInfo, Production, ProductionCountry, Rate, Rating, ReleaseYear, Star, Tag, Tags, Votes, Wrapper } from "./styled";
 import star from "../../../../common/images/star.svg"
 import placeholder from "../../../../common/images/Poster.jpg"
@@ -6,7 +6,7 @@ const MainMovieTile = ({ poster, title, date, genres, productionCountry, release
 
     return (
         <Wrapper>
-            <Poster src={poster ? `${imagesAPI600x900}${poster}` : placeholder} />
+            <Poster src={poster ? `${imagesAPIw400}${poster}` : placeholder} />
             <MovieDetails>
                 <MovieTitle>{title}</MovieTitle>
                 <ReleaseYear>{date.slice(0, 4)}</ReleaseYear>
