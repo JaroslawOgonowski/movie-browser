@@ -43,7 +43,7 @@ export const Search = () => {
       dispatch(fetchSearchMoviesList({ query: query, page: page }));
     }
     else dispatch(fetchSearchPeopleList({ query: query, page: page }));
-  }, []);
+  }, [query]);
 
   return (
 

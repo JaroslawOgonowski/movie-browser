@@ -4,6 +4,8 @@ import { fetchSearchMoviesList, fetchSearchMoviesListError, fetchSearchMoviesLis
 
 function* fetchSearchMoviesListHandler(action) {
   const {query, page} = action.payload
+  if (query === null||page=== null) return 
+  else{
   try {
     const searchMoviesList = yield call(getSearchMoviesList, query, page);
     yield delay(500);
@@ -12,7 +14,7 @@ function* fetchSearchMoviesListHandler(action) {
   catch (error) {
     yield put(fetchSearchMoviesListError());
     yield call(alert, "Download failed, please try again or check your internet connection")
-  }
+  }}
 };
 
 function* fetchSearchPeopleListHandler(action) {

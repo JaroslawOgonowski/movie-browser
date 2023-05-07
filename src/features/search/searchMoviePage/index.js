@@ -34,9 +34,10 @@ export const SearchMoviePage = () => {
   const { page, results, total_pages, total_results } = useSelector(selectMovies);
   useEffect(() => {
     if (id && searchParams === null
-   ) {   dispatch(fetchMovieById(id))
-    }   
-  }, []);
+    ) {
+      dispatch(fetchMovieById(id))
+    }
+  }, [searchParams, id]);
 
   if (total_results === 0) return <NoResultPage query={searchParams} />
   else
