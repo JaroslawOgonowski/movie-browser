@@ -69,14 +69,17 @@ export const TitleBox = styled.div`
   display: grid;
   grid-template-columns: auto 1fr;
   align-items: center;
-  gap: 12px;
+  gap: 12px; 
+     
   &:hover{
+      @media(min-width: ${({ theme }) => theme.breakPoints.mobileMax}px){
     transition: 2s;
-    background-image: linear-gradient(45deg,   violet, red, orange, yellow, green, blue, indigo);
+    background-image: linear-gradient(45deg, violet, red, orange, yellow, green, blue, indigo);
     -webkit-background-clip: text;
     color: transparent;
+   };
   };
- 
+   
   @media(max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
     gap: 8px;
     margin-left:16px;
@@ -127,12 +130,13 @@ export const StyledNavLink = styled(NavLink)`
   margin-right: 2px;
 
   &:hover{
-    transition: color 1s;
+      @media(min-width: ${({ theme }) => theme.breakPoints.mobileMax}px){
+    transition: 2s;
     background-image: linear-gradient(45deg, violet, red, orange, yellow, green, blue, indigo);
     -webkit-background-clip: text;
     color: transparent;
-  };
- 
+   };
+  }; 
 
   &.active {     
     border: 1px solid white;
