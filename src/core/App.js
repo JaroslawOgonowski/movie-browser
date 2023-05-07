@@ -21,7 +21,7 @@ export default () => {
             <Route path="/movie"><MoviePage /></Route>
             <Route path="/person"><PersonPage /></Route>
             <Route path="/">
-              <Redirect to="/movies" /></Route>
+              <Redirect to="/movies?page=1" /></Route>
           </Switch>
         </HashRouter >
       </ThemeProvider>

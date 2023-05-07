@@ -8,7 +8,7 @@ export const StyledLink = styled(Link)`
     &:hover{
         transform: scale(1.05);
     };
-`;  
+`;
 
 export const TileWrapper = styled.div`
     height: 650px;
@@ -18,7 +18,8 @@ export const TileWrapper = styled.div`
     padding: 16px 16px;
     display: grid;
     grid-template-rows: auto 1fr;
-
+    justify-items: center;
+    
     @media (max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
         grid-template-columns: auto 1fr;
         height: fit-content;

@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useQueryParameters } from "../../search/queryParameters";
+import { useQueryParameters, useReplaceQueryParameters } from "../../search/queryParameters";
 import { fetchMovieById, selectMovieInfo, selectMovieStatus } from "./movieSlice";
 import { useEffect } from "react";
 import ErrorPage from "../../../common/ErrorPage";
@@ -20,11 +20,17 @@ export const MoviePage = () => {
   const dispatch = useDispatch();
   const searchStatus = useSelector(selectSearchMoviesStatus);
   const status = useSelector(selectMovieStatus);
-
+  const replaceQueryParameters = useReplaceQueryParameters();
+  
   useEffect(() => {
+    replaceQueryParameters({
+      key: "page",
+      value: 1,
+    });
     if (id) {
       dispatch(fetchMovieById(id))
     }
+    else return <SearchMoviePage />
   }, [dispatch, id]);
 
   if (status === "error" && query === null) return <ErrorPage />
@@ -40,7 +46,7 @@ export const MoviePage = () => {
           voteCount={movieInfo.movieDescription.vote_count}
         />
         <Container>
-          <MainMovieTile 
+          <MainMovieTile
             poster={movieInfo.movieDescription.poster_path}
             title={movieInfo.movieDescription.title}
             productionCountry={movieInfo.movieDescription.production_countries}
