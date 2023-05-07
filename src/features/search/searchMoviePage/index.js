@@ -9,13 +9,28 @@ import { Layout } from "../../moviesPage/styled"
 import { useQueryParameters } from "../queryParameters"
 import { useEffect } from "react"
 import { fetchMovieById } from "../../moviesPage/moviePage/movieSlice"
+import { useHistory } from "react-router-dom"
 
 export const SearchMoviePage = () => {
 
   const searchParams = useQueryParameters("search");
   const id = useQueryParameters("id");
   const dispatch = useDispatch();
-  
+  const history = useHistory();
+
+  useEffect(() => {
+    const reload = () => {
+      window.location.reload();
+    };
+
+    const unlisten = history.listen(() => {
+      reload();
+    });
+    return () => {
+      unlisten();
+    };
+  }, []);
+
   const { page, results, total_pages, total_results } = useSelector(selectMovies);
   useEffect(() => {
     if (id && searchParams === null
