@@ -18,12 +18,9 @@ import {
     TileWrapper,
     Votes
 } from "./styled";
-import { useDispatch } from "react-redux";
-
 
 const MovieTile = ({ poster, title, date, rate, voteCount, genres, id }) => {
     const movieGenres = Genres.filter((genre) => genres.includes(genre.id));
-    const dispatch = useDispatch();
     return (
         <StyledLink to={`/movie/?id=${id}`} key={id}>
             <TileWrapper>
@@ -34,7 +31,7 @@ const MovieTile = ({ poster, title, date, rate, voteCount, genres, id }) => {
                         <MovieTitle>{title}</MovieTitle>
                         <Release>{date ? date.slice(0, 4) : null}</Release>
                         <Tags>
-                            {genres ? movieGenres.slice(0, 3).map((genre) => (
+                            {genres ? movieGenres.map((genre) => (
                                 <ButtonTag key={genre.id}>
                                     <Tag>{genre.name}</Tag>
                                 </ButtonTag>
