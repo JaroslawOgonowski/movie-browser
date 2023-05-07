@@ -45,7 +45,7 @@ const MovieTile = ({ poster, title, date, rate, voteCount, genres, id }) => {
                         {rate !== 0 && voteCount !== 0 ?
                             <>
                                 <Star src={star} />
-                                <Rate>{rate ? rate.toFixed(1) : null}</Rate>
+                                <Rate>{rate ? rate : null}</Rate>
                                 <Votes>{voteCount ? `${voteCount} votes` : null} </Votes>
                             </>
                             :
