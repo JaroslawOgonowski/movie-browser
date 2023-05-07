@@ -17,13 +17,8 @@ export const SearchPeoplePage = () => {
   const history = useHistory();
   const id = useQueryParameters("id");
   const dispatch = useDispatch();
-  useEffect(() => {
-    if (id) {
-      dispatch(fetchPersonById(id))
-    }
-  }, [dispatch, id]);
-
-  useEffect(() => {
+  
+   useEffect(() => {
     const reload = () => {
       window.location.reload();
     };
@@ -35,6 +30,12 @@ export const SearchPeoplePage = () => {
       unlisten();
     };
   }, []);
+  
+  useEffect(() => {
+    if (id && searchParams === null) {
+      dispatch(fetchPersonById(id))
+    }
+  }, [dispatch, id]); 
 
   if (total_results === 0) return <NoResultPage query={searchParams} />
   else
