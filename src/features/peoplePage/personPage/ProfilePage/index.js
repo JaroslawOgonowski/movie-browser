@@ -14,8 +14,8 @@ const ProfilePage = ({ poster, name, birthday, birthplace, biography }) => (
                 <Birth>Place of birth: </Birth>
                 <BirthDetails>{birthplace}</BirthDetails>
             </PrimaryInfo>
-            <Biography>{biography}</Biography>
         </PersonDetails>
+        <Biography>{biography}</Biography>
     </Wrapper>
 );
 
