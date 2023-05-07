@@ -1,4 +1,3 @@
-import { useDispatch } from "react-redux";
 import { Search } from "../../features/search";
 import {
   Container,
@@ -14,7 +13,6 @@ import {
 } from "./styled";
 
 export const Header = () => {
-  const dispatch = useDispatch();
 
   return (
     <>

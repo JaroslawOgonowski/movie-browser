@@ -87,7 +87,7 @@ export const TitleBox = styled.div`
 `;
 
 export const IconBox = styled.div`
-@media(max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
+  @media(max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
     width: 17px;
   };
 `;
@@ -131,7 +131,7 @@ export const StyledNavLink = styled(NavLink)`
 
   &:hover{
       @media(min-width: ${({ theme }) => theme.breakPoints.mobileMax}px){
-    transition: 2s;
+    transition: color 2s;
     background-image: linear-gradient(45deg, violet, red, orange, yellow, green, blue, indigo);
     -webkit-background-clip: text;
     color: transparent;
