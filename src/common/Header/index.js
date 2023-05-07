@@ -1,3 +1,4 @@
+import { useLocation } from "react-router-dom";
 import { Search } from "../../features/search";
 import {
   Container,
@@ -13,6 +14,7 @@ import {
 } from "./styled";
 
 export const Header = () => {
+  const location = useLocation().pathname
 
   return (
     <>
@@ -27,12 +29,12 @@ export const Header = () => {
             </HomePageLink>
             <List>
               <ListItem>
-                <StyledNavLink to="/movies">
+                <StyledNavLink to="/movies" active={location.includes("/movie")? true : false}>
                   Movies
                 </StyledNavLink>
               </ListItem>
               <ListItem>
-                <StyledNavLink to="/people">
+                <StyledNavLink to="/people" active={location.includes("/person")? true : false}>
                   People
                 </StyledNavLink>
               </ListItem>

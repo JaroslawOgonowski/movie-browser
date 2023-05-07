@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { ReactComponent as Icon } from "../images/Video.svg"
 import { NavLink } from "react-router-dom";
 
@@ -141,6 +141,12 @@ export const StyledNavLink = styled(NavLink)`
   &.active {     
     border: 1px solid white;
     border-radius: 45px;
+  };
+  
+  ${({ active }) => active && css`{
+    border: 1px solid white;
+    border-radius: 45px;
+    }`
   };
 
  @media(max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
