@@ -19,13 +19,13 @@ import {
     Votes
 } from "./styled";
 import { useDispatch } from "react-redux";
-import { selectingNavigationMovies } from "../../core/generalSlice";
+
 
 const MovieTile = ({ poster, title, date, rate, voteCount, genres, id }) => {
     const movieGenres = Genres.filter((genre) => genres.includes(genre.id));
     const dispatch = useDispatch();
     return (
-        <StyledLink to={`/movie/?id=${id}`} key={id} onClick={() => dispatch(selectingNavigationMovies())}>
+        <StyledLink to={`/movie/?id=${id}`} key={id}>
             <TileWrapper>
                 <Poster src={poster == null ? placeholder : `${imagesAPI600x900}${poster}`} alt={title}>
                 </Poster>
