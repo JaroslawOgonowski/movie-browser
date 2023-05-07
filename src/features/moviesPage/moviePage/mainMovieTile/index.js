@@ -35,8 +35,8 @@ const MainMovieTile = ({ poster, title, date, genres, productionCountry, release
                     <Votes>/ 10</Votes>
                     <Votes>{voteCount} votes</Votes>
                 </Rating>
-                <Overview>{overview}</Overview>
             </MovieDetails>
+            <Overview>{overview}</Overview>
         </Wrapper>
     );
 };
