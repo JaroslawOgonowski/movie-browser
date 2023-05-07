@@ -27,7 +27,7 @@ export const Search = () => {
     });
 
     if (pathname.includes("/movie")) {
-      dispatch(fetchSearchMoviesList({ query: target.value.trim(), page: 1 }));
+      dispatch(fetchSearchMoviesList({ query: target.value.trim(), page: page }));
     }
     else if (pathname.includes("id") && pathname.includes("/movie") && pathname.includes("search") === false) {
       dispatch(fetchMovieById(id));
@@ -35,14 +35,14 @@ export const Search = () => {
     else if (pathname.includes("id") && pathname.includes("search") === false) {
       dispatch(fetchPersonById(id));
     }
-    else dispatch(fetchSearchPeopleList({ query: target.value.trim(), page: 1 }));
+    else dispatch(fetchSearchPeopleList({ query: target.value.trim(), page: page }));
   }
 
   useEffect(() => {
     if (pathname.includes("/movie")) {
-      dispatch(fetchSearchMoviesList({ query: query, page: page }));
+      dispatch(fetchSearchMoviesList({ query: query, page: 1 }));
     }
-    else dispatch(fetchSearchPeopleList({ query: query, page: page }));
+    else dispatch(fetchSearchPeopleList({ query: query, page: 1 }));
   }, [query]);
 
   return (

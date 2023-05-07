@@ -1,8 +1,4 @@
 import { useDispatch } from "react-redux";
-import {
-  selectingNavigationMovies,
-  selectingNavigationPeople
-} from "../../core/generalSlice";
 import { Search } from "../../features/search";
 import {
   Container,
@@ -22,35 +18,33 @@ export const Header = () => {
 
   return (
     <>
-    <StyledHeader>
-      <HeaderBox>
-        <Container>
-          <HomePageLink to="/">
-            <TitleBox>
-              <StyledIcon />
-              <PageTitle>Movies Browser</PageTitle>
-            </TitleBox>
-          </HomePageLink>
-          <List>
-            <ListItem>
-              <StyledNavLink to="/movies"
-                onClick={() => dispatch(selectingNavigationMovies())}>
-                Movies
-              </StyledNavLink>
-            </ListItem>
-            <ListItem>
-              <StyledNavLink to="/people"
-                onClick={() => dispatch(selectingNavigationPeople())}>
-                People
-              </StyledNavLink>
-            </ListItem>
-          </List>
-        </Container>
-        <SearchContainer>
-          <Search />
-        </SearchContainer>
-      </HeaderBox>
-    </StyledHeader>
+      <StyledHeader>
+        <HeaderBox>
+          <Container>
+            <HomePageLink to="/">
+              <TitleBox>
+                <StyledIcon />
+                <PageTitle>Movies Browser</PageTitle>
+              </TitleBox>
+            </HomePageLink>
+            <List>
+              <ListItem>
+                <StyledNavLink to="/movies">
+                  Movies
+                </StyledNavLink>
+              </ListItem>
+              <ListItem>
+                <StyledNavLink to="/people">
+                  People
+                </StyledNavLink>
+              </ListItem>
+            </List>
+          </Container>
+          <SearchContainer>
+            <Search />
+          </SearchContainer>
+        </HeaderBox>
+      </StyledHeader>
     </>
   );
 };

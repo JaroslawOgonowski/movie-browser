@@ -3,21 +3,20 @@ import { BackwardArrow, ForwardArrow } from "./buttonArrows";
 import { Button, ButtonText, PageNumber, StyledButtons, StyledPages, StyledPagination } from "./styled";
 import { fetchPopularPeople } from "../../features/peoplePage/popularPeopleSlice";
 import { fetchPopularMovies } from "../../features/moviesPage/popularMoviesSlice";
-import { selectNavigationSelected, selectQuery } from "../../core/generalSlice";
 import { useEffect } from "react";
-import { useReplaceQueryParameters } from "../../features/search/queryParameters";
+import { useQueryParameters, useReplaceQueryParameters } from "../../features/search/queryParameters";
 import { fetchSearchMoviesList, fetchSearchPeopleList } from "../../features/search/searchSlice";
+import { useLocation } from "react-router-dom";
 
 const Pagination = ({ page, totalPages }) => {
     const replaceQueryParameters = useReplaceQueryParameters();
     const dispatch = useDispatch();
-    const query = useSelector(selectQuery);
-    const section = useSelector(selectNavigationSelected);
+    const query = useQueryParameters("search")
     const nextPage = page + 1;
     const lastPage = totalPages > 500 ? 500 : totalPages;
     const previousPage = page - 1;
     const firstPage = 1;
-    
+    const location = useLocation().pathname;
     useEffect(() => {
         replaceQueryParameters({
             key: "page",
@@ -26,10 +25,10 @@ const Pagination = ({ page, totalPages }) => {
     }, []);
 
     const pageSwitch = (targetPage) => {
-        if (section === "people" && query === "") dispatch(fetchPopularPeople(targetPage));
-        if (section === "people" && query != "") dispatch(fetchSearchPeopleList({ query: query, page: targetPage }));
-        if (section === "movies" && query === "") dispatch(fetchPopularMovies(targetPage));
-        if (section === "movies" && query != "") dispatch(fetchSearchMoviesList({ query: query, page: targetPage }));
+        if (location.includes("people") || location.includes("person") && query === null) dispatch(fetchPopularPeople(targetPage));
+        if (location.includes("people") || location.includes("person") && query != null) dispatch(fetchSearchPeopleList({ query: query, page: targetPage }));
+        if (location.includes("movie") && query === null) dispatch(fetchPopularMovies(targetPage));
+        if (location.includes("movie") && query != null) dispatch(fetchSearchMoviesList({ query: query, page: targetPage }));
     };
 
     return (
