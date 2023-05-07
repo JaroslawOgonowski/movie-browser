@@ -4,7 +4,7 @@ import placeholder from "../../../../common/images/PhotoPlaceholder.svg"
 
 const ProfilePage = ({ poster, name, birthday, birthplace, biography }) => (
     <Wrapper>
-        <Poster src={poster ? `${imagesAPI600x900}${poster}` : placeholde} />
+        <Poster src={poster ? `${imagesAPI600x900}${poster}` : placeholder} />
         <PersonDetails>
             <PersonName>{name}</PersonName>
             <PrimaryInfo>
