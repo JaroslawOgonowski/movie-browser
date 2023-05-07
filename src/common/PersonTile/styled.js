@@ -3,9 +3,11 @@ import { Link } from "react-router-dom";
 
 export const StyledLink = styled(Link)`
     text-decoration: none;
+    display: flex;
 `;
 
 export const StyledContainer = styled.div`
+  flex-grow: 1;
   width: 208px;
   display: flex;
   flex-direction: column;
@@ -21,7 +23,7 @@ export const StyledContainer = styled.div`
 
   @media(max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
     width: 136px;
-    height: 245px;
+    min-height: 245px;
   };
 `;
 
