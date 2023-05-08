@@ -6,7 +6,6 @@ const movieSlice = createSlice({
   {
     movieInfo: null,
     status: null,
-
   },
 
   reducers: {

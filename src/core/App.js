@@ -27,8 +27,8 @@ class ErrorBoundary extends React.Component {
       return <ErrorPage />;
     }
     return this.props.children;
-  }
-}
+  };
+};
 
 export default () => {
   return (

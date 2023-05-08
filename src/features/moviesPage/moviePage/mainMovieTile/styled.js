@@ -23,9 +23,9 @@ export const Wrapper = styled.div`
         padding: 16px;
     };
 `;
-export const MovieDetails = styled.div`
-   
+export const MovieDetails = styled.div`   
 `;
+
 export const Poster = styled.img`
     width: 312px;
     height: 464px;
