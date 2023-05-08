@@ -18,13 +18,8 @@ export const PersonPage = () => {
   const dispatch = useDispatch();
   const status = useSelector(selectPersonStatus);
   const searchStatus = useSelector(selectSearchPeopleStatus);
-  const replaceQueryParameters = useReplaceQueryParameters();
 
   useEffect(() => {
-    replaceQueryParameters({
-      key: "page",
-      value: 1,
-    });
     if (id) {
       dispatch(fetchPersonById(id))
     }

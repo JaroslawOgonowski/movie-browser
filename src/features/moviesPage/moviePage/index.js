@@ -20,13 +20,8 @@ export const MoviePage = () => {
   const dispatch = useDispatch();
   const searchStatus = useSelector(selectSearchMoviesStatus);
   const status = useSelector(selectMovieStatus);
-  const replaceQueryParameters = useReplaceQueryParameters();
 
   useEffect(() => {
-    replaceQueryParameters({
-      key: "page",
-      value: 1,
-    });
     if (id) {
       dispatch(fetchMovieById(id))
     }
