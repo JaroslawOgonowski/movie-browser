@@ -46,6 +46,22 @@ Extremely extensive documentation allows you to optimize queries in the scope
 popular movies and people, searching for phrases, individual movie or person and the size of each image. 
 We run queries asynchronously- they have separate states, statuses and sagas - thanks to the router, all fetched information is reflected in the current URL address. 
 
+## How it works? 🔎✅
+### Main index 🛠
+We started, of course, by creating a foundation using the  [Create React App](https://github.com/facebook/create-react-app), and the main application (App.js) we wrapped the store-provider- which maintains the state of the entire application- the store includes all reducers extracted from individual slices.
+### APP ⚙ 
+App is wrapped with theme provider so that even on error page you can use GlobalStyle and theme.
+The application is connected to ErrorBoundary, which catches any errors in the application and returns us a page prepared in accordance with the project with an appropriate message for the user, if everything goes as it should, we get the target content of the page. 
+
+#### React-router 🔃
+The next layer is react-router. It manages application paths and reflects them in the URL, making navigation on the site very convenient for users and developers.
+#### Header ▶
+Inside, we see our main header which is always visible on the page and is the main navigation - it has two main paths - movies and people that define the downloaded and rendered content and also affect the input which, depending on the selected path, searches for people or movies.
+#### RootSaga 🔁
+Of course, we use the root Saga, which is basically a set of all other Sagas that are responsible for the correct flow of information from the API.
+
+
+
  ## Further readme under construction 🚧👨‍💻
 
 ## Getting Started with Create React App
