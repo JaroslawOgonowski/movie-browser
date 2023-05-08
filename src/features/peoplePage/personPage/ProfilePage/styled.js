@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.section`
     margin: 64px 0;
     padding: 40px;
     display: grid;

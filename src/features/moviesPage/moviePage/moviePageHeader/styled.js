@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const BackGround = styled.div`
+export const BackGround = styled.section`
     background-color: ${({ theme }) => theme.color.black};
     color: ${({ theme }) => theme.color.white};
     max-width: 100%;

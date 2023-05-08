@@ -1,21 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-export const Title = styled.h2`
-  margin-top: 56px;
-  margin-bottom: 24px;
-  font-weight: 600;
-  font-size: 36px;
-  line-height: 120%;
-
-  @media(max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
-    margin-top: 24px;
-    margin-bottom: 12px;
-    font-size: 20px;
-  };
-`;
-
-export const Layout = styled.div`
+export const Layout = styled.section`
     width: calc(324px*4 + 3*24px);
     margin: 24px auto 40px;
     display: grid;
