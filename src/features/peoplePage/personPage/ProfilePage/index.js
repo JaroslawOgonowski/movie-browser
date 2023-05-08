@@ -1,10 +1,10 @@
-import { imagesAPI600x900 } from "../../../../core/API";
+import { imagesAPIw400 } from "../../../../core/API";
 import { Biography, Birth, BirthDetails, PersonDetails, PersonName, Poster, PrimaryInfo, Wrapper } from "./styled";
 import placeholder from "../../../../common/images/PhotoPlaceholder.svg"
 
 const ProfilePage = ({ poster, name, birthday, birthplace, biography }) => (
     <Wrapper>
-        <Poster src={poster ? `${imagesAPI600x900}${poster}` : placeholder} />
+        <Poster src={poster ? `${imagesAPIw400}${poster}` : placeholder} />
         <PersonDetails>
             <PersonName>{name}</PersonName>
             <PrimaryInfo>

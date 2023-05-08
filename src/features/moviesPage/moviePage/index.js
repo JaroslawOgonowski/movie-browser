@@ -21,7 +21,7 @@ export const MoviePage = () => {
   const searchStatus = useSelector(selectSearchMoviesStatus);
   const status = useSelector(selectMovieStatus);
   const replaceQueryParameters = useReplaceQueryParameters();
-  
+
   useEffect(() => {
     replaceQueryParameters({
       key: "page",
@@ -38,13 +38,15 @@ export const MoviePage = () => {
   if (searchStatus === "success" && query !== null) return <SearchMoviePage />
   if (status === "success" && query === null)
     return (
-      <>
+      <>{movieInfo.movieDescription.backdrop_path ?
         <MoviePageHeader
           poster={movieInfo.movieDescription.backdrop_path}
           rate={movieInfo.movieDescription.vote_average}
           title={movieInfo.movieDescription.title}
           voteCount={movieInfo.movieDescription.vote_count}
-        />
+        /> :
+        null
+      }
         <Container>
           <MainMovieTile
             poster={movieInfo.movieDescription.poster_path}

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 export const StyledLink = styled(Link)`
     text-decoration: none;
     transition: 0.5s;
+    display: flex;
     
     &:hover{
         transform: scale(1.05);
@@ -11,31 +12,34 @@ export const StyledLink = styled(Link)`
 `;
 
 export const TileWrapper = styled.div`
-    height: 650px;
+    width: 324px;
+    min-height: 650px;
+    flex-grow: 1;
     background-color: ${({ theme }) => theme.color.white};
     border-radius: 5px;
     box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
-    padding: 16px 16px;
     display: grid;
     grid-template-rows: auto 1fr;
-    justify-items: center;
-    
+        
     @media (max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
         grid-template-columns: auto 1fr;
-        height: fit-content;
+        min-height: fit-content;
+        width: 100%
     }
 `;
 
 export const Poster = styled.img`
-    height: 434px;
     width: 292px;
+    height: 434px;    
     border-radius: 5px;
+    margin-top: 16px;
     margin-bottom: 16px;
-
+    justify-self: center;
+    
     @media (max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
         display: grid;
         grid-template-columns: auto 1fr;
-        margin-right: 16px;
+        margin: 16px;
         height: auto;
         width: 210px;
     }
@@ -44,6 +48,7 @@ export const Poster = styled.img`
         height: 169px;
         width: 114px;
         margin-bottom: 0;
+        margin: 8px;
     }
 `;
 
@@ -51,11 +56,11 @@ export const InfoWrapper = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    margin: 16px;
 
     @media (max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
     display: block;
-    }
-    
+    }    
 `;
 
 export const Description = styled.div`
@@ -101,7 +106,7 @@ export const Release = styled.p`
 
 export const Tags = styled.div`
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     padding: 0;
     margin: 0;
     align-items: center;

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const BackGround = styled.div`
     background-color: ${({ theme }) => theme.color.black};
     color: ${({ theme }) => theme.color.white};
-    width: 100%;
+    max-width: 100%;
     padding: 0 16px 0 16px;
 
     @media (max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {

@@ -1,4 +1,16 @@
-# Demo: https://jaroslawogonowski.github.io/movie-browser/
+ <h1 align="center">MOVIE BROWSER🎬🆕📱💻<h1>
+
+<p align="center">
+<a  href="https://jaroslawogonowski.github.io/movie-browser/">
+➡➡➡➡➡DEMO HERE⬅⬅⬅⬅⬅
+</a>
+</p>
+
+## The project was created in cooperation with:
+<p><a href="https://github.com/JaroslawOgonowski"> Jarosław Ogonowski</a></p>
+ <p>and <a href="https://github.com/saimoNN37">Szymon Młyński.</a></p>
+
+ ## Further readme under construction 🚧👨‍💻
 
 ## Getting Started with Create React App
 

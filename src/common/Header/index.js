@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useLocation } from "react-router-dom";
 import { Search } from "../../features/search";
 import {
   Container,
@@ -14,8 +14,9 @@ import {
 } from "./styled";
 
 export const Header = () => {
-  const dispatch = useDispatch();
-
+  const location = useLocation().pathname
+  const activator = "true";
+  
   return (
     <>
       <StyledHeader>
@@ -29,12 +30,12 @@ export const Header = () => {
             </HomePageLink>
             <List>
               <ListItem>
-                <StyledNavLink to="/movies">
+                <StyledNavLink to="/movies" activator={location.includes("/movie")? activator : null}>
                   Movies
                 </StyledNavLink>
               </ListItem>
               <ListItem>
-                <StyledNavLink to="/people">
+                <StyledNavLink to="/people" activator={location.includes("/person")? activator : null}>
                   People
                 </StyledNavLink>
               </ListItem>
