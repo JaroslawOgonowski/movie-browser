@@ -1,14 +1,39 @@
- <h1 align="center">MOVIE BROWSER🎬🆕📱💻<h1>
+ <h1 align="center">MOVIE BROWSER 🎬 🆕 📱 💻<h1>
 
 <p align="center">
 <a  href="https://jaroslawogonowski.github.io/movie-browser/">
-➡➡➡➡➡DEMO HERE⬅⬅⬅⬅⬅
+➡ Check out the DEMO ⬅
 </a>
 </p>
 
 ## The project was created in cooperation with:
 <p><a href="https://github.com/JaroslawOgonowski"> Jarosław Ogonowski</a></p>
  <p>and <a href="https://github.com/saimoNN37">Szymon Młyński.</a></p>
+
+
+## Used technologies, languages, libraries and features:
+<img src="https://cdn.iconscout.com/icon/free/png-256/free-react-1-282599.png" alt="React" width="80px" style="margin: 10px">
+<img src="https://www.styled-components.com/atom.png" alt="styled-components" width="80px" style="margin: 10px">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/800px-JavaScript-logo.png" alt="JavaScript" height="80px" style="margin: 10px">
+<img src="https://live.staticflickr.com/7306/16407404782_8b9c57eab3_w.jpg" alt="es6" width="80" style="margin: 10px">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/CSS3_logo.svg/800px-CSS3_logo.svg.png" alt="CSS3" width="80" style="margin: 10px">
+<img src="https://reactrouter.com/twitterimage.jpg" alt="reactrouter" height="80px" style="margin: 10px">
+<img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/collections/github-pages-examples/github-pages-examples.png" alt="GitHub pages" height="80px" style="margin: 10px">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCI1yTWEJhL2OoD4f-5JxhUcxPA-AVikenrA&usqp=CAU" alt="React" height="80px" style="margin: 10px">
+<img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1626366102185/9lUF4ajJG.png" alt="React" height="80px" style="margin: 10px">
+<img src="https://user-images.githubusercontent.com/36799589/69492522-e6b41b80-0ec9-11ea-90d3-b37bacad7ca8.png" alt="React" height="80px" style="margin: 10px">
+  
+- react-debounce-input,
+- useEffect, useState,  custom hooks,
+- useDispatch, useSelector,
+- URLSearchParams, useHistory, useLocation
+- fetch,
+- async, await,
+- redux-saga/effects,
+- GlobalStyle, theme,
+- Route, HashRouter, Redirect, Switch
+- media queries
+
 
  ## Further readme under construction 🚧👨‍💻
 
