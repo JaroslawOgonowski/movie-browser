@@ -46,7 +46,7 @@ export const HeaderBox = styled.div`
   };
 `;
 
-export const Container = styled.div`  
+export const Container = styled.nav`  
   display: flex;
   align-items: center;
   gap: 80px;

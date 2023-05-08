@@ -11,7 +11,7 @@ export const StyledLink = styled(Link)`
     };
 `;
 
-export const TileWrapper = styled.div`
+export const TileWrapper = styled.section`
     width: 324px;
     min-height: 650px;
     flex-grow: 1;

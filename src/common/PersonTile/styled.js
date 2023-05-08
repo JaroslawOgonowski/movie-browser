@@ -6,7 +6,7 @@ export const StyledLink = styled(Link)`
     display: flex;
 `;
 
-export const StyledContainer = styled.div`
+export const StyledContainer = styled.section`
   flex-grow: 1;
   width: 208px;
   display: flex;
@@ -40,7 +40,7 @@ export const Photo = styled.img`
   };
 `;
 
-export const Name = styled.div`
+export const Name = styled.h3`
   margin: 0 8px;
   font-family: 'Poppins';
   font-style: normal;
@@ -55,7 +55,7 @@ export const Name = styled.div`
   };
 `;
 
-export const Role = styled.div`
+export const Role = styled.h4`
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 400;
