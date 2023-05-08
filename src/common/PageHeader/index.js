@@ -1,7 +1,7 @@
 import { Title } from "./styled";
 
-function PageHeader({ title }) {
-    return <Title>{title}</Title>;
+function PageHeader({ title, moviePageSection }) {
+    return <Title moviePageSection={moviePageSection}>{title}</Title>;
 }
 
 export default PageHeader;

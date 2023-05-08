@@ -4,7 +4,7 @@ import { fetchPersonById, selectPersonInfo, selectPersonStatus } from "./personS
 import ErrorPage from "../../../common/ErrorPage";
 import Loader from "../../../common/Loader";
 import MovieTile from "../../../common/MovieTile";
-import { useQueryParameters, useReplaceQueryParameters } from "../../search/queryParameters";
+import { useQueryParameters } from "../../search/queryParameters";
 import { Layout } from "../../moviesPage/styled";
 import { selectSearchPeopleStatus } from "../../search/searchSlice";
 import { SearchPeoplePage } from "../../search/searchPeoplePage";

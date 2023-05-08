@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useQueryParameters, useReplaceQueryParameters } from "../../search/queryParameters";
+import { useQueryParameters } from "../../search/queryParameters";
 import { fetchMovieById, selectMovieInfo, selectMovieStatus } from "./movieSlice";
 import { useEffect } from "react";
 import ErrorPage from "../../../common/ErrorPage";
@@ -11,7 +11,7 @@ import { Container } from "../../../common/Container";
 import MainMovieTile from "./mainMovieTile";
 import { selectSearchMoviesStatus } from "../../search/searchSlice";
 import { SearchMoviePage } from "../../search/searchMoviePage";
-
+import PageHeader from "../../../common/PageHeader";
 
 export const MoviePage = () => {
   const id = useQueryParameters("id");
@@ -54,7 +54,7 @@ export const MoviePage = () => {
             rate={movieInfo.movieDescription.vote_average}
             overview={movieInfo.movieDescription.overview}
           />
-          <h2>Cast</h2>
+          <PageHeader title={"Cast"} moviePageSection={true}/>
           <List>
             {movieInfo.movieCrew.cast.slice(0, 20).map(actor =>
               <PersonTile
@@ -65,7 +65,7 @@ export const MoviePage = () => {
                 role={actor.character}
               />
             )}</List>
-          <h2>Crew</h2>
+          <PageHeader title={"Crew"} moviePageSection={true}/>
           <List>
             {movieInfo.movieCrew.crew.slice(0, 10).map(person =>
               <PersonTile
