@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useQueryParameters } from "../search/queryParameters";
 import { fetchPopularMovies, selectPopularMoviesList, selectPopularMoviesStatus } from "./popularMoviesSlice";
 import { fetchSearchMoviesList, selectSearchMoviesStatus } from "../search/searchSlice";
-import PageHeader from "../../common/PageHeader";
+import SectionTitle from "../../common/SectionTitle";
 import Pagination from "../../common/Pagination";
 import MovieTile from "../../common/MovieTile";
 import { Container } from "../../common/Container";
@@ -38,7 +38,7 @@ export const MoviesPage = () => {
     return (
       <>
         <Container>
-          <PageHeader title={"Popular movies"} />
+          <SectionTitle title={"Popular movies"} />
           <Layout>
             {movieList.results.map(movie => (
               <MovieTile

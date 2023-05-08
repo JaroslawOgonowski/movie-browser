@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux"
 import Pagination from "../../../common/Pagination"
 import { selectSearchPeople } from "../searchSlice"
 import NoResultPage from "../../../common/NoResultPage"
-import PageHeader from "../../../common/PageHeader"
+import SectionTitle from "../../../common/SectionTitle"
 import { Container } from "../../../common/Container"
 import { List, ListItem } from "../../peoplePage/styled"
 import { PersonTile } from "../../../common/PersonTile"
@@ -41,7 +41,7 @@ export const SearchPeoplePage = () => {
   else
     return (
       <Container>
-        <PageHeader title={`Search results for "${searchParams}" (${total_results})`} />
+        <SectionTitle title={`Search results for "${searchParams}" (${total_results})`} />
         <List>
           {results.map(object => (
             <ListItem key={object.id}>

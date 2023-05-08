@@ -11,7 +11,7 @@ import { Container } from "../../../common/Container";
 import MainMovieTile from "./mainMovieTile";
 import { selectSearchMoviesStatus } from "../../search/searchSlice";
 import { SearchMoviePage } from "../../search/searchMoviePage";
-import PageHeader from "../../../common/PageHeader";
+import SectionTitle from "../../../common/SectionTitle";
 
 export const MoviePage = () => {
   const id = useQueryParameters("id");
@@ -54,7 +54,7 @@ export const MoviePage = () => {
             rate={movieInfo.movieDescription.vote_average}
             overview={movieInfo.movieDescription.overview}
           />
-          <PageHeader title={"Cast"} moviePageSection={true}/>
+          <SectionTitle title={"Cast"} pageSection={true}/>
           <List>
             {movieInfo.movieCrew.cast.slice(0, 20).map(actor =>
               <PersonTile
@@ -65,7 +65,7 @@ export const MoviePage = () => {
                 role={actor.character}
               />
             )}</List>
-          <PageHeader title={"Crew"} moviePageSection={true}/>
+          <SectionTitle title={"Crew"} pageSection={true}/>
           <List>
             {movieInfo.movieCrew.crew.slice(0, 10).map(person =>
               <PersonTile

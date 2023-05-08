@@ -10,6 +10,7 @@ import { selectSearchPeopleStatus } from "../../search/searchSlice";
 import { SearchPeoplePage } from "../../search/searchPeoplePage";
 import { Container } from "../../../common/Container";
 import ProfilePage from "./ProfilePage";
+import SectionTitle from "../../../common/SectionTitle";
 
 export const PersonPage = () => {
   const id = useQueryParameters("id");
@@ -43,7 +44,7 @@ export const PersonPage = () => {
           {personInfo.personMovies.cast.length === 0 ?
             null :
             <>
-              <h2>Movies- cast ({personInfo.personMovies.cast.length})</h2>
+              <SectionTitle title={`Movies- cast (${personInfo.personMovies.cast.length})`} pageSection/>
               <Layout>{personInfo.personMovies.cast.map(movie =>
                 <MovieTile
                   key={`${movie.id}${movie.character}`}

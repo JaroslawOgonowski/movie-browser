@@ -1,10 +1,10 @@
 import { Container } from "../Container";
-import PageHeader from "../PageHeader";
+import SectionTitle from "../SectionTitle";
 import { Spinner, Wrapper } from "./styled";
 
 const Loader = ({ searchFor }) => (
     <Container>
-        <PageHeader title={`Search results for ${searchFor}`} />
+        <SectionTitle title={`Search results for ${searchFor}`} />
         <Wrapper>
             <Spinner />
         </Wrapper>
