@@ -19,9 +19,9 @@
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/CSS3_logo.svg/800px-CSS3_logo.svg.png" alt="CSS3" width="80" style="margin: 10px">
 <img src="https://reactrouter.com/twitterimage.jpg" alt="reactrouter" height="80px" style="margin: 10px">
 <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/collections/github-pages-examples/github-pages-examples.png" alt="GitHub pages" height="80px" style="margin: 10px">
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCI1yTWEJhL2OoD4f-5JxhUcxPA-AVikenrA&usqp=CAU" alt="React" height="80px" style="margin: 10px">
-<img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1626366102185/9lUF4ajJG.png" alt="React" height="80px" style="margin: 10px">
-<img src="https://user-images.githubusercontent.com/36799589/69492522-e6b41b80-0ec9-11ea-90d3-b37bacad7ca8.png" alt="React" height="80px" style="margin: 10px">
+</br><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCI1yTWEJhL2OoD4f-5JxhUcxPA-AVikenrA&usqp=CAU" alt="HTML" height="80px" style="margin: 10px">
+<img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1626366102185/9lUF4ajJG.png" alt="Redux-toolkit" height="80px" style="margin: 10px">
+<img src="https://user-images.githubusercontent.com/36799589/69492522-e6b41b80-0ec9-11ea-90d3-b37bacad7ca8.png" alt="Redux-saga" height="80px" style="margin: 10px">
   
 - react-debounce-input,
 - useEffect, useState,  custom hooks,
@@ -34,6 +34,17 @@
 - Route, HashRouter, Redirect, Switch
 - media queries
 
+## API 
+<img src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg" alt="TMDB" height="60px" >
+</br>
+</br>
+<a href="https://www.themoviedb.org/"> API URL: https://www.themoviedb.org/</a>
+
+The site was created using the TMDB open API. 
+
+Extremely extensive documentation allows you to optimize queries in the scope
+popular movies and people, searching for phrases, individual movie or person and the size of each image. 
+We run queries asynchronously- they have separate states, statuses and sagas - thanks to the router, all fetched information is reflected in the current URL address. 
 
  ## Further readme under construction 🚧👨‍💻
 
