@@ -60,9 +60,8 @@ Inside, we see our main header which is always visible on the page and is the ma
 #### RootSaga 🔁
 Of course, we use the root Saga, which is basically a set of all other Sagas that are responsible for the correct flow of information from the API.
 
-
-
- ## Further readme under construction 🚧👨‍💻
+#### Other 🤵🎬
+individual paths fork and- depending on the needs- send queries to the api for specific phrases - using search, subsequent pages using pagination or individual people and movies by extracting their id.
 
 ## Getting Started with Create React App
 
