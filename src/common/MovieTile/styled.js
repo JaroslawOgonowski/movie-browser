@@ -46,7 +46,7 @@ export const Poster = styled.img`
         height: 169px;
         width: 114px;
         margin-bottom: 0;
-        margin: 8px;
+        margin: 0;
     }
 `;
 
@@ -58,7 +58,11 @@ export const InfoWrapper = styled.div`
 
     @media (max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
     display: block;
-    }    
+    }
+    
+    @media (max-width: ${({ theme }) => theme.breakPoints.mobileMin}px) {
+    margin: 0 0 0 16px;
+    }
 `;
 
 export const Description = styled.div`

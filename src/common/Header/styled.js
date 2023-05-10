@@ -58,6 +58,10 @@ export const Container = styled.nav`
   @media(max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
     justify-content:space-between;
   };
+
+  @media(max-width: ${({ theme }) => theme.breakPoints.mobileMin}px) {
+    gap: 10px;
+  };
 `;
 
 export const HomePageLink = styled(NavLink)`
