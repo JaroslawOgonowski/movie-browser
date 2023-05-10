@@ -36,6 +36,7 @@ export const Input = styled(DebounceInput)`
     height:44px;
     padding-left: 8vw;
     background-position: top 50% left 3% ;
+    margin: 0;
   };
 
   @media(max-width: ${({ theme }) => theme.breakPoints.mobileMin}px) {

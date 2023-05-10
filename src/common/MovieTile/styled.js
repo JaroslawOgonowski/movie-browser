@@ -12,28 +12,30 @@ export const StyledLink = styled(Link)`
 `;
 
 export const TileWrapper = styled.section`
-    width: 324px;
+    width: 100%;
     min-height: 650px;
-    flex-grow: 1;
     background-color: ${({ theme }) => theme.color.white};
     border-radius: 5px;
     box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
     display: grid;
     grid-template-rows: auto 1fr;
+    padding: 16px;
         
     @media (max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
         grid-template-columns: auto 1fr;
         min-height: fit-content;
-        width: 100%
+        width: 100%;
+        padding: 0;
+    }
+    @media (max-width: ${({ theme }) => theme.breakPoints.mobileMin}px) {
+        padding: 16px;
     }
 `;
 
 export const Poster = styled.img`
-    width: 292px;
-    height: 434px;    
+    width: 100%;
+    height: 100%;    
     border-radius: 5px;
-    margin-top: 16px;
-    margin-bottom: 16px;
     justify-self: center;
     
     @media (max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
@@ -41,14 +43,18 @@ export const Poster = styled.img`
         grid-template-columns: auto 1fr;
         margin: 16px;
         height: auto;
+        width: 275px;
+    };
+
+    @media (max-width: 575px){
         width: 210px;
-    }
+    };
 
     @media (max-width: ${({ theme }) => theme.breakPoints.mobileMin}px) {
         height: 169px;
         width: 114px;
         margin-bottom: 0;
-        margin: 8px;
+        margin: 0;
     }
 `;
 
@@ -60,7 +66,11 @@ export const InfoWrapper = styled.div`
 
     @media (max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
     display: block;
-    }    
+    }
+    
+    @media (max-width: ${({ theme }) => theme.breakPoints.mobileMin}px) {
+    margin: 0 0 0 16px;
+    }
 `;
 
 export const Description = styled.div`

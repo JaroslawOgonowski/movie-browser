@@ -12,6 +12,7 @@
 
 
 ## Used technologies, languages, libraries and features:
+<div style="display:flex; flex-wrap: wrap;">
 <img src="https://cdn.iconscout.com/icon/free/png-256/free-react-1-282599.png" alt="React" width="80px" style="margin: 10px">
 <img src="https://www.styled-components.com/atom.png" alt="styled-components" width="80px" style="margin: 10px">
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/800px-JavaScript-logo.png" alt="JavaScript" height="80px" style="margin: 10px">
@@ -22,6 +23,7 @@
 </br><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCI1yTWEJhL2OoD4f-5JxhUcxPA-AVikenrA&usqp=CAU" alt="HTML" height="80px" style="margin: 10px">
 <img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1626366102185/9lUF4ajJG.png" alt="Redux-toolkit" height="80px" style="margin: 10px">
 <img src="https://user-images.githubusercontent.com/36799589/69492522-e6b41b80-0ec9-11ea-90d3-b37bacad7ca8.png" alt="Redux-saga" height="80px" style="margin: 10px">
+</div>
   
 - react-debounce-input,
 - useEffect, useState,  custom hooks,

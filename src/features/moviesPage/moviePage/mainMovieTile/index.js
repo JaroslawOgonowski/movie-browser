@@ -1,5 +1,5 @@
-import { imagesAPI600x900, imagesAPIw400 } from "../../../../core/API";
-import { ButtonTag, MovieDetails, MovieTitle, Overview, Poster, PrimaryInfo, Production, ProductionCountry, Rate, Rating, ReleaseYear, Star, Tag, Tags, Votes, Wrapper } from "./styled";
+import { imagesAPIw400 } from "../../../../core/API";
+import { ButtonTag, MaxVotes, MovieDetails, MovieTitle, Overview, Poster, PrimaryInfo, Production, ProductionCountry, Rate, Rating, ReleaseYear, Star, Tag, Tags, Votes, Wrapper } from "./styled";
 import star from "../../../../common/images/star.svg"
 import placeholder from "../../../../common/images/Poster.jpg"
 const MainMovieTile = ({ poster, title, date, genres, productionCountry, release, rate, voteCount, overview }) => {
@@ -32,7 +32,7 @@ const MainMovieTile = ({ poster, title, date, genres, productionCountry, release
                 <Rating>
                     <Star src={star} />
                     <Rate>{rate.toFixed(1)}</Rate>
-                    <Votes>/ 10</Votes>
+                    <MaxVotes>/ 10</MaxVotes>
                     <Votes>{voteCount} votes</Votes>
                 </Rating>
             </MovieDetails>

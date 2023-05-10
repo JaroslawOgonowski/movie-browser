@@ -214,7 +214,7 @@ export const Rate = styled.span`
     };
 
     @media (max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
-        font-size: 13px;
+        font-size: 15px;
     }
 `;
 
@@ -222,7 +222,6 @@ export const Votes = styled.span`
     font-size: 14px;
     font-weight: 400;
     display: flex;
-    margin-top: 5px;
 
     @media(max-width: ${({ theme }) => theme.breakPoints.notebook}px) {
         margin: 0;
@@ -251,4 +250,25 @@ export const Overview = styled.p`
         font-size: 14px;
         margin-top: 18px;
     }
+`;
+
+export const MaxVotes = styled.span`
+    font-size: 14px;
+    font-weight: 400;
+    display: flex;
+
+    @media(max-width: ${({ theme }) => theme.breakPoints.notebook}px) {
+        margin: 0;
+    };
+
+    @media (max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
+        font-size: 13px;
+        margin: 0;
+    };
+
+    @media (max-width: ${({ theme }) => theme.breakPoints.mobileMin}px) {
+        display: none;
+    };
+    
+
 `;
