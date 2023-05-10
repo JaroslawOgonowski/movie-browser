@@ -43,8 +43,12 @@ export const Poster = styled.img`
         grid-template-columns: auto 1fr;
         margin: 16px;
         height: auto;
+        width: 275px;
+    };
+
+    @media (max-width: 575px){
         width: 210px;
-    }
+    };
 
     @media (max-width: ${({ theme }) => theme.breakPoints.mobileMin}px) {
         height: 169px;
