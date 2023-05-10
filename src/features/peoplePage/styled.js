@@ -19,32 +19,24 @@ export const List = styled.ul`
   margin: 0 auto;
   padding: 0;
   list-style: none;
-  display: flex;
-  gap: 24px;
-  flex-wrap: wrap;
+  display: grid;
+  grid-gap: 24px;
+  grid-template-columns: repeat(6, 1fr);
 
-  @media (max-width: 1390px){
-    width: calc(208px*5 + 4*24px);
+  @media (max-width: 1200px){
+    grid-template-columns: repeat(5, 1fr);;
   };
-  @media (max-width: 1167px){
-    width: calc(208px*4 + 3*24px);
-  };
-  @media (max-width: 936px){
-    width: calc(208px*3 + 2*24px);
+  @media (max-width: 1020px){
+    grid-template-columns: repeat(4, 1fr);
   };
   @media(max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
-    width: calc(136px*4 + 3*16px);
-    gap: 16px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 16px;
   };
-  @media (max-width: 623px){
-    width: calc(136px*3 + 2*16px);
+  @media(max-width: ${({ theme }) => theme.breakPoints.mobileMin}px) {
+    grid-template-columns: 1fr 1fr;
   };
-  @media (max-width: 471px){
-    width: calc(136px*2 + 16px);
-  };
-  @media (max-width: 319px){
-    justify-content: center;
-  };
+
 `;
 
 export const ListItem = styled.li`

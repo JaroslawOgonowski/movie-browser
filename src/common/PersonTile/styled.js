@@ -8,7 +8,8 @@ export const StyledLink = styled(Link)`
 
 export const StyledContainer = styled.section`
   flex-grow: 1;
-  width: 208px;
+  width: 100%;
+  min-height: 340px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,28 +17,23 @@ export const StyledContainer = styled.section`
   filter: drop-shadow(0px 4px 12px rgba(186, 199, 213, 0.5));
   border-radius: 5px;
   transition: 0.5s;
+  padding: 16px;
 
   &:hover{
     transform: scale(1.07);
   };
 
   @media(max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
-    width: 136px;
-    min-height: 245px;
+    padding: 8px;
+    min-height: 240px;
   };
 `;
 
 export const Photo = styled.img`
-  width: 176px;
-  height: 231px;
-  margin: 16px 16px 12px 16px;
+  width: 100%;
   border-radius: 5px;
 
-  @media(max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
-    width: 120px;
-    height: 178px;
-    margin: 8px;
-  };
+ 
 `;
 
 export const Name = styled.h3`
@@ -49,6 +45,7 @@ export const Name = styled.h3`
   line-height: 130%;
   text-align: center;
   color: ${({ theme }) => theme.color.woodsmoke};
+  margin-top: 12px;
 
   @media(max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
     font-size: 14px;
