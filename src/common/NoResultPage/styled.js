@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { ReactComponent as NoResult } from "../images/noResult.svg";
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.section`
     display: flex;
     justify-content: center;
     align-items: center;

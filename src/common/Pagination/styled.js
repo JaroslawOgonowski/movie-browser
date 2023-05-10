@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledPagination = styled.div`
+export const StyledPagination = styled.footer`
     display: flex;
     justify-content: center;
     margin: 40px 0 103px;

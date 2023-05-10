@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.section`
     margin: 64px 0;
     padding: 40px;
     display: grid;
@@ -23,9 +23,9 @@ export const Wrapper = styled.div`
         padding: 16px;
     };
 `;
-export const MovieDetails = styled.div`
-   
+export const MovieDetails = styled.div`   
 `;
+
 export const Poster = styled.img`
     width: 312px;
     height: 464px;

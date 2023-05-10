@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const PopularPeoplePage = styled.div`
+export const PopularPeoplePage = styled.main`
   margin: 0 auto;
   display: flex;
   flex-direction: column;

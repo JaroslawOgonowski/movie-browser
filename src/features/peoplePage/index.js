@@ -9,7 +9,7 @@ import Pagination from "../../common/Pagination";
 import { PersonTile } from "../../common/PersonTile";
 import { SearchPeoplePage } from "../search/searchPeoplePage";
 import { Box, List, ListItem, PopularPeoplePage } from "./styled";
-import PageHeader from "../../common/PageHeader";
+import SectionTitle from "../../common/SectionTitle";
 import { useLocation } from "react-router-dom";
 
 export const PeoplePage = () => {
@@ -37,7 +37,7 @@ export const PeoplePage = () => {
     return (
       <>
         <PopularPeoplePage>
-          <PageHeader title={"Popular people"} />
+          <SectionTitle title={"Popular people"} />
           <Box>
             <List>
               {peopleList.results.map(person => (

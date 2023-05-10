@@ -3,7 +3,7 @@ import Pagination from "../../../common/Pagination"
 import { selectMovies } from "../searchSlice"
 import NoResultPage from "../../../common/NoResultPage"
 import { Container } from "../../../common/Container"
-import PageHeader from "../../../common/PageHeader"
+import SectionTitle from "../../../common/SectionTitle"
 import MovieTile from "../../../common/MovieTile"
 import { Layout } from "../../moviesPage/styled"
 import { useQueryParameters } from "../queryParameters"
@@ -43,7 +43,7 @@ export const SearchMoviePage = () => {
   else
     return (
       <Container>
-        <PageHeader title={`Search results for "${searchParams}" (${total_results})`} />
+        <SectionTitle title={`Search results for "${searchParams}" (${total_results})`} />
         <Layout>
           {results.map(movie => (
             <MovieTile

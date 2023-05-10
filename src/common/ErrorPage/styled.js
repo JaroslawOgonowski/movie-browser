@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { ReactComponent as Error } from "../images/error.svg";
 import { Link } from "react-router-dom";
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.section`
     margin-top: 180px;
     text-align: center;
 
@@ -33,7 +33,7 @@ export const ErrorIcon = styled(Error)`
     }
 `;
 
-export const ErrorText = styled.h1`
+export const ErrorText = styled.h2`
     margin: 0;
     font-size: 36px;
     font-weight: 600;

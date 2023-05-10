@@ -46,7 +46,7 @@ export const HeaderBox = styled.div`
   };
 `;
 
-export const Container = styled.div`  
+export const Container = styled.nav`  
   display: flex;
   align-items: center;
   gap: 80px;
@@ -149,7 +149,7 @@ export const StyledNavLink = styled(NavLink)`
     }`
   };
 
- @media(max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
+  @media(max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
     font-size: 12px;
     line-height: 18px;
     padding: 8px 12px;
