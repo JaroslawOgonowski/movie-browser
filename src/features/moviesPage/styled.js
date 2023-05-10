@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export const Layout = styled.section`
-    width: calc(324px*4 + 3*24px);
     margin: 24px auto 40px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -10,12 +9,11 @@ export const Layout = styled.section`
     justify-content: center;
 
     @media (max-width: ${({theme}) => theme.breakPoints.fullPage}px) {
-        width: calc(324px*3 + 2*24px);
         grid-template-columns: repeat(3, 1fr);
     }
 
-    @media (max-width: 1050px) {
-        width: calc(324px*2 + 24px);
+    @media (max-width: 890px) {
+        grid-column-gap: max(24px, calc(100% - (2 * 400px)));
         grid-template-columns: repeat(2, 1fr);
     }
     
