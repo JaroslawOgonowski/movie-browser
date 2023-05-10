@@ -24,7 +24,11 @@ export const TileWrapper = styled.section`
     @media (max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
         grid-template-columns: auto 1fr;
         min-height: fit-content;
-        width: 100%
+        width: 100%;
+        padding: 0;
+    }
+    @media (max-width: ${({ theme }) => theme.breakPoints.mobileMin}px) {
+        padding: 16px;
     }
 `;
 

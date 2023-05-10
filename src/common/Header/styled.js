@@ -34,6 +34,7 @@ export const HeaderBox = styled.div`
 
   @media(max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
     margin-left: 0;
+    width: 100%;
   };
 
   
@@ -57,10 +58,15 @@ export const Container = styled.nav`
 
   @media(max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
     justify-content:space-between;
+    width: 90%;
   };
 
   @media(max-width: ${({ theme }) => theme.breakPoints.mobileMin}px) {
-    gap: 10px;
+    max-width: 90%;
+  };
+
+  @media(max-width: 340px) {
+    gap: 20px;
   };
 `;
 
@@ -86,7 +92,6 @@ export const TitleBox = styled.div`
    
   @media(max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
     gap: 8px;
-    margin-left:16px;
   };
 `;
 
@@ -114,9 +119,8 @@ export const List = styled.ul`
   display: flex;
   gap: 16px;
 
-   
-  @media(max-width: ${({ theme }) => theme.breakPoints.mobileMax}px) {
-    margin-right:32px;
+  @media(max-width: ${({ theme }) => theme.breakPoints.mobileMin}px) {
+    gap: 8px;
   };
 `;
 
