@@ -1,9 +1,6 @@
-<h1 align="center">MOVIE BROWSER 🎬 🆕 📱 💻<h1>
+# MOVIE BROWSER 🎬 🆕 📱 💻
     <img src="https://i.postimg.cc/wvZf863h/Movie-Browser.png">
-<div style="font-size: 16px; margin-top: 10px;">
-<p style="font-weight: 500;"><span style="font-weight: 600;">MovieBrowser</span> is an application you can easily search for your favorite movies or actors. It was createad as the final project of the FrontEnd Developer course at online school <span style="font-weight: 600;">YouCode</span> and that was designed in Figma. </p>
-</div>
-
+**MovieBrowser** is an application you can easily search for your favorite movies or actors. It was createad as the final project of the FrontEnd Developer course at online school **YouCode** and that was designed in Figma.
 <p align="center">
 <a  href="https://jaroslawogonowski.github.io/movie-browser/">
 ➡ Check out the DEMO ⬅
