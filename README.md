@@ -1,5 +1,5 @@
 # MOVIE BROWSER 🎬 🆕 📱 💻
-    <img src="https://i.postimg.cc/wvZf863h/Movie-Browser.png">
+![MovieBrowser](https://i.postimg.cc/wvZf863h/Movie-Browser.png)
 **MovieBrowser** is an application you can easily search for your favorite movies or actors. It was createad as the final project of the FrontEnd Developer course at online school **YouCode** and that was designed in Figma.
 <p align="center">
 <a  href="https://jaroslawogonowski.github.io/movie-browser/">
