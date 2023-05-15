@@ -27,6 +27,3 @@ export const getPersonInMoviesByID = async (id) => {
     console.error(error);
   }
 };
-
-
-
