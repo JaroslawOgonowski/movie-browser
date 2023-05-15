@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 export const StyledLink = styled(Link)`
     text-decoration: none;
     display: flex;
+    height: 100%;
 `;
 
 export const StyledContainer = styled.section`
