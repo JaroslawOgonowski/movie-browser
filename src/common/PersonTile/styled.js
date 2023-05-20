@@ -33,8 +33,7 @@ export const StyledContainer = styled.section`
 export const Photo = styled.img`
   width: 100%;
   border-radius: 5px;
-
- 
+  aspect-ratio: 3/4; 
 `;
 
 export const Name = styled.h3`
