@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useQueryParameters } from "../search/queryParameters";
 import { fetchPopularMovies, selectPopularMoviesList, selectPopularMoviesStatus } from "./popularMoviesSlice";
-import { fetchSearchMoviesList, selectSearchMoviesStatus } from "../search/searchSlice";
+import { fetchSearchMoviesList, selectSearchStatus } from "../search/searchSlice";
 import SectionTitle from "../../common/SectionTitle";
 import Pagination from "../../common/Pagination";
 import MovieTile from "../../common/MovieTile";
@@ -18,7 +18,7 @@ export const MoviesPage = () => {
   const dispatch = useDispatch();
   const status = useSelector(selectPopularMoviesStatus);
   const movieList = useSelector(selectPopularMoviesList);
-  const statusSearchMovie = useSelector(selectSearchMoviesStatus);
+  const statusSearch = useSelector(selectSearchStatus);
   const location = useLocation().pathname
   const searchQuery = useQueryParameters("search")
   const page = useQueryParameters("page");
@@ -30,10 +30,10 @@ export const MoviesPage = () => {
   }, []);
 
   if (status === "error") return <ErrorPage />
-  if (statusSearchMovie === "error") return <ErrorPage />
+  if (statusSearch === "error") return <ErrorPage />
   if (status === "loading" && searchQuery === null) return <Loader searchFor={"popular movies"} />
-  if (searchQuery !== null && statusSearchMovie === "loading") return <Loader searchFor={searchQuery} />
-  if (searchQuery !== null && statusSearchMovie === "success") return <SearchMoviePage />
+  if (searchQuery !== null && statusSearch === "loading") return <Loader searchFor={searchQuery} />
+  if (searchQuery !== null && statusSearch === "success") return <SearchMoviePage />
   if (status === "success" && searchQuery === null)
     return (
       <>

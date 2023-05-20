@@ -9,7 +9,7 @@ import { List } from "../../peoplePage/styled";
 import MoviePageHeader from "./moviePageHeader";
 import { Container } from "../../../common/Container";
 import MainMovieTile from "./mainMovieTile";
-import { selectSearchMoviesStatus } from "../../search/searchSlice";
+import { selectSearchStatus } from "../../search/searchSlice";
 import { SearchMoviePage } from "../../search/searchMoviePage";
 import SectionTitle from "../../../common/SectionTitle";
 
@@ -18,7 +18,7 @@ export const MoviePage = () => {
   const query = useQueryParameters("search");
   const movieInfo = useSelector(selectMovieInfo);
   const dispatch = useDispatch();
-  const searchStatus = useSelector(selectSearchMoviesStatus);
+  const searchStatus = useSelector(selectSearchStatus);
   const status = useSelector(selectMovieStatus);
 
   useEffect(() => {

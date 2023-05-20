@@ -19,7 +19,6 @@ function* fetchMovieByIDHandler({ payload }) {
   }
   catch (error) {
     yield put(fetchMovieByIdError());
-    yield call(alert, "Download failed, please try again or check your internet connection")
   };
 };
 
