@@ -10,7 +10,6 @@ function* fetchPopularPeopleHandler({ payload }) {
   }
   catch (error) {
     yield put(fetchPopularPeopleError());
-    yield call(alert, "Download failed, please try again or check your internet connection")
   }
 };
 

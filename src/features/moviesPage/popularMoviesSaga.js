@@ -10,7 +10,6 @@ function* fetchPopularMoviesHandler({ payload }) {
   }
   catch (error) {
     yield put(fetchPopularMoviesError());
-    yield call(alert, "Download failed, please try again or check your internet connection")
   }
 };
 

@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
 import Pagination from "../../../common/Pagination"
-import { selectMovies } from "../searchSlice"
+import { selectSearchMovies } from "../searchSlice"
 import NoResultPage from "../../../common/NoResultPage"
 import { Container } from "../../../common/Container"
 import SectionTitle from "../../../common/SectionTitle"
@@ -31,7 +31,7 @@ export const SearchMoviePage = () => {
     };
   }, []);
 
-  const { page, results, total_pages, total_results } = useSelector(selectMovies);
+  const { page, results, total_pages, total_results } = useSelector(selectSearchMovies);
   useEffect(() => {
     if (id && searchParams === null
     ) {

@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useQueryParameters } from "../search/queryParameters";
-import { fetchSearchPeopleList, selectSearchPeopleStatus } from "../search/searchSlice";
+import { fetchSearchPeopleList, selectSearchStatus } from "../search/searchSlice";
 import { fetchPopularPeople, selectPopularPeopleList, selectPopularPeopleStatus } from "./popularPeopleSlice";
 import Loader from "../../common/Loader";
 import ErrorPage from "../../common/ErrorPage";
@@ -17,7 +17,7 @@ export const PeoplePage = () => {
   const dispatch = useDispatch();
   const status = useSelector(selectPopularPeopleStatus);
   const peopleList = useSelector(selectPopularPeopleList);
-  const statusSearchPeople = useSelector(selectSearchPeopleStatus);
+  const statusSearch = useSelector(selectSearchStatus);
   const location = useLocation().pathname
   const searchQuery = useQueryParameters("search")
   const page = useQueryParameters("page");
@@ -29,10 +29,10 @@ export const PeoplePage = () => {
   }, []);
 
   if (status === "error") { return <ErrorPage /> }
-  if (statusSearchPeople === "error") return <ErrorPage />
+  if (statusSearch === "error") return <ErrorPage />
   if (status === "loading" && searchQuery === null) { return <Loader searchFor={"popular people"} /> }
-  if (searchQuery !== null && statusSearchPeople === "loading") return <Loader searchFor={searchQuery} />
-  if (searchQuery !== null && statusSearchPeople === "success") return <SearchPeoplePage />
+  if (searchQuery !== null && statusSearch === "loading") return <Loader searchFor={searchQuery} />
+  if (searchQuery !== null && statusSearch === "success") return <SearchPeoplePage />
   if (status === "success" && searchQuery === null) {
     return (
       <>

@@ -6,7 +6,7 @@ import Loader from "../../../common/Loader";
 import MovieTile from "../../../common/MovieTile";
 import { useQueryParameters } from "../../search/queryParameters";
 import { Layout } from "../../moviesPage/styled";
-import { selectSearchPeopleStatus } from "../../search/searchSlice";
+import { selectSearchStatus } from "../../search/searchSlice";
 import { SearchPeoplePage } from "../../search/searchPeoplePage";
 import { Container } from "../../../common/Container";
 import ProfilePage from "./ProfilePage";
@@ -18,7 +18,7 @@ export const PersonPage = () => {
   const personInfo = useSelector(selectPersonInfo);
   const dispatch = useDispatch();
   const status = useSelector(selectPersonStatus);
-  const searchStatus = useSelector(selectSearchPeopleStatus);
+  const searchStatus = useSelector(selectSearchStatus);
 
   useEffect(() => {
     if (id) {
