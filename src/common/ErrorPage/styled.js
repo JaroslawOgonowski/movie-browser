@@ -75,6 +75,10 @@ export const ButtonLink = styled(Link)`
     text-decoration: none;
     font-family: 'Open Sans' sans-serif;
 
+    &:hover{
+        filter: brightness(1.2);
+    };
+
     @media (max-width: ${({theme}) => theme.breakPoints.fullPage}px) {
         font-size: 12px;
         padding: 12px 18px;

@@ -1,6 +1,6 @@
 import star from "../images/star.svg";
 import placeholder from "../images/Poster.jpg"
-import { Genres } from "../../features/moviesPage/Genres/genres";
+import { Genres } from "../../features/moviesPage/genres";
 import { imagesAPI300x450} from "../../core/API";
 import {
     ButtonTag,
