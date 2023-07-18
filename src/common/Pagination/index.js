@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { BackwardArrow, ForwardArrow } from "./buttonArrows";
 import { Button, ButtonText, PageNumber, StyledButtons, StyledPages, StyledPagination } from "./styled";
 import { fetchPopularPeople } from "../../features/peoplePage/popularPeopleSlice";
